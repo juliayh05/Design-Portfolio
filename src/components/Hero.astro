@@ -40,22 +40,24 @@ const footnotes = [
 	</nav>
 
 	<section class="hero">
-		<p class="hero-hint">psst! hover for footnotes!</p>
+		<div class="hero-content">
+			<p class="hero-hint">psst! hover for footnotes!</p>
 
-		<p class="headline" id="headline">
-			<span class="phrase" data-footnote={footnotes[0].text}>{footnotes[0].label}</span>
-			<span class="text"> is a </span>
-			<span class="phrase" data-footnote={footnotes[1].text}>{footnotes[1].label}</span>
-			<span class="text"> who's passionate about the </span>
-			<span class="phrase" data-footnote={footnotes[2].text}>{footnotes[2].label}</span>
-			<span class="text">, the </span>
-			<span class="phrase" data-footnote={footnotes[3].text}>{footnotes[3].label}</span>
-			<span class="text">, and the </span>
-			<span class="phrase" data-footnote={footnotes[4].text}>{footnotes[4].label}</span>
-			<span class="text"> they're built for.</span>
-		</p>
+			<p class="headline" id="headline">
+				<span class="phrase" data-footnote={footnotes[0].text}>{footnotes[0].label}</span>
+				<span class="text"> is a </span>
+				<span class="phrase" data-footnote={footnotes[1].text}>{footnotes[1].label}</span>
+				<span class="text"> who's passionate about the </span>
+				<span class="phrase" data-footnote={footnotes[2].text}>{footnotes[2].label}</span>
+				<span class="text">, the </span>
+				<span class="phrase" data-footnote={footnotes[3].text}>{footnotes[3].label}</span>
+				<span class="text">, and the </span>
+				<span class="phrase" data-footnote={footnotes[4].text}>{footnotes[4].label}</span>
+				<span class="text"> they're built for.</span>
+			</p>
 
-		<div class="footnote" id="footnote" aria-live="polite"></div>
+			<div class="footnote" id="footnote" aria-live="polite"></div>
+		</div>
 	</section>
 
 	<section class="below-hero">
@@ -116,6 +118,8 @@ const footnotes = [
 	.nav-logo {
 		font-family: 'Instrument Serif', serif;
 		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
 		color: #000;
 		text-decoration: none;
 	}
@@ -137,11 +141,19 @@ const footnotes = [
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 20vh;
+		margin-top: 15vh;
+	}
+
+	.hero-content {
+		width: 100%;
+		max-width: 900px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.hero-hint {
-		margin: 0 0 24px;
+		margin: 0 0 16px;
 		font-family: 'Inter', sans-serif;
 		font-size: 14px;
 		color: #a8a8a8;
@@ -150,9 +162,12 @@ const footnotes = [
 
 	.headline {
 		margin: 0;
+		width: 100%;
 		max-width: 900px;
 		font-family: 'Instrument Serif', serif;
 		font-size: 60px;
+		font-style: normal;
+		font-weight: 400;
 		line-height: 1.3;
 		text-align: center;
 	}
@@ -194,7 +209,7 @@ const footnotes = [
 		width: 100%;
 		max-width: 900px;
 		min-height: 80px;
-		margin-top: 8px;
+		margin-top: 32px;
 		font-family: 'Inter', sans-serif;
 		font-size: 24px;
 		line-height: 1.4;
