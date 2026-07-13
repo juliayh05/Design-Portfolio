@@ -2,28 +2,33 @@
 const footnotes = [
 	{
 		id: 'julia',
-		label: 'Julia Heo*',
-		text: 'Currently a senior at UC Berkeley studying Cognitive Science, Education, & Design.',
+		word: 'Julia Heo',
+		line1: 'Currently a senior at UC Berkeley studying',
+		line2: 'Cognitive Science, Education, & Design.',
 	},
 	{
 		id: 'designer',
-		label: 'product designer*',
-		text: '4 consumer startups, and counting. Built for fast-paced environments.',
+		word: 'product designer',
+		line1: '4 consumer startups, and counting.',
+		line2: 'Built for fast-paced environments.',
 	},
 	{
 		id: 'pixels',
-		label: 'pixels*',
-		text: 'Spacing, typography, motion, color, etc. Small choices, big feel.',
+		word: 'pixels',
+		line1: 'Spacing, typography, motion, color, etc.',
+		line2: 'Small choices, big feel.',
 	},
 	{
 		id: 'patterns',
-		label: 'patterns*',
-		text: 'Design systems, reusable components, and the logic that scales craft across a product.',
+		word: 'patterns',
+		line1: 'Design systems, reusable components, and',
+		line2: 'the logic that scales craft across a product.',
 	},
 	{
 		id: 'people',
-		label: 'people*',
-		text: 'I design with how people actually think, feel, and get frustrated.',
+		word: 'people',
+		line1: 'I design with how people actually think,',
+		line2: 'feel, and get frustrated.',
 	},
 ];
 ---
@@ -41,18 +46,28 @@ const footnotes = [
 
 	<section class="hero">
 		<div class="hero-content">
-			<p class="hero-hint">psst! hover for footnotes!</p>
+			<p class="hero-hint">psst! hover the blue for footnotes!</p>
 
 			<p class="headline" id="headline">
-				<span class="phrase" data-footnote={footnotes[0].text}>{footnotes[0].label}</span>
+				<span class="phrase" data-footnote-line1={footnotes[0].line1} data-footnote-line2={footnotes[0].line2}>
+					<span class="phrase-word">{footnotes[0].word}</span><span class="phrase-asterisk">*</span>
+				</span>
 				<span class="text"> is a </span>
-				<span class="phrase" data-footnote={footnotes[1].text}>{footnotes[1].label}</span>
+				<span class="phrase" data-footnote-line1={footnotes[1].line1} data-footnote-line2={footnotes[1].line2}>
+					<span class="phrase-word">{footnotes[1].word}</span><span class="phrase-asterisk">*</span>
+				</span>
 				<span class="text"> who's passionate about the </span>
-				<span class="phrase" data-footnote={footnotes[2].text}>{footnotes[2].label}</span>
+				<span class="phrase" data-footnote-line1={footnotes[2].line1} data-footnote-line2={footnotes[2].line2}>
+					<span class="phrase-word">{footnotes[2].word}</span><span class="phrase-asterisk">*</span>
+				</span>
 				<span class="text">, the </span>
-				<span class="phrase" data-footnote={footnotes[3].text}>{footnotes[3].label}</span>
+				<span class="phrase" data-footnote-line1={footnotes[3].line1} data-footnote-line2={footnotes[3].line2}>
+					<span class="phrase-word">{footnotes[3].word}</span><span class="phrase-asterisk">*</span>
+				</span>
 				<span class="text">, and the </span>
-				<span class="phrase" data-footnote={footnotes[4].text}>{footnotes[4].label}</span>
+				<span class="phrase" data-footnote-line1={footnotes[4].line1} data-footnote-line2={footnotes[4].line2}>
+					<span class="phrase-word">{footnotes[4].word}</span><span class="phrase-asterisk">*</span>
+				</span>
 				<span class="text"> they're built for.</span>
 			</p>
 
@@ -86,7 +101,9 @@ const footnotes = [
 				phrases.forEach((p) => p.classList.remove('is-active'));
 				phrase.classList.add('is-active');
 				headline.classList.add('is-hovering');
-				footnote.textContent = phrase.dataset.footnote ?? '';
+				const line1 = phrase.dataset.footnoteLine1 ?? '';
+				const line2 = phrase.dataset.footnoteLine2 ?? '';
+				footnote.innerHTML = `${line1}<br />${line2}`;
 			});
 
 			phrase.addEventListener('mouseleave', (e) => {
@@ -96,7 +113,7 @@ const footnotes = [
 				}
 				headline.classList.remove('is-hovering');
 				phrase.classList.remove('is-active');
-				footnote.textContent = '';
+				footnote.innerHTML = '';
 			});
 		});
 	}
@@ -141,7 +158,7 @@ const footnotes = [
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin-top: 15vh;
+		margin-top: 7.5vh;
 	}
 
 	.hero-content {
@@ -155,7 +172,7 @@ const footnotes = [
 	.hero-hint {
 		margin: 0 0 16px;
 		font-family: 'Inter', sans-serif;
-		font-size: 14px;
+		font-size: 18px;
 		color: #a8a8a8;
 		text-align: center;
 	}
@@ -179,13 +196,15 @@ const footnotes = [
 
 	.headline .phrase {
 		color: #346ce4;
+		cursor: default;
+		transition: color 150ms ease-out;
+	}
+
+	.headline .phrase-word {
 		text-decoration: underline;
 		text-decoration-thickness: 1px;
 		text-underline-offset: 4px;
-		cursor: default;
-		transition:
-			color 150ms ease-out,
-			text-decoration-color 150ms ease-out;
+		transition: text-decoration-color 150ms ease-out;
 	}
 
 	.headline.is-hovering .text,
@@ -193,12 +212,15 @@ const footnotes = [
 		color: #aeaeae;
 	}
 
-	.headline.is-hovering .phrase:not(.is-active) {
+	.headline.is-hovering .phrase:not(.is-active) .phrase-word {
 		text-decoration-color: transparent;
 	}
 
 	.headline .phrase.is-active {
 		color: #346ce4;
+	}
+
+	.headline .phrase.is-active .phrase-word {
 		text-decoration-color: #346ce4;
 	}
 
@@ -211,9 +233,10 @@ const footnotes = [
 		min-height: 80px;
 		margin-top: 32px;
 		font-family: 'Inter', sans-serif;
-		font-size: 24px;
+		font-size: 20px;
 		line-height: 1.4;
 		text-align: center;
+		text-wrap: balance;
 		color: #346ce4;
 	}
 
