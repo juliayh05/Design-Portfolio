@@ -1,0 +1,67 @@
+---
+interface Props {
+	sticky?: boolean;
+}
+
+const { sticky = false } = Astro.props;
+---
+
+<nav class:list={['nav', { 'nav--sticky': sticky }]}>
+	<div class="nav-inner">
+		<a href="/" class="nav-logo">Julia Heo</a>
+		<div class="nav-links">
+			<a href="#about">About</a>
+			<a href="#work">Work</a>
+			<a href="#projects">Projects</a>
+			<a href="#play">Play</a>
+		</div>
+	</div>
+</nav>
+
+<style>
+	.nav {
+		padding-top: 40px;
+	}
+
+	.nav--sticky {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		padding: 0;
+		background-color: #fafafa;
+		border-bottom: 1px solid #e8e8e8;
+	}
+
+	.nav-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 100%;
+	}
+
+	.nav--sticky .nav-inner {
+		padding: 20px 64px;
+	}
+
+	.nav-logo {
+		font-family: 'Instrument Serif', serif;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		color: #000;
+		text-decoration: none;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 48px;
+	}
+
+	.nav-links a {
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 400;
+		color: #000;
+		text-decoration: none;
+	}
+</style>

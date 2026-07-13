@@ -1,0 +1,126 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import CaseStudyHero from '../../components/case-study/CaseStudyHero.astro';
+import SectionNav from '../../components/case-study/SectionNav.astro';
+import CaseStudySection from '../../components/case-study/CaseStudySection.astro';
+import CaseStudySubsection from '../../components/case-study/CaseStudySubsection.astro';
+
+const lorem =
+	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.';
+
+const sections = [
+	{ id: 'overview', label: 'Overview' },
+	{ id: 'solution', label: 'Solution' },
+	{ id: 'research', label: 'Research' },
+	{ id: 'ideation', label: 'Ideation' },
+	{ id: 'design', label: 'Design' },
+	{ id: 'tldr', label: 'TL;DR' },
+];
+---
+
+<Layout title="Lingotune — Julia Heo">
+	<div class="case-study">
+		<Nav sticky />
+
+		<div class="case-study__content">
+			<CaseStudyHero
+				breadcrumbLabel="Lingotune"
+				breadcrumbHref="/work"
+				headline="Redesigning song lesson and navigation systems"
+				subhead="Lingotune is a language-learning with music app that leverages catchy music clips to make language learning stick!"
+				tags={['Product Design Intern', 'May - August 2025', 'Mobile', 'Figma', 'UX/UI']}
+			/>
+
+			<CaseStudySection id="overview" title="Overview">
+				<CaseStudySubsection title="Context">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Problem">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Goals">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+			</CaseStudySection>
+
+			<CaseStudySection id="solution" title="Solution">
+				<p class="section-intro">{lorem}</p>
+				<CaseStudySubsection title="Design Decision 01">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Design Decision 02">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Design Decision 03">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+			</CaseStudySection>
+
+			<CaseStudySection id="research" title="Research">
+				<p class="section-intro">{lorem}</p>
+				<CaseStudySubsection title="Lorem">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Lorem">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Lorem">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+			</CaseStudySection>
+
+			<CaseStudySection id="ideation" title="Ideation">
+				<p class="section-intro">{lorem}</p>
+				<CaseStudySubsection title="Filler">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Lorem ipsum">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Lorem ipsum">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+			</CaseStudySection>
+
+			<CaseStudySection id="design" title="Design">
+				<p class="section-intro">{lorem}</p>
+				<CaseStudySubsection title="Filler">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Lorem ipsum">
+					<p>{lorem}</p>
+				</CaseStudySubsection>
+			</CaseStudySection>
+
+			<CaseStudySection id="tldr" title="TL;DR">
+				<p class="section-intro">{lorem}</p>
+			</CaseStudySection>
+		</div>
+
+		<SectionNav sections={sections} />
+	</div>
+</Layout>
+
+<style>
+	.case-study {
+		min-height: 100vh;
+		padding-bottom: 120px;
+		background-color: #fafafa;
+	}
+
+	.case-study__content {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 48px 64px 0;
+	}
+
+	.section-intro {
+		margin: 0;
+		font-family: 'Inter', sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.6;
+		color: #000;
+	}
+</style>

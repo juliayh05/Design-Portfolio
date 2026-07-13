@@ -1,0 +1,83 @@
+---
+interface Props {
+	breadcrumbLabel: string;
+	breadcrumbHref?: string;
+	headline: string;
+	subhead: string;
+	tags: string[];
+}
+
+const { breadcrumbLabel, breadcrumbHref = '/work', headline, subhead, tags } = Astro.props;
+---
+
+<header class="case-study-hero">
+	<a href={breadcrumbHref} class="breadcrumb">{breadcrumbLabel}</a>
+	<h1 class="headline">{headline}</h1>
+	<p class="subhead">{subhead}</p>
+	<div class="tags">
+		{tags.map((tag) => (
+			<span class="tag">{tag}</span>
+		))}
+	</div>
+	<div class="hero-image" aria-hidden="true"></div>
+</header>
+
+<style>
+	.case-study-hero {
+		margin-bottom: 80px;
+	}
+
+	.breadcrumb {
+		display: inline-block;
+		margin-bottom: 2px;
+		font-family: 'Inter', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		color: #346ce4;
+		text-decoration: none;
+	}
+
+	.headline {
+		margin: 0 0 20px;
+		font-family: 'Instrument Serif', serif;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.2;
+		color: #000;
+		text-align: left;
+	}
+
+	.subhead {
+		margin: 0 0 28px;
+		font-family: 'Inter', sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.5;
+		color: #000;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-bottom: 40px;
+	}
+
+	.tag {
+		padding: 8px 16px;
+		border: 1px solid #d8d8d8;
+		border-radius: 9999px;
+		font-family: 'Inter', sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		color: #a8a8a8;
+	}
+
+	.hero-image {
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		background-color: #f0f0f0;
+		border-radius: 20px;
+	}
+</style>
