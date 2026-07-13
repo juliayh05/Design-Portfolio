@@ -1,0 +1,242 @@
+---
+const footnotes = [
+	{
+		id: 'julia',
+		label: 'Julia Heo*',
+		text: 'Currently a senior at UC Berkeley studying Cognitive Science, Education, & Design.',
+	},
+	{
+		id: 'designer',
+		label: 'product designer*',
+		text: '4 consumer startups, and counting. Built for fast-paced environments.',
+	},
+	{
+		id: 'pixels',
+		label: 'pixels*',
+		text: 'Spacing, typography, motion, color, etc. Small choices, big feel.',
+	},
+	{
+		id: 'patterns',
+		label: 'patterns*',
+		text: 'Design systems, reusable components, and the logic that scales craft across a product.',
+	},
+	{
+		id: 'people',
+		label: 'people*',
+		text: 'I design with how people actually think, feel, and get frustrated.',
+	},
+];
+---
+
+<div class="page">
+	<nav class="nav">
+		<a href="/" class="nav-logo">Julia Heo</a>
+		<div class="nav-links">
+			<a href="#about">About</a>
+			<a href="#work">Work</a>
+			<a href="#projects">Projects</a>
+			<a href="#play">Play</a>
+		</div>
+	</nav>
+
+	<section class="hero">
+		<p class="hero-hint">psst! hover for footnotes!</p>
+
+		<p class="headline" id="headline">
+			<span class="phrase" data-footnote={footnotes[0].text}>{footnotes[0].label}</span>
+			<span class="text"> is a </span>
+			<span class="phrase" data-footnote={footnotes[1].text}>{footnotes[1].label}</span>
+			<span class="text"> who's passionate about the </span>
+			<span class="phrase" data-footnote={footnotes[2].text}>{footnotes[2].label}</span>
+			<span class="text">, the </span>
+			<span class="phrase" data-footnote={footnotes[3].text}>{footnotes[3].label}</span>
+			<span class="text">, and the </span>
+			<span class="phrase" data-footnote={footnotes[4].text}>{footnotes[4].label}</span>
+			<span class="text"> they're built for.</span>
+		</p>
+
+		<div class="footnote" id="footnote" aria-live="polite"></div>
+	</section>
+
+	<section class="below-hero">
+		<div class="tabs">
+			<span class="tab tab--active">Work</span>
+			<span class="tab">Projects</span>
+			<span class="tab">Play</span>
+		</div>
+
+		<div class="cards">
+			<div class="card"></div>
+			<div class="card"></div>
+		</div>
+	</section>
+</div>
+
+<script>
+	const headline = document.getElementById('headline');
+	const footnote = document.getElementById('footnote');
+
+	if (headline && footnote) {
+		const phrases = headline.querySelectorAll('.phrase');
+
+		phrases.forEach((phrase) => {
+			phrase.addEventListener('mouseenter', () => {
+				phrases.forEach((p) => p.classList.remove('is-active'));
+				phrase.classList.add('is-active');
+				headline.classList.add('is-hovering');
+				footnote.textContent = phrase.dataset.footnote ?? '';
+			});
+
+			phrase.addEventListener('mouseleave', (e) => {
+				const related = e.relatedTarget;
+				if (related instanceof Element && related.closest('.phrase')) {
+					return;
+				}
+				headline.classList.remove('is-hovering');
+				phrase.classList.remove('is-active');
+				footnote.textContent = '';
+			});
+		});
+	}
+</script>
+
+<style>
+	.page {
+		min-height: 100vh;
+		padding: 0 64px;
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 40px;
+	}
+
+	.nav-logo {
+		font-family: 'Instrument Serif', serif;
+		font-size: 20px;
+		color: #000;
+		text-decoration: none;
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 48px;
+	}
+
+	.nav-links a {
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 400;
+		color: #000;
+		text-decoration: none;
+	}
+
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 20vh;
+	}
+
+	.hero-hint {
+		margin: 0 0 24px;
+		font-family: 'Inter', sans-serif;
+		font-size: 14px;
+		color: #a8a8a8;
+		text-align: center;
+	}
+
+	.headline {
+		margin: 0;
+		max-width: 900px;
+		font-family: 'Instrument Serif', serif;
+		font-size: 60px;
+		line-height: 1.3;
+		text-align: center;
+	}
+
+	.headline .text {
+		color: #000;
+		transition: color 150ms ease-out;
+	}
+
+	.headline .phrase {
+		color: #346ce4;
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 4px;
+		cursor: default;
+		transition:
+			color 150ms ease-out,
+			text-decoration-color 150ms ease-out;
+	}
+
+	.headline.is-hovering .text,
+	.headline.is-hovering .phrase:not(.is-active) {
+		color: #aeaeae;
+	}
+
+	.headline.is-hovering .phrase:not(.is-active) {
+		text-decoration-color: transparent;
+	}
+
+	.headline .phrase.is-active {
+		color: #346ce4;
+		text-decoration-color: #346ce4;
+	}
+
+	.footnote {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		max-width: 900px;
+		min-height: 80px;
+		margin-top: 8px;
+		font-family: 'Inter', sans-serif;
+		font-size: 24px;
+		line-height: 1.4;
+		text-align: center;
+		color: #346ce4;
+	}
+
+	.below-hero {
+		margin-top: 120px;
+	}
+
+	.tabs {
+		display: flex;
+		justify-content: center;
+		gap: 40px;
+	}
+
+	.tab {
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 400;
+		color: #a8a8a8;
+		cursor: default;
+	}
+
+	.tab--active {
+		color: #346ce4;
+	}
+
+	.cards {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+		margin-top: 40px;
+	}
+
+	.card {
+		width: 100%;
+		max-width: 1000px;
+		aspect-ratio: 2 / 1;
+		background-color: #f0f0f0;
+		border-radius: 20px;
+	}
+</style>
