@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+
+const lingotuneCard = {
+	href: '/work/lingotune',
+	logoSrc: '/images/lingotune/logo.png',
+	companyName: 'Lingotune',
+	headline: 'Redesigning a song lesson navigation system',
+	tags: ['EdTech', 'Startup', 'Mobile', 'User Research', 'Product Design'],
+	ctaLabel: 'View Lingotune Case Study',
+	previewSrc: '/images/lingotune/preview.png',
+};
+
+const buildIrlCard = {
+	href: '/work/build-irl',
+	logoSrc: '/images/build-irl/logo.png',
+	companyName: 'Build IRL',
+	headline: 'Designing the community platform for real-world clubs',
+	tags: ['Community', 'Startup', 'Mobile', 'User Research', 'UX Design'],
+	ctaLabel: 'View Build IRL Case Study',
+	previewSrc: '/images/build-irl/preview.png',
+};
+---
+
+<Layout title="Work — Julia Heo">
+	<div class="work-page">
+		<Nav sticky />
+
+		<div class="work-page__content">
+			<h1 class="work-page__heading">Work</h1>
+
+			<div class="work-page__cards">
+				<CaseStudyCard {...lingotuneCard} />
+				<CaseStudyCard {...buildIrlCard} />
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.work-page {
+		min-height: 100vh;
+		background-color: #fafafa;
+	}
+
+	.work-page__content {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 48px 64px 120px;
+	}
+
+	.work-page__heading {
+		margin: 0 0 48px;
+		font-family: 'Instrument Serif', serif;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.2;
+		color: #000;
+		text-align: center;
+	}
+
+	.work-page__cards {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+</style>

@@ -6,16 +6,12 @@ import SectionNav from '../../components/case-study/SectionNav.astro';
 import CaseStudySection from '../../components/case-study/CaseStudySection.astro';
 import CaseStudySubsection from '../../components/case-study/CaseStudySubsection.astro';
 
-const lorem =
-	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.';
-
 const sections = [
 	{ id: 'overview', label: 'Overview' },
-	{ id: 'solution', label: 'Solution' },
 	{ id: 'research', label: 'Research' },
 	{ id: 'ideation', label: 'Ideation' },
-	{ id: 'design', label: 'Design' },
-	{ id: 'tldr', label: 'TL;DR' },
+	{ id: 'solution', label: 'Solution' },
+	{ id: 'reflection', label: 'Reflection' },
 ];
 ---
 
@@ -28,74 +24,117 @@ const sections = [
 				breadcrumbLabel="Lingotune"
 				breadcrumbHref="/work"
 				headline="Redesigning song lesson and navigation systems"
-				subhead="Lingotune is a language-learning with music app that leverages catchy music clips to make language learning stick!"
+				subhead="Lingotune teaches languages through music — catchy song clips paired with lessons that make grammar and vocabulary stick."
 				tags={['Product Design Intern', 'May - August 2025', 'Mobile', 'Figma', 'UX/UI']}
-			/>
+			>
+				<video src="/images/lingotune/demo.mp4" autoplay loop muted playsinline class="hero-video-single"></video>
+			</CaseStudyHero>
 
 			<CaseStudySection id="overview" title="Overview">
-				<CaseStudySubsection title="Context">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Context: What is Lingotune?">
+					<p>
+						<a href="https://www.lingotune.ai/" class="inline-link" target="_blank" rel="noopener noreferrer"
+							>Lingotune</a
+						> is a language-learning with music app. By utilizing music with language lessons, learning language
+						becomes a much easier and more memorable task.
+					</p>
 				</CaseStudySubsection>
-				<CaseStudySubsection title="Problem">
-					<p>{lorem}</p>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="Goals">
-					<p>{lorem}</p>
-				</CaseStudySubsection>
-			</CaseStudySection>
+				<CaseStudySubsection title="Problem: What issue(s) is Lingotune facing?">
+					<p>
+						The current song lesson screen looked complete when it wasn't. Many users assumed the first card was the whole library, missed the rest, and left.
+						<img src="/images/lingotune/oldold.png" alt="Original song lesson screen showing only the first card" class="placeholder-image problem-mockup" />
 
-			<CaseStudySection id="solution" title="Solution">
-				<p class="section-intro">{lorem}</p>
-				<CaseStudySubsection title="Design Decision 01">
-					<p>{lorem}</p>
+					</p>
 				</CaseStudySubsection>
-				<CaseStudySubsection title="Design Decision 02">
-					<p>{lorem}</p>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="Design Decision 03">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Goal: What should I do as a designer?">
+					<p>
+						How might I make the depth of the library visible from the very first screen — so users know there's more, and feel confident finding it?
+					</p>
 				</CaseStudySubsection>
 			</CaseStudySection>
 
 			<CaseStudySection id="research" title="Research">
-				<p class="section-intro">{lorem}</p>
-				<CaseStudySubsection title="Lorem">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="User Test Session Review">
+					<p>
+						I reviewed user test sessions clip by clip and found the same patterns repeating: users saw the first song card and assumed that was the whole library and users tried swiping instinctively.
+					</p>
+					<img src="/images/lingotune/user-test-review.png" alt="User test session review" class="placeholder-image" />
 				</CaseStudySubsection>
-				<CaseStudySubsection title="Lorem">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Secondary Research">
+					<p>
+						My cognitive science background pointed me to research on mental models — how people navigate interfaces based on patterns they've seen before, and how to design with those patterns instead of against them.
+					</p>
+					<div class="placeholder-image" aria-hidden="true"></div>
 				</CaseStudySubsection>
-				<CaseStudySubsection title="Lorem">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Competitive Analysis">
+					<p>II looked at how apps like Apple Music, Discord, etc. presented browsable content — patterns users would already know before ever opening Lingotune.</p>
+					<img src="/images/lingotune/competitive-analysis.png" alt="Competitive analysis" class="placeholder-image" />
 				</CaseStudySubsection>
 			</CaseStudySection>
 
 			<CaseStudySection id="ideation" title="Ideation">
-				<p class="section-intro">{lorem}</p>
-				<CaseStudySubsection title="Filler">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Affinity Map">
+					<p>
+						I created an affinity map to group recurring themes and user behaviors, which helped me synthesize what was really happening beneath the surface. Patterns appeared quickly, such as users relied on familiar mental models, struggled to see key actions, and often lacked feedback and affordances. 
+					</p>
+					<img src="/images/lingotune/affinity-map.png" alt="Affinity map" class="placeholder-image" />
 				</CaseStudySubsection>
-				<CaseStudySubsection title="Lorem ipsum">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Journey Map">
+					<p>
+						Taking my insights from research, I consolidated what a typical user journey would look like for a user
+						that was using the current system. I mapped a typical user's journey through the current system — not to jump to solutions, but to understand where the confusion built up and what emotional weight it carried.
+					</p>
+					<img src="/images/lingotune/journey-map.png" alt="Journey map" class="placeholder-image" />
 				</CaseStudySubsection>
-				<CaseStudySubsection title="Lorem ipsum">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Brainstorming">
+					<p>
+						I quickly sketched several directions, powered by my research synthesis, before landing on the one I wanted to pitch. The team greenlit it, and I moved into higher-fidelity design
+					</p>
+					<img src="/images/lingotune/brainstorming.png" alt="Brainstorming" class="placeholder-image" />
 				</CaseStudySubsection>
 			</CaseStudySection>
 
-			<CaseStudySection id="design" title="Design">
-				<p class="section-intro">{lorem}</p>
-				<CaseStudySubsection title="Filler">
-					<p>{lorem}</p>
+			<CaseStudySection id="solution" title="Solution">
+				<CaseStudySubsection title="Design Decision 01: Side-Peeking Cards">
+					<p>
+						Side-peeking cards signal, before the user does anything, that more content exists. This directly solved the biggest pattern from testing: users assuming the first card was the entire library.
+					</p>
+					<img src="/images/lingotune/1designdecision.png" alt="Design Decision 1" class="placeholder-image" />
 				</CaseStudySubsection>
-				<CaseStudySubsection title="Lorem ipsum">
-					<p>{lorem}</p>
+				<CaseStudySubsection title="Design Decision 02: Pagination Dots">
+					<p>
+						Pagination dots tell users where they are in the sequence. Paired with the peeking cards, they make the scroll feel oriented: you always know how far you've come, how much is left, and that there's more waiting
+					</p>
+					<img src="/images/lingotune/2designdecision.png" alt="Design Decision 2" class="placeholder-image" />
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Design Decision 03: Horizontal Swipe">
+					<p>
+						Horizontal swipe matches how users already browse music and content-browsing apps. Spotify, Apple Music, and YouTube Music all use horizontal carousels for discrete items and reserve vertical scroll for feeds. Aligning with that existing mental model reduced cognitive load and avoided conflicts with page-level scroll.
+					</p>
+					<img src="/images/lingotune/3decision.png" alt="Design Decision 3" class="placeholder-image" />
 				</CaseStudySubsection>
 			</CaseStudySection>
 
-			<CaseStudySection id="tldr" title="TL;DR">
-				<p class="section-intro">{lorem}</p>
+			<CaseStudySection id="reflection" title="Reflection">
+				<CaseStudySubsection title="Outcome: Immediate Impact">
+					<p>My redesign shipped in the next release, and was an incredibly rewarding moment.</p>
+					<img src="/images/lingotune/nishoutcome.png" alt="Outcome" class="placeholder-image" />
+				</CaseStudySubsection>
+				<CaseStudySubsection title="Reflection">
+					<p>
+						I didn't have access to post-launch metrics, but if I had, I'd measure success three ways: task completion rate (do users successfully start a lesson?), drop-off at the song lesson screen (is the retention leak closed?), and songs browsed per session (are users confident enough to explore?)
+					</p>
+					<p>
+						The bigger takeaway: the best UX often isn't inventing something new. It's noticing the mental models users already carry into your product — and designing with them, not against them.
+					</p>
+				</CaseStudySubsection>
 			</CaseStudySection>
+			<div class="end-cta">
+				<h2 class="end-cta__heading">Want to learn more?</h2>
+				<p class="end-cta__text">
+					I'd love to walk you through the process, the pivots, and the parts that didn't make it into this write-up.
+				</p>
+			</div>
 		</div>
 
 		<SectionNav sections={sections} />
@@ -106,7 +145,7 @@ const sections = [
 	.case-study {
 		min-height: 100vh;
 		padding-bottom: 120px;
-		background-color: #fafafa;
+		background-color: #ffffff;
 	}
 
 	.case-study__content {
@@ -121,6 +160,51 @@ const sections = [
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 1.6;
+		color: #000;
+	}
+	.placeholder-image {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 24px auto 48px;
+    border-radius: 20px;
+}
+	.problem-mockup {
+    display: block;
+    max-width: 240px;
+    margin: 40px auto;
+}
+
+	.hero-video-single {
+		display: block;
+		max-height: 400px;
+		max-width: 100%;
+		width: auto;
+		margin: 24px auto 0;
+		border-radius: 20px;
+	}
+
+	.end-cta {
+		margin-top: 120px;
+		text-align: center;
+	}
+
+	.end-cta__heading {
+		margin: 0 0 16px;
+		font-family: 'Instrument Serif', serif;
+		font-size: 32px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.2;
+		color: #000;
+	}
+
+	.end-cta__text {
+		margin: 0;
+		font-family: 'Inter', sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 1.5;
 		color: #000;
 	}
 </style>

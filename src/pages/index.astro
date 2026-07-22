@@ -1,8 +1,204 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+
+const lingotuneCard = {
+	href: '/work/lingotune',
+	logoSrc: '/images/lingotune/logo.png',
+	companyName: 'Lingotune',
+	headline: 'Redesigning a song lesson navigation system',
+	tags: ['EdTech', 'Startup', 'Mobile', 'User Research', 'Product Design'],
+	ctaLabel: 'View Lingotune Case Study',
+	previewSrc: '/images/lingotune/preview.png',
+};
+
+const buildIrlCard = {
+	href: '/work/build-irl',
+	logoSrc: '/images/build-irl/logo.png',
+	companyName: 'Build IRL',
+	headline: 'Designing the community platform for real-world clubs',
+	tags: ['Community', 'Startup', 'Mobile', 'User Research', 'UX Design'],
+	ctaLabel: 'View Build IRL Case Study',
+	previewSrc: '/images/build-irl/preview.png',
+};
+
+const project1Card = {
+	href: '#',
+	logoSrc: '',
+	companyName: 'Project 1',
+	headline: 'Project 1 headline placeholder',
+	tags: ['Tag 1', 'Tag 2'],
+	ctaLabel: 'View Project',
+	previewSrc: '',
+};
+
+const project2Card = {
+	href: '#',
+	logoSrc: '',
+	companyName: 'Project 2',
+	headline: 'Project 2 headline placeholder',
+	tags: ['Tag 1', 'Tag 2'],
+	ctaLabel: 'View Project',
+	previewSrc: '',
+};
 ---
 
 <Layout>
-	<Hero />
+	<Hero>
+		<CaseStudyCard slot="work" {...lingotuneCard} />
+		<CaseStudyCard slot="work" {...buildIrlCard} />
+
+		<div slot="projects" class="coming-soon">
+    <p class="coming-soon-emoji">🚧</p>
+    <h3 class="coming-soon-title">In the Works</h3>
+    <p class="coming-soon-text">Check back soon!</p>
+</div>
+
+
+		<div slot="play" class="play-bento">
+			<div class="play-item play-item--2x2">
+    <img src="/images/play/play-1.png" alt="Play item 1" class="play-image" />
+</div>
+			<div class="play-item play-item--2x2">
+    <img src="/images/play/play-2.png" alt="Play item 1" class="play-image" />
+</div>
+
+		</div>
+	</Hero>
 </Layout>
+
+<script>
+	const tabs = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
+	const panels = document.querySelectorAll<HTMLElement>('[data-tab-panel]');
+	const tabBar = document.querySelector<HTMLElement>('.tabs');
+	const validTabs = new Set(['work', 'projects', 'play']);
+
+	const activateTab = (target: string, { scroll = false }: { scroll?: boolean } = {}) => {
+		if (!validTabs.has(target)) return;
+
+		tabs.forEach((item) => {
+			const isActive = item.dataset.tab === target;
+			item.classList.toggle('tab--active', isActive);
+			item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+		});
+
+		panels.forEach((panel) => {
+			panel.hidden = panel.dataset.tabPanel !== target;
+		});
+
+		if (scroll) {
+			tabBar?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
+	};
+
+	tabs.forEach((tab) => {
+		tab.addEventListener('click', () => {
+			const target = tab.dataset.tab;
+			if (!target) return;
+			activateTab(target);
+		});
+	});
+
+	const handleHash = () => {
+		const hash = window.location.hash.slice(1);
+		if (validTabs.has(hash)) {
+			activateTab(hash, { scroll: true });
+		}
+	};
+
+	handleHash();
+	window.addEventListener('hashchange', handleHash);
+</script>
+
+<style>
+	.projects-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 40px;
+		justify-items: center;
+	}
+
+	.play-bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+	.play-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 120px;
+		background-color: #eeeeee;
+		border-radius: 24px;
+		font-family: 'Inter', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		color: #000;
+	}
+
+	.play-item--2x2 {
+		grid-column: span 2;
+		grid-row: span 2;
+		min-height: 256px;
+	}
+
+	.play-item--1x1 {
+		grid-column: span 1;
+		grid-row: span 1;
+	}
+
+	.play-item--1x2 {
+		grid-column: span 1;
+		grid-row: span 2;
+		min-height: 256px;
+	}
+
+	.play-item--2x1 {
+		grid-column: span 2;
+		grid-row: span 1;
+	}
+
+	.coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 32px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.coming-soon-emoji {
+    font-size: 48px;
+    margin: 0 0 16px;
+}
+
+.coming-soon-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #346ce4;
+    margin: 0 0 12px;
+}
+
+.coming-soon-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: #a8a8a8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.play-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+}
+</style>

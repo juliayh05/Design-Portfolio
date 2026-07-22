@@ -1,0 +1,160 @@
+---
+interface Props {
+	href: string;
+	logoSrc: string;
+	companyName: string;
+	headline: string;
+	tags: string[];
+	ctaLabel: string;
+	previewSrc: string;
+}
+
+const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Astro.props;
+---
+
+<a href={href} class="case-study-card">
+	<div class="case-study-card__left">
+		<div class="case-study-card__company">
+			<img src={logoSrc} alt="" class="case-study-card__logo" width="24" height="24" />
+			<span class="case-study-card__company-name">{companyName}</span>
+		</div>
+		<h3 class="case-study-card__headline">{headline}</h3>
+		<div class="case-study-card__tags">
+			{tags.map((tag) => (
+				<span class="case-study-card__tag">{tag}</span>
+			))}
+		</div>
+		<span class="case-study-card__cta">
+			{ctaLabel}
+			<span class="case-study-card__cta-arrow" aria-hidden="true">↗</span>
+		</span>
+	</div>
+	<div class="case-study-card__right">
+		<img src={previewSrc} alt="" class="case-study-card__preview" />
+	</div>
+</a>
+
+<style>
+	.case-study-card {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 86px;
+    background-color: #fff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 24px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: box-shadow 150ms ease-out, transform 150ms ease-out;
+}
+
+	.case-study-card:hover {
+		border-color: #346ce4;
+		box-shadow: 0 0 40px rgba(52, 108, 228, 0.3);
+		transform: scale(1.02);
+	}
+
+	.case-study-card:hover .case-study-card__cta {
+    background-color: #ffffff;
+    color: #346ce4;
+    border-color: #346ce4;
+    box-shadow: 0 0 20px rgba(52, 108, 228, 0.3);
+}
+
+	.case-study-card__left {
+		display: flex;
+		flex: 0 0 55%;
+		flex-direction: column;
+		justify-content: center;
+		gap: 24px;
+		min-width: 0;
+	}
+
+	.case-study-card__company {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.case-study-card__logo {
+		height: 24px;
+		width: auto;
+		object-fit: contain;
+	}
+
+	.case-study-card__company-name {
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 400;
+		color: #000;
+	}
+
+	.case-study-card__headline {
+		margin: 0;
+		font-family: 'Inter', sans-serif;
+		font-size: 28px;
+		font-weight: 600;
+		line-height: 1.2;
+		color: #000;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	.case-study-card__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.case-study-card__tag {
+		padding: 8px 16px;
+		border: 1px solid #e0e0e0;
+		border-radius: 9999px;
+		font-family: 'Inter', sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		color: #a8a8a8;
+	}
+
+	.case-study-card__cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		align-self: flex-start;
+		padding: 8px 18px;
+		background-color: #346ce4;
+		border-radius: 9999px;
+		font-family: 'Inter', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		color: #fff;
+		border: 2px solid transparent;
+		transition: all 150ms ease-out;
+	}
+
+	.case-study-card__cta-arrow {
+		font-size: 16px;
+		line-height: 1;
+	}
+
+	.case-study-card__right {
+		display: flex;
+		flex: 0 0 45%;
+		justify-content: flex-end;
+		align-items: center;
+		min-width: 0;
+	}
+
+	.case-study-card__preview {
+		max-height: 420px;
+		width: auto;
+		height: auto;
+		object-fit: contain;
+	}
+</style>

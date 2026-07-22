@@ -19,7 +19,7 @@ const { breadcrumbLabel, breadcrumbHref = '/work', headline, subhead, tags } = A
 			<span class="tag">{tag}</span>
 		))}
 	</div>
-	<div class="hero-image" aria-hidden="true"></div>
+	<slot />
 </header>
 
 <style>
@@ -72,12 +72,5 @@ const { breadcrumbLabel, breadcrumbHref = '/work', headline, subhead, tags } = A
 		font-size: 14px;
 		font-weight: 400;
 		color: #a8a8a8;
-	}
-
-	.hero-image {
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		background-color: #f0f0f0;
-		border-radius: 20px;
 	}
 </style>

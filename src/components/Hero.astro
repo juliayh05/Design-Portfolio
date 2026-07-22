@@ -36,7 +36,7 @@ const footnotes = [
 ---
 
 <div class="page">
-	<Nav />
+	<Nav sticky />
 
 	<section class="hero">
 		<div class="hero-content">
@@ -70,15 +70,24 @@ const footnotes = [
 	</section>
 
 	<section class="below-hero">
-		<div class="tabs">
-			<span class="tab tab--active">Work</span>
-			<span class="tab">Projects</span>
-			<span class="tab">Play</span>
+		<div class="tabs" role="tablist" aria-label="Portfolio sections">
+			<button type="button" class="tab tab--active" data-tab="work" role="tab" aria-selected="true">Work</button>
+			<button type="button" class="tab" data-tab="projects" role="tab" aria-selected="false">Projects</button>
+			<button type="button" class="tab" data-tab="play" role="tab" aria-selected="false">Play</button>
 		</div>
 
-		<div class="cards">
-			<div class="card"></div>
-			<div class="card"></div>
+		<div class="tab-panels">
+			<div class="tab-panel" data-tab-panel="work">
+				<div class="cards">
+					<slot name="work" />
+				</div>
+			</div>
+			<div class="tab-panel" data-tab-panel="projects" hidden>
+				<slot name="projects" />
+			</div>
+			<div class="tab-panel" data-tab-panel="play" hidden>
+				<slot name="play" />
+			</div>
 		</div>
 	</section>
 </div>
@@ -115,16 +124,16 @@ const footnotes = [
 
 <style>
 	.page {
-		min-height: 100vh;
-		padding: 0 64px;
-	}
+    min-height: 100vh;
+}
 
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin-top: 7.5vh;
-	}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 11vh;
+    padding: 0 64px;
+}
 
 	.hero-content {
 		width: 100%;
@@ -135,7 +144,7 @@ const footnotes = [
 	}
 
 	.hero-hint {
-		margin: 0 0 16px;
+		margin: 0 0 4px;
 		font-family: 'Inter', sans-serif;
 		font-size: 18px;
 		color: #a8a8a8;
@@ -196,7 +205,7 @@ const footnotes = [
 		width: 100%;
 		max-width: 900px;
 		min-height: 80px;
-		margin-top: 32px;
+		margin-top: 2px;
 		font-family: 'Inter', sans-serif;
 		font-size: 20px;
 		line-height: 1.4;
@@ -206,25 +215,42 @@ const footnotes = [
 	}
 
 	.below-hero {
-		margin-top: 120px;
+		margin-top: 80px;
 	}
 
 	.tabs {
 		display: flex;
 		justify-content: center;
 		gap: 40px;
+		scroll-margin-top: 60px;
 	}
 
 	.tab {
+		border: none;
+		background: none;
+		padding: 0;
 		font-family: 'Inter', sans-serif;
 		font-size: 20px;
 		font-weight: 400;
 		color: #a8a8a8;
-		cursor: default;
+		cursor: pointer;
+		text-decoration: none;
+		transition: color 150ms ease-out;
+	}
+
+	.tab:hover:not(.tab--active) {
+		color: #346ce4;
 	}
 
 	.tab--active {
 		color: #346ce4;
+		text-decoration: underline;
+		text-underline-offset: 8px;
+		text-decoration-thickness: 2px;
+	}
+
+	.tab-panels {
+		margin-top: 40px;
 	}
 
 	.cards {
@@ -232,14 +258,5 @@ const footnotes = [
 		flex-direction: column;
 		align-items: center;
 		gap: 40px;
-		margin-top: 40px;
-	}
-
-	.card {
-		width: 100%;
-		max-width: 1000px;
-		aspect-ratio: 2 / 1;
-		background-color: #f0f0f0;
-		border-radius: 20px;
 	}
 </style>
