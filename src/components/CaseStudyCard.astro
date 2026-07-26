@@ -12,7 +12,7 @@ interface Props {
 const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Astro.props;
 ---
 
-<a href={href} class="case-study-card">
+<a href={href} class="case-study-card fade-in-on-scroll">
 	<div class="case-study-card__left">
 		<div class="case-study-card__company">
 			<img src={logoSrc} alt="" class="case-study-card__logo" width="24" height="24" />
@@ -49,13 +49,18 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    transition: box-shadow 150ms ease-out, transform 150ms ease-out;
+    transition:
+		box-shadow 200ms ease-out,
+		transform 200ms ease-out;
 }
 
 	.case-study-card:hover {
-		border-color: #346ce4;
-		box-shadow: 0 0 40px rgba(52, 108, 228, 0.3);
-		transform: scale(1.02);
+		box-shadow: 0 12px 40px rgba(52, 108, 228, 0.22);
+		transform: translateY(-4px);
+	}
+
+	.case-study-card:hover .case-study-card__preview {
+		transform: scale(1.03);
 	}
 
 	.case-study-card:hover .case-study-card__cta {
@@ -63,6 +68,7 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
     color: #346ce4;
     border-color: #346ce4;
     box-shadow: 0 0 20px rgba(52, 108, 228, 0.3);
+    transform: translateY(-2px);
 }
 
 	.case-study-card__left {
@@ -135,7 +141,12 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 		font-weight: 400;
 		color: #fff;
 		border: 2px solid transparent;
-		transition: all 150ms ease-out;
+		transition:
+			background-color 200ms ease-out,
+			color 200ms ease-out,
+			border-color 200ms ease-out,
+			box-shadow 200ms ease-out,
+			transform 200ms ease-out;
 	}
 
 	.case-study-card__cta-arrow {
@@ -156,5 +167,6 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 		width: auto;
 		height: auto;
 		object-fit: contain;
+		transition: transform 200ms ease-out;
 	}
 </style>

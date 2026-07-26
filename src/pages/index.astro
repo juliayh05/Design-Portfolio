@@ -49,7 +49,7 @@ const project2Card = {
 		<CaseStudyCard slot="work" {...lingotuneCard} />
 		<CaseStudyCard slot="work" {...buildIrlCard} />
 
-		<div slot="projects" class="coming-soon">
+		<div slot="projects" class="coming-soon fade-in-on-scroll">
     <p class="coming-soon-emoji">🚧</p>
     <h3 class="coming-soon-title">In the Works</h3>
     <p class="coming-soon-text">Check back soon!</p>
@@ -57,11 +57,11 @@ const project2Card = {
 
 
 		<div slot="play" class="play-bento">
-			<div class="play-item play-item--2x2">
+			<div class="play-item play-item--2x2 fade-in-on-scroll" style="--fade-delay: 0ms">
     <img src="/images/play/play-1.png" alt="Play item 1" class="play-image" />
 </div>
-			<div class="play-item play-item--2x2">
-    <img src="/images/play/play-2.png" alt="Play item 1" class="play-image" />
+			<div class="play-item play-item--2x2 fade-in-on-scroll" style="--fade-delay: 100ms">
+    <img src="/images/play/play-2.png" alt="Play item 2" class="play-image" />
 </div>
 
 		</div>
@@ -90,6 +90,11 @@ const project2Card = {
 		if (scroll) {
 			tabBar?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}
+
+		requestAnimationFrame(() => {
+			const visiblePanel = document.querySelector<HTMLElement>(`[data-tab-panel="${target}"]:not([hidden])`);
+			window.refreshFadeInOnScroll?.(visiblePanel ?? document);
+		});
 	};
 
 	tabs.forEach((tab) => {

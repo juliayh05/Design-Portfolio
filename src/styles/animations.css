@@ -1,0 +1,65 @@
+/* Fade-in on scroll */
+.fade-in-on-scroll {
+	opacity: 0;
+	transform: translateY(20px);
+	transition:
+		opacity 600ms ease-out var(--fade-delay, 0ms),
+		transform 600ms ease-out var(--fade-delay, 0ms);
+}
+
+.fade-in-on-scroll.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fade-in-on-scroll {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+/* Nav link hover underline */
+.nav-links a {
+	position: relative;
+}
+
+.nav-links a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	width: 0;
+	height: 2px;
+	background-color: #346ce4;
+	transition: width 200ms ease-out;
+}
+
+.nav-links a:hover::after {
+	width: 100%;
+}
+
+/* Homepage tab hover underline (non-active) */
+.tab {
+	position: relative;
+}
+
+.tab::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 0;
+	height: 2px;
+	background-color: #346ce4;
+	transition: width 200ms ease-out;
+}
+
+.tab:hover:not(.tab--active)::after {
+	width: 100%;
+}
+
+.tab--active::after {
+	display: none;
+}

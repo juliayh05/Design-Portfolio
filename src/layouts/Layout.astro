@@ -30,6 +30,48 @@ const { title = 'Julia Heo' } = Astro.props;
 	</body>
 </html>
 
+<script>
+	const initFadeInOnScroll = () => {
+		const elements = document.querySelectorAll('.fade-in-on-scroll:not(.is-visible)');
+
+		const reveal = (el) => {
+			el.classList.add('is-visible');
+		};
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						reveal(entry.target);
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.15 },
+		);
+
+		elements.forEach((el) => {
+			if (el.closest('[hidden]')) return;
+			observer.observe(el);
+		});
+	};
+
+	const refreshFadeInOnScroll = (root = document) => {
+		root.querySelectorAll('.fade-in-on-scroll:not(.is-visible)').forEach((el) => {
+			if (el.closest('[hidden]')) return;
+			const rect = el.getBoundingClientRect();
+			if (rect.height === 0) return;
+			const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+			if (visibleHeight / rect.height >= 0.15) {
+				el.classList.add('is-visible');
+			}
+		});
+	};
+
+	initFadeInOnScroll();
+	window.refreshFadeInOnScroll = refreshFadeInOnScroll;
+</script>
+
 <style is:global>
 	html {
 		scroll-behavior: smooth;

@@ -63,7 +63,7 @@ const experiences = [
 		<Nav sticky />
 
 		<main class="about-main">
-			<section class="about-section intro">
+			<section class="about-section intro fade-in-on-scroll">
 				<div class="intro__inner">
 					<div class="intro__image-wrap">
 						<img src="/images/about/me.png" alt="Julia" class="intro-image" />
@@ -83,7 +83,7 @@ const experiences = [
 				</div>
 			</section>
 
-			<section class="about-section toolbox">
+			<section class="about-section toolbox fade-in-on-scroll">
 				<h2 class="section-heading section-heading--blue">My ToolBox</h2>
 				<p class="subhead subhead--center">I love learning new softwares and tools! What should I try next? </p>
 
@@ -130,8 +130,8 @@ const experiences = [
 
 				<div class="experience-list">
 					{
-						experiences.map((experience) => (
-							<div class="experience-row">
+						experiences.map((experience, index) => (
+							<div class="experience-row fade-in-on-scroll" style={`--fade-delay: ${index * 100}ms`}>
 								<span class="experience-company">{experience.company}</span>
 								<a href={experience.href} class="experience-role">{experience.role}</a>
 								<div class="experience-meta">
@@ -155,27 +155,27 @@ const experiences = [
 				<p class="subhead subhead--center">A quick look at what fills my time when I'm not in Figma! </p>
 
 				<div class="scrapbook__canvas">
-					<div class="scrapbook-item scrapbook-item--1">
+					<div class="scrapbook-item scrapbook-item--1 fade-in-on-scroll" style="--fade-delay: 0ms">
 						<img src="/images/about/cooking.png" alt="Cooking" class="scrapbook-image" />
-						<span class="sticker" style="top: 12px; left: 12px; transform: rotate(-8deg);">Cooking and Baking</span>
+						<span class="sticker" style="top: 12px; left: 12px; transform: rotate(-8deg); --sticker-rotate-hover: -10deg;">Cooking and Baking</span>
 					</div>
-					<div class="scrapbook-item scrapbook-item--2">
+					<div class="scrapbook-item scrapbook-item--2 fade-in-on-scroll" style="--fade-delay: 100ms">
 						<img src="/images/about/yoga.jpg" alt="yoga" class="scrapbook-image" />
-						<span class="sticker" style="bottom: 16px; right: 12px; transform: rotate(6deg);">Yoga and Pilates</span>
+						<span class="sticker" style="bottom: 16px; right: 12px; transform: rotate(6deg); --sticker-rotate-hover: 8deg;">Yoga and Pilates</span>
 					</div>
-					<div class="scrapbook-item scrapbook-item--3">
+					<div class="scrapbook-item scrapbook-item--3 fade-in-on-scroll" style="--fade-delay: 200ms">
 						<img src="/images/about/food.png" alt="Food" class="scrapbook-image" />
-						<span class="sticker" style="top: 8px; left: 50%; transform: translateX(-50%) rotate(-5deg);">
+						<span class="sticker sticker--centered" style="top: 8px; left: 50%; transform: translateX(-50%) rotate(-5deg); --sticker-rotate-hover: -7deg;">
     Trying new food spots (#avidbeliuser)
 </span>
 					</div>
-					<div class="scrapbook-item scrapbook-item--4">
+					<div class="scrapbook-item scrapbook-item--4 fade-in-on-scroll" style="--fade-delay: 300ms">
 						<img src="/images/about/exploring.png" alt="Exploring" class="scrapbook-image" />
-						<span class="sticker" style="bottom: 16px; left: 16px; transform: rotate(4deg);">Exploring</span>
+						<span class="sticker" style="bottom: 16px; left: 16px; transform: rotate(4deg); --sticker-rotate-hover: 6deg;">Exploring</span>
 					</div>
-					<div class="scrapbook-item scrapbook-item--5">
+					<div class="scrapbook-item scrapbook-item--5 fade-in-on-scroll" style="--fade-delay: 400ms">
 						<img src="/images/about/guitar.png" alt="guitar" class="scrapbook-image" />
-						<span class="sticker" style="bottom: 20px; left: 16px; transform: rotate(-6deg);">Learning the guitar</span>
+						<span class="sticker" style="bottom: 20px; left: 16px; transform: rotate(-6deg); --sticker-rotate-hover: -8deg;">Learning the guitar</span>
 					</div>
 				</div>
 			</section>
@@ -257,7 +257,16 @@ const experiences = [
     line-height: 1.3;
     color: #ffffff;
     white-space: nowrap;
+    transition: transform 200ms ease-out;
 }
+
+	.sticker:hover {
+		transform: rotate(var(--sticker-rotate-hover, -10deg)) scale(1.05);
+	}
+
+	.sticker--centered:hover {
+		transform: translateX(-50%) rotate(var(--sticker-rotate-hover, -7deg)) scale(1.05);
+	}
 
 	.scrapbook-sticker--two-line {
 		white-space: normal;
@@ -368,6 +377,11 @@ const experiences = [
 		width: 100px;
 		height: 100px;
 		border-radius: 20px;
+		transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.tool-item:hover .tool-icon {
+		transform: scale(1.1) rotate(-3deg);
 	}
 
 	.tool-name {
@@ -407,11 +421,17 @@ const experiences = [
 		padding: 20px 32px;
 		background-color: #ffffff;
 		border: 1px solid #e8e8e8;
+		border-left: 3px solid transparent;
 		border-radius: 999px;
-		transition: box-shadow 150ms ease-out;
+		transition:
+			transform 200ms ease-out,
+			border-color 200ms ease-out,
+			box-shadow 200ms ease-out;
 	}
 
 	.experience-row:hover {
+		transform: translateX(8px);
+		border-left-color: #346ce4;
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 	}
 
@@ -483,6 +503,35 @@ const experiences = [
 
 .scrapbook-item {
     position: absolute;
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.scrapbook-item:hover {
+	z-index: 10;
+}
+
+.scrapbook-item:hover .scrapbook-image {
+	box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+}
+
+.scrapbook-item--1:hover {
+	transform: translateY(-8px) rotate(0deg);
+}
+
+.scrapbook-item--2:hover {
+	transform: translateY(-8px) rotate(0deg);
+}
+
+.scrapbook-item--3:hover {
+	transform: translateY(-8px) rotate(0deg);
+}
+
+.scrapbook-item--4:hover {
+	transform: translateY(-8px) rotate(0deg);
+}
+
+.scrapbook-item--5:hover {
+	transform: translateX(-50%) translateY(-8px) rotate(0deg);
 }
 
 .scrapbook-item .scrapbook-image {
@@ -491,6 +540,7 @@ const experiences = [
     border-radius: 16px;
     background-color: #eeeeee;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 200ms ease-out;
 }
 
 .scrapbook-item--1 {

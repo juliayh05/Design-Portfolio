@@ -46,7 +46,12 @@
         font-size: 16px;
         font-weight: 500;
         text-decoration: none;
-        transition: all 0.2s ease;
+        transition:
+            background-color 200ms ease-out,
+            color 200ms ease-out,
+            border-color 200ms ease-out,
+            box-shadow 200ms ease-out,
+            transform 200ms ease-out;
     }
 
     .footer-cta:hover {
@@ -54,6 +59,7 @@
         color: #346CE4;
         border-color: #346CE4;
         box-shadow: 0 0 20px rgba(52, 108, 228, 0.3);
+        transform: translateY(-2px);
     }
 
     .footer-credit {

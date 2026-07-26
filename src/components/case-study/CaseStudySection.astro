@@ -7,7 +7,7 @@ interface Props {
 const { id, title } = Astro.props;
 ---
 
-<section id={id} class="case-study-section" data-case-section>
+<section id={id} class="case-study-section fade-in-on-scroll" data-case-section>
 	<h2 class="section-heading">{title}</h2>
 	<div class="section-body">
 		<slot />
@@ -37,5 +37,29 @@ const { id, title } = Astro.props;
 		display: flex;
 		flex-direction: column;
 		gap: 24px;
+	}
+
+	.section-body :global(.subsection:nth-child(1)) {
+		--fade-delay: 0ms;
+	}
+
+	.section-body :global(.subsection:nth-child(2)) {
+		--fade-delay: 100ms;
+	}
+
+	.section-body :global(.subsection:nth-child(3)) {
+		--fade-delay: 200ms;
+	}
+
+	.section-body :global(.subsection:nth-child(4)) {
+		--fade-delay: 300ms;
+	}
+
+	.section-body :global(.subsection:nth-child(5)) {
+		--fade-delay: 400ms;
+	}
+
+	.section-body :global(.subsection:nth-child(6)) {
+		--fade-delay: 500ms;
 	}
 </style>
