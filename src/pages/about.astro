@@ -586,4 +586,123 @@ const experiences = [
     object-fit: contain;
     padding: 12px;
 }
+
+	@media (max-width: 768px) {
+		.about-main {
+			padding: 48px 20px 80px;
+		}
+
+		.about-section + .about-section {
+			margin-top: 64px;
+		}
+
+		.section-heading {
+			font-size: 36px;
+		}
+
+		.intro__inner {
+			flex-direction: column;
+			gap: 32px;
+		}
+
+		.intro-image {
+			width: 100%;
+			max-width: 320px;
+			height: auto;
+			aspect-ratio: 1;
+		}
+
+		.intro__headline {
+			font-size: 36px;
+		}
+
+		.body-text,
+		.subhead {
+			font-size: 16px;
+		}
+
+		.tool-icon,
+		img.tool-icon {
+			width: 72px;
+			height: 72px;
+			padding: 8px;
+		}
+
+		.marquee::before,
+		.marquee::after {
+			width: 40px;
+		}
+
+		.experience-row {
+			flex-wrap: wrap;
+			align-items: flex-start;
+			gap: 8px 12px;
+			padding: 16px 20px;
+		}
+
+		.experience-company {
+			flex: 1 1 100%;
+			font-size: 15px;
+		}
+
+		.experience-role {
+			flex: 1 1 100%;
+			font-size: 15px;
+		}
+
+		.experience-meta {
+			flex: 1 1 100%;
+			justify-content: flex-start;
+		}
+
+		.experience-date {
+			white-space: normal;
+			font-size: 13px;
+		}
+
+		.scrapbook__canvas {
+			display: flex;
+			flex-direction: column;
+			gap: 48px;
+			min-height: auto;
+			margin-top: 32px;
+		}
+
+		.scrapbook-item,
+		.scrapbook-item--1,
+		.scrapbook-item--2,
+		.scrapbook-item--3,
+		.scrapbook-item--4,
+		.scrapbook-item--5 {
+			position: relative;
+			top: auto;
+			left: auto;
+			right: auto;
+			width: 100%;
+			height: auto;
+			transform: none;
+		}
+
+		.scrapbook-item--5 {
+			transform: none;
+		}
+
+		.scrapbook-item .scrapbook-image {
+			aspect-ratio: 4 / 3;
+			height: auto;
+		}
+
+		.scrapbook-item--1:hover,
+		.scrapbook-item--2:hover,
+		.scrapbook-item--3:hover,
+		.scrapbook-item--4:hover,
+		.scrapbook-item--5:hover {
+			transform: translateY(-8px);
+		}
+
+		.sticker {
+			font-size: 12px;
+			padding: 6px 12px;
+		}
+	}
 </style>

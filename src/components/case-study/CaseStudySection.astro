@@ -62,4 +62,14 @@ const { id, title } = Astro.props;
 	.section-body :global(.subsection:nth-child(6)) {
 		--fade-delay: 500ms;
 	}
+
+	@media (max-width: 768px) {
+		.case-study-section + .case-study-section {
+			margin-top: 64px;
+		}
+
+		.section-heading {
+			font-size: 28px;
+		}
+	}
 </style>

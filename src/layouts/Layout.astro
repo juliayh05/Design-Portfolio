@@ -82,5 +82,12 @@ const { title = 'Julia Heo' } = Astro.props;
 		color: #000;
 		font-family: 'Inter', sans-serif;
 		min-height: 100vh;
+		overflow-x: hidden;
+	}
+
+	@media (max-width: 768px) {
+		body {
+			font-size: 16px;
+		}
 	}
 </style>

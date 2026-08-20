@@ -168,4 +168,36 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 		object-fit: contain;
 		transition: transform 200ms ease-out;
 	}
+
+	@media (max-width: 768px) {
+		.case-study-card {
+			flex-direction: column;
+			padding: 24px 20px;
+			gap: 24px;
+		}
+
+		.case-study-card__left,
+		.case-study-card__right {
+			flex: 1 1 auto;
+			width: 100%;
+		}
+
+		.case-study-card__right {
+			order: -1;
+			justify-content: center;
+		}
+
+		.case-study-card__preview {
+			max-height: 280px;
+			width: 100%;
+		}
+
+		.case-study-card__headline {
+			font-size: 22px;
+		}
+
+		.case-study-card__left {
+			gap: 16px;
+		}
+	}
 </style>

@@ -211,4 +211,39 @@ const project2Card = {
     width: 1000px;
     height: 100px;
 }
+
+@media (max-width: 768px) {
+	.play-bento {
+		grid-template-columns: 1fr;
+		max-width: 100%;
+		gap: 16px;
+	}
+
+	.play-item,
+	.play-item--2x2,
+	.play-item--1x1,
+	.play-item--1x2,
+	.play-item--2x1 {
+		grid-column: span 1;
+		grid-row: span 1;
+		min-height: 200px;
+	}
+
+	.coming-soon {
+		padding: 64px 20px;
+	}
+
+	.coming-soon-title {
+		font-size: 32px;
+	}
+
+	.coming-soon-emoji {
+		font-size: 40px;
+	}
+
+	.case-study-card[href="/work/lingotune"] .case-study-card__logo {
+		width: auto;
+		height: 24px;
+	}
+}
 </style>

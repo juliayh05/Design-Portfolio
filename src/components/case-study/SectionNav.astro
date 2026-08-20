@@ -112,4 +112,27 @@ const { sections } = Astro.props;
 		color: #d8d8d8;
 		user-select: none;
 	}
+
+	@media (max-width: 768px) {
+		.section-nav {
+			bottom: 16px;
+			left: 20px;
+			right: 20px;
+			transform: none;
+			width: auto;
+		}
+
+		.section-nav__pill {
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 6px;
+			padding: 10px 14px;
+			max-width: 100%;
+		}
+
+		.section-nav__tab,
+		.section-nav__divider {
+			font-size: 12px;
+		}
+	}
 </style>
