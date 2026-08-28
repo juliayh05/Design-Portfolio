@@ -1,81 +1,80 @@
 ---
-import Nav from '../components/Nav.astro';
-
-const footnotes = [
-	{
-		id: 'julia',
-		word: 'Julia Heo',
-		line1: 'Currently a senior at UC Berkeley studying',
-		line2: 'Cognitive Science, Education, & Design.',
-	},
-	{
-		id: 'designer',
-		word: 'product designer',
-		line1: '4 consumer startups, and counting.',
-		line2: 'Built for fast-paced environments.',
-	},
-	{
-		id: 'pixels',
-		word: 'pixels',
-		line1: 'Spacing, typography, motion, color, etc.',
-		line2: 'Small choices, big feel.',
-	},
-	{
-		id: 'patterns',
-		word: 'patterns',
-		line1: 'Design systems, reusable components, and',
-		line2: 'the logic that scales craft across a product.',
-	},
-	{
-		id: 'people',
-		word: 'people',
-		line1: 'I design with how people actually think,',
-		line2: 'feel, and get frustrated.',
-	},
+const highlights = [
+	{ text: 'product designer*', tooltip: '🧠 Senior @ UC Berkeley. I think in interfaces, systems, and how people learn. Love learning!' },
+	{ text: 'builds*', tooltip: "🚀 I don't just design in Figma, I build! Prototyping with code, using AI to move faster, and I even built this portfolio in Cursor!" },
+	{ text: 'pixels*', tooltip: '🔍 Obsessive about type, spacing, and motion. The details are the design.' },
+	{ text: 'patterns*', tooltip: '🧩 Strong product thinking. I zoom out to systems, zoom in to decisions, and can defend both.' },
+	{ text: 'problems*', tooltip: '🔥 Fast-moving environments are my favorite. I work through ambiguity by shipping, testing, and iterating' },
+	{ text: 'people*', tooltip: '🤝 Design is for someone specific. I care about the humans on both sides: users and the teams I build with.' },
 ];
 ---
 
-<div class="page">
-	<Nav sticky />
+<div class="page bg-[#FFFFFF] min-h-screen">
+	<section class="hero flex flex-col items-center pt-24 pb-16 px-8 text-center">
+		<div class="hero-headline hero-animate flex items-center justify-center">
+			<h1 class="font-serif text-[70px] leading-tight text-[#1a1a1a]">Hello! I'm Julia Heo</h1>
+			<img
+				src="/images/about/me.png"
+				alt="Julia Heo"
+				class="hero-headshot ml-4 h-16 w-16 rounded-full object-cover"
+			/>
+		</div>
 
-	<section class="hero">
-		<div class="hero-content">
-			<p class="hero-hint">psst! hover the blue for footnotes!</p>
-
-			<p class="headline" id="headline">
-				<span class="phrase" data-footnote-line1={footnotes[0].line1} data-footnote-line2={footnotes[0].line2}>
-					<span class="phrase-word">{footnotes[0].word}</span><span class="phrase-asterisk">*</span>
+		<div class="group/desc desc-block hero-animate mt-8 max-w-3xl">
+			<p class="desc-text font-sans text-[30px] leading-[1.8] text-[#1a1a1a]">
+				<span class="desc-plain">a </span>
+				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
+					{highlights[0].text}
+					<span class="highlight-tooltip" aria-hidden="true">{highlights[0].tooltip}</span>
 				</span>
-				<span class="text"> is a </span>
-				<span class="phrase" data-footnote-line1={footnotes[1].line1} data-footnote-line2={footnotes[1].line2}>
-					<span class="phrase-word">{footnotes[1].word}</span><span class="phrase-asterisk">*</span>
+				<span class="desc-plain"> based in SF </span>
+				<span class="desc-plain"> who </span>
+				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
+					{highlights[1].text}
+					<span class="highlight-tooltip" aria-hidden="true">{highlights[1].tooltip}</span>
 				</span>
-				<span class="text"> who's passionate about the </span>
-				<span class="phrase" data-footnote-line1={footnotes[2].line1} data-footnote-line2={footnotes[2].line2}>
-					<span class="phrase-word">{footnotes[2].word}</span><span class="phrase-asterisk">*</span>
+				
+				<span class="desc-plain"> and is passionate about </span>
+				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
+					{highlights[2].text}
+					<span class="highlight-tooltip" aria-hidden="true">{highlights[2].tooltip}</span>
 				</span>
-				<span class="text">, the </span>
-				<span class="phrase" data-footnote-line1={footnotes[3].line1} data-footnote-line2={footnotes[3].line2}>
-					<span class="phrase-word">{footnotes[3].word}</span><span class="phrase-asterisk">*</span>
+				<span class="desc-plain"> </span>
+				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
+					{highlights[3].text}
+					<span class="highlight-tooltip" aria-hidden="true">{highlights[3].tooltip}</span>
 				</span>
-				<span class="text">, and the </span>
-				<span class="phrase" data-footnote-line1={footnotes[4].line1} data-footnote-line2={footnotes[4].line2}>
-					<span class="phrase-word">{footnotes[4].word}</span><span class="phrase-asterisk">*</span>
+				<span class="desc-plain"> </span>
+				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
+					{highlights[4].text}
+					<span class="highlight-tooltip" aria-hidden="true">{highlights[4].tooltip}</span>
 				</span>
-				<span class="text"> they're built for.</span>
+				<span class="desc-plain"> and </span>
+				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
+					{highlights[5].text}
+					<span class="highlight-tooltip" aria-hidden="true">{highlights[5].tooltip}</span>
+				</span>
+				<span class="desc-plain"> they're designed for.</span>
 			</p>
-
-			<div class="footnote" id="footnote" aria-live="polite"></div>
 		</div>
 	</section>
 
 	<section class="below-hero">
-		<div class="tabs" role="tablist" aria-label="Portfolio sections">
-			<button type="button" class="tab tab--active" data-tab="work" role="tab" aria-selected="true">Work</button>
-			<button type="button" class="tab" data-tab="projects" role="tab" aria-selected="false">Projects</button>
-			<button type="button" class="tab" data-tab="play" role="tab" aria-selected="false">Play</button>
-		</div>
-
+		<div class="mini-nav-row flex items-center justify-between mb-4">
+    <div
+        class="tabs mini-nav flex justify-start gap-1"
+        role="tablist"
+        aria-label="Portfolio sections"
+    >
+        <button type="button" class="tab tab--active" data-tab="work" role="tab" aria-selected="true">📁 Selected Work</button>
+        <button type="button" class="tab" data-tab="projects" role="tab" aria-selected="false">✨ Personal Projects</button>
+        <button type="button" class="tab" data-tab="play" role="tab" aria-selected="false">🍪 Fun</button>
+    </div>
+    <div class="status-indicator">
+    <span class="status-dot"></span>
+    <span class="status-text">Currently designing NoTestudo @ <a href="https://narb.cc/" target="_blank" rel="noopener noreferrer" class="status-link-text">narb</a></span>
+</div>
+</div>
 		<div class="tab-panels">
 			<div class="tab-panel" data-tab-panel="work">
 				<div class="cards">
@@ -92,36 +91,6 @@ const footnotes = [
 	</section>
 </div>
 
-<script>
-	const headline = document.getElementById('headline');
-	const footnote = document.getElementById('footnote');
-
-	if (headline && footnote) {
-		const phrases = headline.querySelectorAll('.phrase');
-
-		phrases.forEach((phrase) => {
-			phrase.addEventListener('mouseenter', () => {
-				phrases.forEach((p) => p.classList.remove('is-active'));
-				phrase.classList.add('is-active');
-				headline.classList.add('is-hovering');
-				const line1 = phrase.dataset.footnoteLine1 ?? '';
-				const line2 = phrase.dataset.footnoteLine2 ?? '';
-				footnote.innerHTML = `${line1}<br />${line2}`;
-			});
-
-			phrase.addEventListener('mouseleave', (e) => {
-				const related = e.relatedTarget;
-				if (related instanceof Element && related.closest('.phrase')) {
-					return;
-				}
-				headline.classList.remove('is-hovering');
-				phrase.classList.remove('is-active');
-				footnote.innerHTML = '';
-			});
-		});
-	}
-</script>
-
 <style>
 	@keyframes hero-load-in {
 		from {
@@ -134,153 +103,142 @@ const footnotes = [
 		}
 	}
 
-	.page {
-    min-height: 100vh;
-}
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 11vh;
-    padding: 0 64px;
-}
-
-	.hero-content {
-		width: 100%;
-		max-width: 900px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+	.hero-animate {
+		animation: hero-load-in 800ms ease-out both;
 	}
 
-	.hero-hint {
-		margin: 0 0 4px;
-		font-family: 'Inter', sans-serif;
-		font-size: 18px;
-		color: #a8a8a8;
-		text-align: center;
-		animation: hero-load-in 800ms ease-out both;
+	.hero-headline {
 		animation-delay: 0ms;
 	}
 
-	.headline {
-		margin: 0;
-		width: 100%;
-		max-width: 900px;
-		font-family: 'Instrument Serif', serif;
-		font-size: 60px;
-		font-style: normal;
+	.desc-block {
+		animation-delay: 100ms;
+	}
+
+	.mini-nav {
+		animation-delay: 300ms;
+		scroll-margin-top: 80px;
+	}
+
+	
+
+	.highlight-tooltip {
+		position: absolute;
+		left: 50%;
+		top: calc(100% + 8px);
+		z-index: 20;
+		width: 240px;
+		transform: translateX(-50%);
+		border-radius: 8px;
+		background-color: #ffffff;
+		padding: 12px;
+		font-family: 'Work Sans', system-ui, sans-serif;
+		font-size: 14px;
 		font-weight: 400;
-		line-height: 1.3;
-		text-align: center;
-		animation: hero-load-in 800ms ease-out both;
-		animation-delay: 200ms;
-	}
-
-	.headline .text {
-		color: #000;
-		transition: color 150ms ease-out;
-	}
-
-	.headline .phrase {
-		color: #346ce4;
-		cursor: default;
-		transition: color 150ms ease-out;
-	}
-
-	.headline .phrase-word {
-		text-decoration: underline;
-		text-decoration-thickness: 1px;
-		text-underline-offset: 4px;
-		transition: text-decoration-color 150ms ease-out;
-	}
-
-	.headline.is-hovering .text,
-	.headline.is-hovering .phrase:not(.is-active) {
-		color: #aeaeae;
-	}
-
-	.headline.is-hovering .phrase:not(.is-active) .phrase-word {
-		text-decoration-color: transparent;
-	}
-
-	.headline .phrase.is-active {
-		color: #346ce4;
-	}
-
-	.headline .phrase.is-active .phrase-word {
-		text-decoration-color: #346ce4;
-	}
-
-	.footnote {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		max-width: 900px;
-		min-height: 80px;
-		margin-top: 2px;
-		font-family: 'Inter', sans-serif;
-		font-size: 20px;
 		line-height: 1.4;
-		text-align: center;
-		text-wrap: balance;
-		color: #346ce4;
+		color: #1a1a1a;
+		text-align: left;
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transition: opacity 200ms ease, visibility 200ms ease;
 	}
 
-	.below-hero {
-		margin-top: 80px;
+	.highlight:hover .highlight-tooltip {
+		opacity: 1;
+		visibility: visible;
 	}
 
-	.tabs {
-		display: flex;
-		justify-content: center;
-		gap: 40px;
-		scroll-margin-top: 60px;
-		animation: hero-load-in 800ms ease-out both;
-		animation-delay: 500ms;
+	.desc-block:has(.highlight:hover) .desc-plain {
+		color: #b0b0b0;
+		transition: color 200ms ease;
+	}
+
+	.desc-block:has(.highlight:hover) .highlight:not(:hover) {
+		background-color: transparent;
+		color: #b0b0b0;
+		transition:
+			color 200ms ease,
+			background-color 200ms ease;
 	}
 
 	.tab {
 		border: none;
 		background: none;
-		padding: 0;
-		font-family: 'Inter', sans-serif;
-		font-size: 20px;
+		padding: 6px 16px;
+		border-radius: 9999px;
+		font-family: 'Work Sans', system-ui, sans-serif;
+		font-size: 16px;
 		font-weight: 400;
-		color: #a8a8a8;
+		color: #868686;
 		cursor: pointer;
-		text-decoration: none;
-		transition: color 150ms ease-out;
+		transition: all 200ms ease;
+	}
+
+	.tab::after {
+		display: none;
 	}
 
 	.tab:hover:not(.tab--active) {
-		color: #346ce4;
+		background-color: rgba(255, 255, 255, 0.5);
+		color: #1a1a1a;
 	}
 
 	.tab--active {
-		color: #346ce4;
-		text-decoration: underline;
-		text-underline-offset: 8px;
-		text-decoration-thickness: 2px;
+		background-color: #EDEDED;
+		color: #868686;
+	}
+
+	.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+	padding-left: 8px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #868686;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #22C55E;
+    animation: pulse 2.0s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    }
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+}
+
+	.below-hero {
+		margin-top: 48px;
+		padding: 0 0 80px;
 	}
 
 	.tab-panels {
-		margin-top: 40px;
+		margin-top: 0;
 	}
 
 	.cards {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 40px;
-	}
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+}
 
 	@media (prefers-reduced-motion: reduce) {
-		.hero-hint,
-		.headline,
-		.tabs {
+		.hero-animate {
 			animation: none;
 			opacity: 1;
 			transform: none;
@@ -289,43 +247,50 @@ const footnotes = [
 
 	@media (max-width: 768px) {
 		.hero {
-			margin-top: 8vh;
-			padding: 0 20px;
+			min-height: auto;
+			padding: 48px 20px 32px;
 		}
 
-		.below-hero {
-			margin-top: 48px;
-			padding: 0 20px;
+		.hero-headline {
+			flex-direction: column;
+			gap: 16px;
 		}
 
-		.headline {
-			font-size: 36px;
+		.hero-headline h1 {
+			font-size: 40px;
 		}
 
-		.hero-hint {
-			font-size: 16px;
+		.hero-headshot {
+			margin-left: 0;
 		}
 
-		.footnote {
-			font-size: 18px;
-			min-height: 64px;
-		}
-
-		.tabs {
-			gap: 24px;
-			scroll-margin-top: 48px;
+		.desc-text {
+			font-size: 22px;
 		}
 
 		.tab {
 			font-size: 16px;
+			padding: 8px 16px;
 		}
 
-		.tab-panels {
-			margin-top: 32px;
-		}
+		.below-hero {
+    margin-top: 48px;
+    padding: 0 0 80px;
+	}
 
 		.cards {
 			gap: 24px;
 		}
 	}
+
+	.status-link-text {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 200ms ease;
+}
+
+.status-link-text:hover {
+    color: #4483F0;
+}
 </style>

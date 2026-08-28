@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
 
 const tools = [
 	'Figma',
@@ -60,8 +59,6 @@ const experiences = [
 
 <Layout title="About — Julia Heo">
 	<div class="about-page">
-		<Nav sticky />
-
 		<main class="about-main">
 			<section class="about-section intro fade-in-on-scroll">
 				<div class="intro__inner">
@@ -190,7 +187,7 @@ const experiences = [
 	}
 
 	.about-main {
-		padding: 80px 64px 120px;
+		padding: 80px 0px 120px;
 	}
 
 	.about-section + .about-section {
@@ -203,7 +200,7 @@ const experiences = [
 
 	.subhead {
 		margin: 0 0 20px;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 1.4;
@@ -211,7 +208,7 @@ const experiences = [
 	}
 
 	.subhead--blue {
-    color: #346ce4;
+    color: #4483F0;
 }
 
 	.subhead--center {
@@ -230,13 +227,13 @@ const experiences = [
 	}
 
 	.section-heading--blue {
-		color: #346ce4;
+		color: #4483F0;
 		text-align: center;
 	}
 
 	.body-text {
 		margin: 0;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 1.6;
@@ -248,10 +245,10 @@ const experiences = [
     z-index: 2;
     padding: 8px 16px;
     border-radius: 999px;
-    background-color: #346ce4;
+    background-color: #4483F0;
     border: 3px solid #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.3;
@@ -307,12 +304,12 @@ const experiences = [
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.1;
-		color: #346ce4;
+		color: #4483F0;
 	}
 
 	.intro__name {
 		font-style: italic;
-		color: #346ce4;
+		color: #4483F0;
 	}
 
 	/* Section 2: ToolBox */
@@ -341,12 +338,12 @@ const experiences = [
 
 	.marquee::before {
 		left: 0;
-		background: linear-gradient(to right, #fafafa, transparent);
+		background: linear-gradient(to right, #FFFFFF, transparent);
 	}
 
 	.marquee::after {
 		right: 0;
-		background: linear-gradient(to left, #fafafa, transparent);
+		background: linear-gradient(to left, #FFFFFF, transparent);
 	}
 
 	.marquee__track {
@@ -385,7 +382,7 @@ const experiences = [
 	}
 
 	.tool-name {
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 14px;
 		font-weight: 400;
 		color: #000;
@@ -431,7 +428,7 @@ const experiences = [
 
 	.experience-company {
 		flex: 0 0 140px;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 16px;
 		font-weight: 500;
 		color: #000;
@@ -440,10 +437,10 @@ const experiences = [
 	.experience-role {
 		flex: 1;
 		min-width: 0;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 16px;
 		font-weight: 400;
-		color: #346ce4;
+		color: #4483F0;
 		text-decoration: none;
 	}
 
@@ -459,7 +456,7 @@ const experiences = [
 	}
 
 	.experience-date {
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 14px;
 		font-weight: 400;
 		color: #a8a8a8;
@@ -588,9 +585,9 @@ const experiences = [
 }
 
 	@media (max-width: 768px) {
-		.about-main {
-			padding: 48px 20px 80px;
-		}
+    .about-main {
+        padding: 48px 0 80px;
+    }
 
 		.about-section + .about-section {
 			margin-top: 64px;

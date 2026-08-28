@@ -1,14 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Nav from '../../components/Nav.astro';
 import CaseStudyCard from '../../components/CaseStudyCard.astro';
 
 const lingotuneCard = {
 	href: '/work/lingotune',
 	logoSrc: '/images/lingotune/logo.png',
 	companyName: 'Lingotune',
-	headline: 'Redesigning a song lesson navigation system',
-	tags: ['EdTech', 'Startup', 'Mobile', 'User Research', 'Product Design'],
+	headline: 'Redesigning song lesson navigation to reduce dropoff',
+	tags: ['Product Design', 'Mobile', 'EdTech'],
 	ctaLabel: 'View Lingotune Case Study',
 	previewSrc: '/images/lingotune/preview.png',
 };
@@ -17,8 +16,8 @@ const buildIrlCard = {
 	href: '/work/build-irl',
 	logoSrc: '/images/build-irl/logo.png',
 	companyName: 'Build IRL',
-	headline: 'Designing the community platform for real-world clubs',
-	tags: ['Community', 'Startup', 'Mobile', 'User Research', 'UX Design'],
+	headline: 'Designing a 0→1 platform for building and running club communities',
+	tags: ['Product/UX Design', 'Web/Mobile', 'Social'],
 	ctaLabel: 'View Build IRL Case Study',
 	previewSrc: '/images/build-irl/preview.png',
 };
@@ -26,13 +25,16 @@ const buildIrlCard = {
 
 <Layout title="Work — Julia Heo">
 	<div class="work-page">
-		<Nav sticky />
+		<header class="work-page__header">
+			<h1 class="work-page__heading work-animate work-animate--heading">Work</h1>
+			<p class="work-page__subtitle work-animate work-animate--subtitle">A collection of my design work across internships</p>
+		</header>
 
-		<div class="work-page__content">
-			<h1 class="work-page__heading">Work</h1>
-
-			<div class="work-page__cards">
+		<div class="work-page__cards">
+			<div class="fade-in-on-scroll" style="--fade-delay: 0ms">
 				<CaseStudyCard {...lingotuneCard} />
+			</div>
+			<div class="fade-in-on-scroll" style="--fade-delay: 100ms">
 				<CaseStudyCard {...buildIrlCard} />
 			</div>
 		</div>
@@ -40,25 +42,61 @@ const buildIrlCard = {
 </Layout>
 
 <style>
-	.work-page {
-		min-height: 100vh;
-		background-color: #fafafa;
+	@keyframes work-load-in {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
-	.work-page__content {
-		max-width: 900px;
-		margin: 0 auto;
-		padding: 48px 64px 120px;
+	.work-animate {
+		animation: work-load-in 800ms ease-out both;
+	}
+
+	.work-animate--heading {
+		animation-delay: 0ms;
+	}
+
+	.work-animate--subtitle {
+		animation-delay: 100ms;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.work-animate {
+			animation: none;
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	.work-page {
+		padding: 80px 0 120px;
+	}
+
+	.work-page__header {
+		margin-bottom: 48px;
 	}
 
 	.work-page__heading {
-		margin: 0 0 48px;
+		margin: 0 0 12px;
 		font-family: 'Instrument Serif', serif;
-		font-size: 48px;
-		font-style: normal;
+		font-size: 56px;
 		font-weight: 400;
-		line-height: 1.2;
-		color: #000;
+		line-height: 1.1;
+		color: #1a1a1a;
+		text-align: center;
+	}
+
+	.work-page__subtitle {
+		margin: 0;
+		font-family: 'Work Sans', sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		color: #868686;
 		text-align: center;
 	}
 
@@ -69,13 +107,20 @@ const buildIrlCard = {
 	}
 
 	@media (max-width: 768px) {
-		.work-page__content {
-			padding: 32px 20px 80px;
+		.work-page {
+			padding: 48px 0 80px;
+		}
+
+		.work-page__header {
+			margin-bottom: 32px;
 		}
 
 		.work-page__heading {
-			font-size: 36px;
-			margin-bottom: 32px;
+			font-size: 40px;
+		}
+
+		.work-page__subtitle {
+			font-size: 16px;
 		}
 
 		.work-page__cards {

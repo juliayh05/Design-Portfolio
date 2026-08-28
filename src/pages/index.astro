@@ -7,8 +7,8 @@ const lingotuneCard = {
 	href: '/work/lingotune',
 	logoSrc: '/images/lingotune/logo.png',
 	companyName: 'Lingotune',
-	headline: 'Redesigning a song lesson navigation system',
-	tags: ['EdTech', 'Startup', 'Mobile', 'User Research', 'Product Design'],
+	headline: 'Redesigning song lesson navigation to reduce dropoff',
+	tags: ['Product Design', 'Mobile', 'EdTech'],
 	ctaLabel: 'View Lingotune Case Study',
 	previewSrc: '/images/lingotune/preview.png',
 };
@@ -17,8 +17,8 @@ const buildIrlCard = {
 	href: '/work/build-irl',
 	logoSrc: '/images/build-irl/logo.png',
 	companyName: 'Build IRL',
-	headline: 'Designing the community platform for real-world clubs',
-	tags: ['Community', 'Startup', 'Mobile', 'User Research', 'UX Design'],
+	headline: 'Designing a 0→1 platform for building and running club communities',
+	tags: ['Product/UX Design', 'Web/Mobile', 'Social'],
 	ctaLabel: 'View Build IRL Case Study',
 	previewSrc: '/images/build-irl/preview.png',
 };
@@ -93,7 +93,8 @@ const project2Card = {
 
 		requestAnimationFrame(() => {
 			const visiblePanel = document.querySelector<HTMLElement>(`[data-tab-panel="${target}"]:not([hidden])`);
-			window.refreshFadeInOnScroll?.(visiblePanel ?? document);
+			if (!visiblePanel) return;
+			window.refreshFadeInOnScroll?.(visiblePanel, { replay: true });
 		});
 	};
 
@@ -139,7 +140,7 @@ const project2Card = {
 		min-height: 120px;
 		background-color: #eeeeee;
 		border-radius: 24px;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 16px;
 		font-weight: 400;
 		color: #000;
@@ -187,12 +188,12 @@ const project2Card = {
     font-family: 'Instrument Serif', serif;
     font-size: 40px;
     font-weight: 400;
-    color: #346ce4;
+    color: #4483F0;
     margin: 0 0 12px;
 }
 
 .coming-soon-text {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 18px;
     color: #a8a8a8;
     line-height: 1.5;
@@ -207,9 +208,10 @@ const project2Card = {
     display: block;
 }
 
-.case-study-card[href="/work/lingotune"] .case-study-card__logo {
-    width: 1000px;
-    height: 100px;
+.case-study-card[href="/work/lingotune"] :global(.case-study-card__logo) {
+    width: 120px !important;
+    height: auto !important;
+    max-height: none !important;
 }
 
 @media (max-width: 768px) {
@@ -241,9 +243,10 @@ const project2Card = {
 		font-size: 40px;
 	}
 
-	.case-study-card[href="/work/lingotune"] .case-study-card__logo {
-		width: auto;
-		height: 24px;
-	}
+	.case-study-card[href="/work/lingotune"] :global(.case-study-card__logo) {
+    width: 80px !important;
+    height: auto !important;
+    max-height: none !important;
+}
 }
 </style>

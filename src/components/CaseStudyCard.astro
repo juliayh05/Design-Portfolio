@@ -1,21 +1,22 @@
 ---
 interface Props {
-	href: string;
-	logoSrc: string;
-	companyName: string;
-	headline: string;
-	tags: string[];
-	ctaLabel: string;
-	previewSrc: string;
+    href: string;
+    logoSrc: string;
+    companyName: string;
+    headline: string;
+    tags: string[];
+    ctaLabel: string;
+    previewSrc: string;
+    logoSize?: number;
 }
 
-const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Astro.props;
+const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc, logoSize = 24 } = Astro.props;
 ---
 
 <a href={href} class="case-study-card fade-in-on-scroll">
 	<div class="case-study-card__left">
 		<div class="case-study-card__company">
-			<img src={logoSrc} alt="" class="case-study-card__logo" width="24" height="24" />
+			<img src={logoSrc} alt="" class="case-study-card__logo" width={logoSize} height={logoSize} />
 		</div>
 		<h3 class="case-study-card__headline">{headline}</h3>
 		<div class="case-study-card__tags">
@@ -39,10 +40,11 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
     align-items: center;
     gap: 32px;
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 48px 86px;
+    max-width: 100%;
+	margin: 0 auto;
+	padding: 48px 64px;
     background-color: #fff;
+	border: 1px solid #EDEDED;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     border-radius: 24px;
     text-decoration: none;
@@ -63,10 +65,10 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 	}
 
 	.case-study-card:hover .case-study-card__cta {
-    background-color: #ffffff;
-    color: #346ce4;
-    border-color: #346ce4;
-    box-shadow: 0 0 20px rgba(52, 108, 228, 0.3);
+    background-color: #4483F0;
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 0 20px rgba(68, 131, 240, 0.3);
     transform: translateY(-2px);
 }
 
@@ -75,7 +77,7 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 		flex: 0 0 55%;
 		flex-direction: column;
 		justify-content: center;
-		gap: 24px;
+		gap: 16px;
 		min-width: 0;
 	}
 
@@ -86,13 +88,13 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 	}
 
 	.case-study-card__logo {
-		height: 24px;
-		width: auto;
-		object-fit: contain;
+    	height: 40px;
+    	width: auto;
+    	object-fit: contain;
 	}
 
 	.case-study-card__company-name {
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 20px;
 		font-weight: 400;
 		color: #000;
@@ -100,7 +102,7 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 
 	.case-study-card__headline {
 		margin: 0;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 28px;
 		font-weight: 600;
 		line-height: 1.2;
@@ -118,27 +120,28 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 	}
 
 	.case-study-card__tag {
-		padding: 8px 16px;
-		border: 1px solid #e0e0e0;
-		border-radius: 9999px;
-		font-family: 'Inter', sans-serif;
-		font-size: 14px;
-		font-weight: 400;
-		color: #a8a8a8;
-	}
+    padding: 8px 16px;
+    background-color: #F5F5F5;
+    border-radius: 9999px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4A4A4A;
+}
 
 	.case-study-card__cta {
 		display: inline-flex;
 		align-items: center;
 		gap: 8px;
 		align-self: flex-start;
+		margin-top: 24px;
 		padding: 8px 18px;
-		background-color: #346ce4;
+		background-color: #E4F0FF;
 		border-radius: 9999px;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 16px;
-		font-weight: 400;
-		color: #fff;
+		font-weight: 500;
+		color: #4483F0;
 		border: 2px solid transparent;
 		transition:
 			background-color 200ms ease-out,
@@ -162,7 +165,7 @@ const { href, logoSrc, companyName, headline, tags, ctaLabel, previewSrc } = Ast
 	}
 
 	.case-study-card__preview {
-		max-height: 420px;
+		max-height: 320px;
 		width: auto;
 		height: auto;
 		object-fit: contain;

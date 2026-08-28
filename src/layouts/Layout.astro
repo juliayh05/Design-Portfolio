@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import HomeNav from '../components/HomeNav.astro';
 
 interface Props {
 	title?: string;
@@ -18,13 +19,16 @@ const { title = 'Julia Heo' } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Work+Sans:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<HomeNav />
+		<div class="mx-auto w-full max-w-[1152px] px-6">
+			<slot />
+		</div>
 		<Footer />
 	</body>
 </html>
@@ -55,15 +59,21 @@ const { title = 'Julia Heo' } = Astro.props;
 		});
 	};
 
-	const refreshFadeInOnScroll = (root = document) => {
-		root.querySelectorAll('.fade-in-on-scroll:not(.is-visible)').forEach((el) => {
+	const refreshFadeInOnScroll = (root = document, { replay = false } = {}) => {
+		root.querySelectorAll('.fade-in-on-scroll').forEach((el) => {
 			if (el.closest('[hidden]')) return;
 			const rect = el.getBoundingClientRect();
 			if (rect.height === 0) return;
 			const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
-			if (visibleHeight / rect.height >= 0.15) {
-				el.classList.add('is-visible');
+			const isInView = visibleHeight / rect.height >= 0.15;
+
+			if (!isInView) return;
+
+			if (replay) {
+				el.classList.remove('is-visible');
+				void el.offsetHeight;
 			}
+			el.classList.add('is-visible');
 		});
 	};
 
@@ -78,9 +88,9 @@ const { title = 'Julia Heo' } = Astro.props;
 
 	body {
 		margin: 0;
-		background-color: #ffffff;
-		color: #000;
-		font-family: 'Inter', sans-serif;
+		background-color: #FFFFFF;
+		color: #1a1a1a;
+		font-family: 'Work Sans', system-ui, sans-serif;
 		min-height: 100vh;
 		overflow-x: hidden;
 	}

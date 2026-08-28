@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Nav from '../../components/Nav.astro';
 import CaseStudyHero from '../../components/case-study/CaseStudyHero.astro';
 import SectionNav from '../../components/case-study/SectionNav.astro';
 import CaseStudySection from '../../components/case-study/CaseStudySection.astro';
@@ -17,8 +16,6 @@ const sections = [
 
 <Layout title="Lingotune — Julia Heo">
 	<div class="case-study">
-		<Nav sticky />
-
 		<div class="case-study__content">
 			<CaseStudyHero
 				breadcrumbLabel="Lingotune"
@@ -156,7 +153,7 @@ const sections = [
 
 	.section-intro {
 		margin: 0;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 1.6;
@@ -201,7 +198,7 @@ const sections = [
 
 	.end-cta__text {
 		margin: 0;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Work Sans', sans-serif;
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 1.5;
