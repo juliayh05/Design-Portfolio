@@ -34,7 +34,7 @@ const isActive = (key: string) => {
 				alt="Julia Heo"
 				class="h-8 w-8 rounded-full object-cover"
 			/>
-			<span class="font-sans text-lg font-normal text-[#1a1a1a]">Julia</span>
+			<span class="font-sans text-base font-normal text-[#1a1a1a]">Julia</span>
 		</a>
 
 		<!-- CENTER: nav pill group -->
@@ -44,7 +44,7 @@ const isActive = (key: string) => {
 					<a
 						href={item.href}
 						class:list={[
-							'rounded-full px-5 py-2 font-sans text-lg font-normal no-underline transition-all duration-200',
+							'rounded-full px-5 py-2 font-sans text-base font-normal no-underline transition-all duration-200',
 							isActive(item.key)
 								? 'text-[#4483F0] font-medium'
 								: 'text-[#1a1a1a] hover:text-[#4483F0] hover:-translate-y-0.5',
