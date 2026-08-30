@@ -1,7 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import CaseStudyHero from '../../components/case-study/CaseStudyHero.astro';
-import SectionNav from '../../components/case-study/SectionNav.astro';
+import CaseStudyLayout from '../../components/CaseStudyLayout.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
 import CaseStudySection from '../../components/case-study/CaseStudySection.astro';
 import CaseStudySubsection from '../../components/case-study/CaseStudySubsection.astro';
 
@@ -14,21 +13,15 @@ const sections = [
 ];
 ---
 
-<Layout title="Build IRL — Julia Heo">
-	<div class="case-study">
-		<div class="case-study__content">
+<CaseStudyLayout title="Build IRL — Julia Heo" sections={sections}>
+			<!-- TODO: add role, timeframe, and tightened description -->
 			<CaseStudyHero
-				breadcrumbLabel="Build IRL"
-				breadcrumbHref="/work"
-				headline="Designing a community platform for real-world clubs"
-				subhead="A platform for starting, running, and joining clubs in real life — designed to reduce burnout for builders and give joiners a real read on club culture."
-				tags={['UX/Product Design Intern', 'Jan - May 2025', 'Mobile/Web', '0 → 1', 'UI/UX']}
-			>
-				<div class="hero-videos">
-					<video src="/images/build-irl/video-1.mp4" autoplay loop muted playsinline class="hero-video-half"></video>
-					<video src="/images/build-irl/video-2.mp4" autoplay loop muted playsinline class="hero-video-half"></video>
-				</div>
-			</CaseStudyHero>
+				logo="/images/build-irl/logo.png"
+				logoAlt="Build IRL"
+				headline="Designing a 0→1 platform for building and running club communities"
+				tags={['Product/UX Design', 'Web/Mobile', 'Social']}
+				description="A platform for starting, running, and joining clubs in real life — designed to reduce burnout for builders and give joiners a real read on club culture."
+			/>
 
 			<CaseStudySection id="overview" title="Overview">
 				<CaseStudySubsection title="Context: What is Build IRL?">
@@ -164,50 +157,9 @@ const sections = [
 					I'd love to walk you through the process, the pivots, and the parts that didn't make it into this write-up.
 				</p>
 			</div>
-		</div>
-
-		<SectionNav sections={sections} />
-	</div>
-</Layout>
+</CaseStudyLayout>
 
 <style>
-	.case-study {
-		min-height: 100vh;
-		padding-bottom: 120px;
-		background-color: #ffffff;
-	}
-
-	.case-study__content {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 48px 64px 0;
-	}
-
-	.section-intro {
-		margin: 0;
-		font-family: 'Work Sans', sans-serif;
-		font-size: 18px;
-		font-weight: 400;
-		line-height: 1.6;
-		color: #000;
-	}
-
-	.placeholder-image {
-		display: block;
-		width: 100%;
-		max-width: 600px;
-		margin: 24px auto 48px;
-		border-radius: 20px;
-		aspect-ratio: 16 / 9;
-		background-color: #f0f0f0;
-	}
-
-	.problem-mockup {
-		display: block;
-		max-width: 240px;
-		margin: 40px auto;
-	}
-
 	.stats-block {
 		display: flex;
 		flex-direction: row;
@@ -266,31 +218,7 @@ const sections = [
 		color: #a8a8a8;
 	}
 
-	.end-cta {
-		margin-top: 120px;
-		text-align: center;
-	}
-
-	.end-cta__heading {
-		margin: 0 0 16px;
-		font-family: 'Instrument Serif', serif;
-		font-size: 32px;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 1.2;
-		color: #000;
-	}
-
-	.end-cta__text {
-		margin: 0;
-		font-family: 'Work Sans', sans-serif;
-		font-size: 18px;
-		font-weight: 400;
-		line-height: 1.5;
-		color: #000;
-	}
-
-	.case-study__content :global(.subsection-body p + p) {
+	:global(.subsection-body p + p) {
 		margin-top: 1.5em;
 	}
 
@@ -338,18 +266,6 @@ const sections = [
 }
 
 	@media (max-width: 768px) {
-		.case-study {
-			padding-bottom: 80px;
-		}
-
-		.case-study__content {
-			padding: 32px 20px 0;
-		}
-
-		.placeholder-image {
-			max-width: 100%;
-		}
-
 		.stats-block {
 			flex-direction: column;
 			gap: 24px;
@@ -400,18 +316,6 @@ const sections = [
 
 		.research-image {
 			max-width: 100%;
-		}
-
-		.end-cta {
-			margin-top: 64px;
-		}
-
-		.end-cta__heading {
-			font-size: 28px;
-		}
-
-		.end-cta__text {
-			font-size: 16px;
 		}
 	}
 </style>

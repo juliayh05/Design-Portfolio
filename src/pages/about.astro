@@ -26,18 +26,12 @@ const experiences = [
 		status: 'Current',
 		href: '#',
 	},
-	{
-		company: 'Hsu Legacy Foundation',
-		role: 'Creative Product Intern',
-		date: 'June 2026 – Present',
-		status: 'Current',
-		href: '#',
-	},
+	
 	{
 		company: 'narb',
-		role: 'Lead Product Design Intern',
+		role: 'Product Designer',
 		date: 'May 2025 – May 2026',
-		status: 'Past',
+		status: 'Current',
 		href: '#',
 	},
 	{
@@ -63,25 +57,26 @@ const experiences = [
 			<section class="about-section intro fade-in-on-scroll">
 				<div class="intro__inner">
 					<div class="intro__image-wrap">
-						<img src="/images/about/me.png" alt="Julia" class="intro-image" />
+						<img src="/images/about/profilephoto.png" alt="Julia" class="intro-image" />
 					</div>
 					<div class="intro__text">
     <h1 class="intro__headline">
-        Hi! I'm <span class="intro__name">Julia Heo</span>
+        Nice to meet you, I'm Julia! 
     </h1>
-	<p class="subhead subhead--blue" style="margin: -12px 0 32px;">(product designer 🎨 and elementary education enthusiast 👩🏻‍🏫)</p>
+	<p class="subhead subhead--blue" style="margin: -12px 0 32px;">A product designer who learns by making and doing ✿</p>
     <p class="body-text">
-        I'm a senior @ UC Berkeley (Go Bears!) studying Cognitive Science, Education, and Design. I'm
-        passionate about designing products that feel effortless.
-        With experience across multiple fast-paced startups, I love taking on new challenges, learning new things, and find joy
-        in creating intuitive, human-centered experiences. Besides design, I'm passionate about elementary education and love working with kids!
+        I’m a senior @ UC Berkeley 🐻 studying Cognitive Science, Education, and Design. I’ve always learned best by making: designing the screen, building the prototype, and testing the unique idea. 
+
+That curiosity has taken me through startups, classrooms, countless Figma files, and lately, into code! I love taking on unfamiliar problems and turning them into intuitive, thoughtful experiences.
+
+Outside of design, I’m especially passionate about early childhood development and elementary education.
     </p>
 </div>
 				</div>
 			</section>
 
 			<section class="about-section toolbox fade-in-on-scroll">
-				<h2 class="section-heading section-heading--blue">My ToolBox</h2>
+				<h2 class="section-heading section-heading--blue">Currently in My ToolBox</h2>
 				<p class="subhead subhead--center">I love learning new softwares and tools! What should I try next? </p>
 
 				<div class="marquee">
@@ -208,7 +203,7 @@ const experiences = [
 	}
 
 	.subhead--blue {
-    color: #4483F0;
+    color: #1a1a1a;
 }
 
 	.subhead--center {
@@ -219,7 +214,7 @@ const experiences = [
 	.section-heading {
 		margin: 0 0 20px;
 		font-family: 'Instrument Serif', serif;
-		font-size: 60px;
+		font-size: 42px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.1;
@@ -227,7 +222,7 @@ const experiences = [
 	}
 
 	.section-heading--blue {
-		color: #4483F0;
+		color: #1a1a1a;
 		text-align: center;
 	}
 
@@ -272,26 +267,26 @@ const experiences = [
 
 	/* Section 1: Intro */
 	.intro__inner {
-		display: flex;
-		align-items: center;
-		gap: 64px;
-		max-width: 1000px;
-		margin: 0 auto;
-	}
+    display: flex;
+    align-items: flex-start; /* change this */
+    gap: 64px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
 	.intro__image-wrap {
-		position: relative;
-		flex-shrink: 0;
-	}
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 6px;
+}
 
 	.intro-image {
     width: 400px;
     height: 390px;
-    border-radius: 24px;
+    border-radius: 16px;
     object-fit: cover;
     display: block;
 }
-
 	.intro__text {
 		flex: 1;
 		min-width: 0;
@@ -300,11 +295,11 @@ const experiences = [
 	.intro__headline {
 		margin: 0 0 24px;
 		font-family: 'Instrument Serif', serif;
-		font-size: 60px;
+		font-size: 56px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.1;
-		color: #4483F0;
+		color:#1a1a1a;
 	}
 
 	.intro__name {
@@ -439,8 +434,8 @@ const experiences = [
 		min-width: 0;
 		font-family: 'Work Sans', sans-serif;
 		font-size: 16px;
-		font-weight: 400;
-		color: #4483F0;
+		font-weight: 500;
+		color: #1a1a1a;
 		text-decoration: none;
 	}
 
