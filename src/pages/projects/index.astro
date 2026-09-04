@@ -4,23 +4,14 @@ import CaseStudyCard from '../../components/CaseStudyCard.astro';
 
 const netflixCard = {
 	href: '/projects/netflix',
-	logoSrc: '/images/lingotune/logo.png',
+	logoSrc: '/images/netflix.png',
 	companyName: 'Netflix',
-	headline: 'A short one-line headline describing what this project is about',
-	tags: ['Product Design', 'Web', 'AI'],
+	headline: 'Helping Netflix users spend less time choosing and more time watching',
+	tags: ['Product Design', 'Web', 'Concept Design'],
 	ctaLabel: 'View Netflix Project',
-	previewSrc: '/images/lingotune/preview.png',
+	previewSrc: '/images/netflix/solonetflixmood.png',
 };
 
-const biteClubCard = {
-	href: '/projects/biteclub',
-	logoSrc: '/images/build-irl/logo.png',
-	companyName: 'Biteclub',
-	headline: 'Another placeholder headline for a second side project',
-	tags: ['UX Design', 'Mobile', 'Education'],
-	ctaLabel: 'View Biteclub Project',
-	previewSrc: '/images/build-irl/preview.png',
-};
 ---
 
 <Layout title="Projects — Julia Heo">
@@ -34,9 +25,7 @@ const biteClubCard = {
 			<div class="fade-in-on-scroll" style="--fade-delay: 0ms">
 				<CaseStudyCard {...netflixCard} />
 			</div>
-			<div class="fade-in-on-scroll" style="--fade-delay: 100ms">
-				<CaseStudyCard {...biteClubCard} />
-			</div>
+			
 		</div>
 	</div>
 </Layout>

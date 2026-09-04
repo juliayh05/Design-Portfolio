@@ -23,24 +23,14 @@ const buildIrlCard = {
 	previewSrc: '/images/build-irl/preview.png',
 };
 
-const project1Card = {
-	href: '#',
-	logoSrc: '',
-	companyName: 'Project 1',
-	headline: 'Project 1 headline placeholder',
-	tags: ['Tag 1', 'Tag 2'],
-	ctaLabel: 'View Project',
-	previewSrc: '',
-};
-
-const project2Card = {
-	href: '#',
-	logoSrc: '',
-	companyName: 'Project 2',
-	headline: 'Project 2 headline placeholder',
-	tags: ['Tag 1', 'Tag 2'],
-	ctaLabel: 'View Project',
-	previewSrc: '',
+const netflixCard = {
+	href: '/projects/netflix',
+	logoSrc: '/images/netflix.png',
+	companyName: 'Netflix',
+	headline: 'Helping Netflix users spend less time choosing and more time watching',
+	tags: ['Product Design', 'Concept', 'Mobile'],
+	ctaLabel: 'View Netflix Case Study',
+	previewSrc: '/images/netflix/solonetflixmood.png',
 };
 ---
 
@@ -49,22 +39,15 @@ const project2Card = {
 		<CaseStudyCard slot="work" {...lingotuneCard} />
 		<CaseStudyCard slot="work" {...buildIrlCard} />
 
-		<div slot="projects" class="coming-soon fade-in-on-scroll">
-    <p class="coming-soon-emoji">🚧</p>
-    <h3 class="coming-soon-title">In the Works</h3>
-    <p class="coming-soon-text">Check back soon!</p>
-</div>
-
+		<CaseStudyCard slot="projects" {...netflixCard} />
 
 		<div slot="play" class="play-bento">
 			<div class="play-item play-item--2x2 fade-in-on-scroll" style="--fade-delay: 0ms">
-    <img src="/images/play/play-1.png" alt="Play item 1" class="play-image" />
-</div>
+				<img src="/images/play/play-1.png" alt="Play item 1" class="play-image" />
+			</div>
 			<div class="play-item play-item--2x2 fade-in-on-scroll" style="--fade-delay: 100ms">
-    <img src="/images/play/play-2.png" alt="Play item 2" class="play-image" />
-</div>
-
-
+				<img src="/images/play/play-2.png" alt="Play item 2" class="play-image" />
+			</div>
 		</div>
 	</Hero>
 </Layout>
@@ -127,12 +110,12 @@ const project2Card = {
 	}
 
 	.play-bento {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    max-width: 600px;
-    margin: 0 auto;
-}
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
+		max-width: 600px;
+		margin: 0 auto;
+	}
 
 	.play-item {
 		display: flex;
@@ -169,85 +152,41 @@ const project2Card = {
 		grid-row: span 1;
 	}
 
-	.coming-soon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 120px 32px;
-    text-align: center;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.coming-soon-emoji {
-    font-size: 48px;
-    margin: 0 0 16px;
-}
-
-.coming-soon-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 40px;
-    font-weight: 400;
-    color: #4483F0;
-    margin: 0 0 12px;
-}
-
-.coming-soon-text {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 18px;
-    color: #a8a8a8;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.play-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 24px;
-    display: block;
-}
-
-.case-study-card[href="/work/lingotune"] :global(.case-study-card__logo) {
-    width: 120px !important;
-    height: auto !important;
-    max-height: none !important;
-}
-
-@media (max-width: 768px) {
-	.play-bento {
-		grid-template-columns: 1fr;
-		max-width: 100%;
-		gap: 16px;
-	}
-
-	.play-item,
-	.play-item--2x2,
-	.play-item--1x1,
-	.play-item--1x2,
-	.play-item--2x1 {
-		grid-column: span 1;
-		grid-row: span 1;
-		min-height: 200px;
-	}
-
-	.coming-soon {
-		padding: 64px 20px;
-	}
-
-	.coming-soon-title {
-		font-size: 32px;
-	}
-
-	.coming-soon-emoji {
-		font-size: 40px;
+	.play-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 24px;
+		display: block;
 	}
 
 	.case-study-card[href="/work/lingotune"] :global(.case-study-card__logo) {
-    width: 80px !important;
-    height: auto !important;
-    max-height: none !important;
-}
-}
+		width: 120px !important;
+		height: auto !important;
+		max-height: none !important;
+	}
+
+	@media (max-width: 768px) {
+		.play-bento {
+			grid-template-columns: 1fr;
+			max-width: 100%;
+			gap: 16px;
+		}
+
+		.play-item,
+		.play-item--2x2,
+		.play-item--1x1,
+		.play-item--1x2,
+		.play-item--2x1 {
+			grid-column: span 1;
+			grid-row: span 1;
+			min-height: 200px;
+		}
+
+		.case-study-card[href="/work/lingotune"] :global(.case-study-card__logo) {
+			width: 80px !important;
+			height: auto !important;
+			max-height: none !important;
+		}
+	}
 </style>
