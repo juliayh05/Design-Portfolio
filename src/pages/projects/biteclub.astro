@@ -1,0 +1,25 @@
+---
+import CaseStudyLayout from '../../components/CaseStudyLayout.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+import CaseStudySection from '../../components/case-study/CaseStudySection.astro';
+import CaseStudySubsection from '../../components/case-study/CaseStudySubsection.astro';
+
+const sections = [
+	{ id: 'overview', label: 'Overview' },
+];
+---
+
+<CaseStudyLayout title="Project One — Julia Heo" sections={sections}>
+	<CaseStudyHero
+		logo="/images/lingotune/logo.png"
+		logoAlt="Project One"
+		headline="Project One placeholder headline"
+		tags={['Product Design', 'Web', 'AI']}
+	/>
+
+	<CaseStudySection id="overview" title="Overview">
+		<CaseStudySubsection title="Coming soon">
+			<p>This project is a work in progress. Check back soon for the full write-up.</p>
+		</CaseStudySubsection>
+	</CaseStudySection>
+</CaseStudyLayout>

@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+
+const netflixCard = {
+	href: '/projects/netflix',
+	logoSrc: '/images/lingotune/logo.png',
+	companyName: 'Netflix',
+	headline: 'A short one-line headline describing what this project is about',
+	tags: ['Product Design', 'Web', 'AI'],
+	ctaLabel: 'View Netflix Project',
+	previewSrc: '/images/lingotune/preview.png',
+};
+
+const biteClubCard = {
+	href: '/projects/biteclub',
+	logoSrc: '/images/build-irl/logo.png',
+	companyName: 'Biteclub',
+	headline: 'Another placeholder headline for a second side project',
+	tags: ['UX Design', 'Mobile', 'Education'],
+	ctaLabel: 'View Biteclub Project',
+	previewSrc: '/images/build-irl/preview.png',
+};
+---
+
+<Layout title="Projects — Julia Heo">
+	<div class="work-page">
+		<header class="work-page__header">
+			<h1 class="work-page__heading work-animate work-animate--heading">Projects</h1>
+			<p class="work-page__subtitle work-animate work-animate--subtitle">Side projects, experiments, and things I've built outside of work</p>
+		</header>
+
+		<div class="work-page__cards">
+			<div class="fade-in-on-scroll" style="--fade-delay: 0ms">
+				<CaseStudyCard {...netflixCard} />
+			</div>
+			<div class="fade-in-on-scroll" style="--fade-delay: 100ms">
+				<CaseStudyCard {...biteClubCard} />
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	@keyframes work-load-in {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.work-animate {
+		animation: work-load-in 800ms ease-out both;
+	}
+
+	.work-animate--heading {
+		animation-delay: 0ms;
+	}
+
+	.work-animate--subtitle {
+		animation-delay: 100ms;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.work-animate {
+			animation: none;
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	.work-page {
+		padding: 80px 0 120px;
+	}
+
+	.work-page__header {
+		margin-bottom: 48px;
+	}
+
+	.work-page__heading {
+		margin: 0 0 12px;
+		font-family: 'Instrument Serif', serif;
+		font-size: 44px;
+		font-weight: 400;
+		line-height: 1.1;
+		color: #1a1a1a;
+		text-align: center;
+	}
+
+	.work-page__subtitle {
+		margin: 0;
+		font-family: 'Work Sans', sans-serif;
+		font-size: 16px;
+		font-weight: 400;
+		color: #868686;
+		text-align: center;
+	}
+
+	.work-page__cards {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+	}
+
+	@media (max-width: 768px) {
+		.work-page {
+			padding: 48px 0 80px;
+		}
+
+		.work-page__header {
+			margin-bottom: 32px;
+		}
+
+		.work-page__heading {
+			font-size: 40px;
+		}
+
+		.work-page__subtitle {
+			font-size: 16px;
+		}
+
+		.work-page__cards {
+			gap: 24px;
+		}
+	}
+</style>

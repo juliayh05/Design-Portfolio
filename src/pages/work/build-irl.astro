@@ -6,315 +6,203 @@ import CaseStudySubsection from '../../components/case-study/CaseStudySubsection
 
 const sections = [
 	{ id: 'overview', label: 'Overview' },
-	{ id: 'research', label: 'Research' },
-	{ id: 'ideation', label: 'Ideation' },
+	{ id: 'problem', label: 'Problem' },
+	{ id: 'constraints', label: 'Constraints' },
+	{ id: 'exploration', label: 'Exploration' },
 	{ id: 'solution', label: 'Solution' },
+	{ id: 'outcome', label: 'Outcome' },
 	{ id: 'reflection', label: 'Reflection' },
+
+
 ];
 ---
 
 <CaseStudyLayout title="Build IRL — Julia Heo" sections={sections}>
-			<!-- TODO: add role, timeframe, and tightened description -->
-			<CaseStudyHero
-				logo="/images/build-irl/logo.png"
-				logoAlt="Build IRL"
-				headline="Designing a 0→1 platform for building and running club communities"
-				tags={['Product/UX Design', 'Web/Mobile', 'Social']}
-				description="A platform for starting, running, and joining clubs in real life — designed to reduce burnout for builders and give joiners a real read on club culture."
-			/>
+	<!-- TODO: add role, timeframe, and tightened description -->
+	<CaseStudyHero
+		logo="/images/build-irl/logo.png"
+		logoAlt="Build IRL"
+		headline="Designing an MVP from 0-to-1 for the builders and joiners of club communities"
+		tags={['Product/UX Design', 'Web/Mobile', 'Social']}
+	/>
 
-			<CaseStudySection id="overview" title="Overview">
-				<CaseStudySubsection title="Context: What is Build IRL?">
-					<p>
-						Build IRL is a platform for starting and running in-person clubs. It replaces the patchwork of tools
-						most builders juggle — messaging, planning, RSVPs — with a single home, and gives joiners a real sense
-						of a club's culture before they commit.
-					</p>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="Problem: What issue is Build IRL facing?">
-					<p>
-						The problem sits on both sides of a club. Builders were burning out on logistics — juggling five-plus
-						disconnected tools to run a single club. Joiners were hesitating — they couldn't tell what a club was
-						really like without joining first. My job was to figure out which core flows and MVP features would ease
-						that friction on both ends.
-					</p>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="Goal: How Might We...">
-					<p>
-						lower the logistical weight on builders and give joiners a real read on club culture — so both sides can
-						commit with confidence?
-					</p>
-				</CaseStudySubsection>
-			</CaseStudySection>
+	<CaseStudySection id="overview" title="Overview">
+		<CaseStudySubsection title="One product had to work for both sides of a club community">
+			<p>
+				Build IRL was a 0→1 platform for starting, running, and joining in-person clubs. Research revealed two different problems underneath that idea: builders were overwhelmed by the work of running communities, while joiners struggled to tell whether a club was actually for them. Over 10 weeks, my team and I helped shape the core builder and joiner flows for the MVP, from research and product framing through high-fidelity web and mobile design.
+			</p>
+		</CaseStudySubsection>
+	</CaseStudySection>
 
-			<CaseStudySection id="research" title="Research">
-				<CaseStudySubsection title="Preliminary Audit and Competitive Analysis">
-					<p> We audited BuildIRL against its PRD, then benchmarked five adjacent platforms: Partiful, Luma, Meetup, Patreon, and Sweatpals. </p>
-					<img src="/images/build-irl/preliminary.png" alt="Preliminary Audit and Analysis" class="research-image" />
-					<p> This gave us a baseline for what BuildIRL was, what nearby products were doing, and where to look next. </p>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="User Interviews with Club Builders">
-				<p> We interviewed multiple club builders to get real, honest insights on what the current club space was looking like. </p>
-					<img src="/images/build-irl/userinterview.png" alt="User Interview" class="research-image" />
+	<CaseStudySection id="problem" title="Problem">
+		<CaseStudySubsection title="Running a club was fragmented. Joining one was a leap of faith.">
+			<p>From 10+ interviews with club builders and joiners, two problems kept surfacing on opposite sides of the experience.</p>
+			<img src="/images/build-irl/userinterview.png" alt="User interviews" class="case-study-image" />
 
-					<p>Through the interviews with builders across different community types, three insights kept surfacing:</p>
-
-					<div class="stats-block">
-						<div class="stat">
-							<span class="stat__number">80%</span>
-							<span class="stat__caption">were juggling 5+ disconnected tools, missing RSVPs and losing time</span>
-						</div>
-						<div class="stat">
-							<span class="stat__number">65%</span>
-							<span class="stat__caption">were burning out on unsustainable event logistics</span>
-						</div>
-						<div class="stat">
-							<span class="stat__number">44%</span>
-							<span class="stat__caption">said their members hesitate to join because they can't tell what a club is like</span>
-						</div>
-					</div>
-
-					<blockquote class="pull-quote">"I spend hours on invitations and logistics. It's draining."</blockquote>
-
-					<p class="callout">
-						💡 Before touching a design, we wanted to know
-						exactly <em>why</em> builders were burning out.
-					</p>
-				</CaseStudySubsection>
-			</CaseStudySection>
-
-			<CaseStudySection id="ideation" title="Ideation">
-				<CaseStudySubsection title="Synthesizing research into patterns">
-					<p>
-						We turned interviews into affinity maps, personas, and insight statements — looking for the patterns that
-						would give the design something concrete to solve for.
-					</p>
-					<img src="/images/build-irl/affinitymap.png" alt="Affinity Map" class="research-image" />
-					<p class="image-caption" style="font-style: italic; color: #A8A8A8; font-size: 14px; text-align: center; margin-top: 12px;">
-						A glimpse into some of our affinity mapping sessions. We grouped data and research insights into clusters, then clusters into themes we
-						could actually design around.
-					</p>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="Four archetypes we kept meeting">
-					<p>
-						Four archetypes emerged from the clusters: two on the builder side, two on the joiner side. The Inclusive
-						Builder wants a warm, welcoming club. The Broad Builder is scaling a bigger audience. The Future Builder
-						might start their own club someday. The Pure Joiner just wants to show up. Each came with different needs,
-						and the design had to serve all four without splintering into four different products.
-					</p>
-					<img src="/images/build-irl/archetypes.png" alt="Archetypes" class="research-image" />
-				</CaseStudySubsection>
-				<CaseStudySubsection title="From rough concepts to refined flows">
-					<p>
-						We sketched, mapped user flows, and built lo-fi to mid-fi prototypes. Not pictured: the stakeholder
-						meetings, the pivots, and the days everything on the wall got rearranged!
-					</p>
-					<video src="/images/build-irl/summary.mp4" autoplay loop muted playsinline class="research-image"></video>
-				</CaseStudySubsection>
-			</CaseStudySection>
-
-			<CaseStudySection id="solution" title="Solution">
-				<CaseStudySubsection title="Club Joiner Flow">
-					<p>
-						Research showed joiners hesitate when they can't see what a club is really like. The joiner flow surfaces
-						vibe, interests, and personality upfront — so the decision to join isn't a blind leap.
-					</p>
-					<video src="/images/build-irl/video-1.mp4" autoplay loop muted playsinline class="mockup-video"></video>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="Club Builder Flow">
-					<p>
-						The builder flow offers three entry points so builders can meet the product where they are: build from
-						scratch if they have a clear vision, use AI for a jumpstart, or import from Instagram to keep existing
-						branding intact.
-					</p>
-					<div class="mockup-video-row">
-					<video src="/images/build-irl/video-2.mp4" autoplay loop muted playsinline class="mockup-video"></video>
-					<video src="/images/build-irl/video-3.mp4" autoplay loop muted playsinline class="mockup-video"></video>
-					<video src="/images/build-irl/video-4.mp4" autoplay loop muted playsinline class="mockup-video"></video>
-					</div>
-					<p class="image-caption" style="font-style: italic; color: #A8A8A8; font-size: 14px; text-align: center; margin-top: 12px;">
-						💡 These walkthroughs show the "Create from scratch" path, "Generate from AI" path, and the "Import from Instagram" path.
-					</p>
-				</CaseStudySubsection>
-			</CaseStudySection>
-
-			<CaseStudySection id="reflection" title="Reflection">
-				<CaseStudySubsection title="Lessons Learned">
-					<p><strong>Adaptability was the actual job.</strong> The project pivoted more times than I can count. Being ready to redesign a flow overnight wasn't a nice-to-have — it was the work.</p>
-					<p><strong>Align early, align often.</strong> The design decisions that didn't get pushed back on were the ones I'd already walked stakeholders through days before.</p>
-					<p><strong>Every design decision should point back to research.</strong> When I could tie a choice to a specific quote or affinity cluster, arguments about the design ended fast.</p>
-				</CaseStudySubsection>
-				<CaseStudySubsection title="What I'd Explore Further">
-					<p>🎉 <strong>Onboarding completion rate</strong> — how many builders finish the setup flow after they start?</p>
-					<p>🚦 <strong>Drop-off points inside the creation flow</strong> — where does momentum die?</p>
-					<p>⏱️ <strong>Time-to-first-club</strong> — from install to a published club page, how long does it actually take?</p>
-				</CaseStudySubsection>
-			</CaseStudySection>
-
-			<div class="end-cta">
-				<h2 class="end-cta__heading">Want to learn more?</h2>
-				<p class="end-cta__text">
-					I'd love to walk you through the process, the pivots, and the parts that didn't make it into this write-up.
-				</p>
+			<div class="observation">
+				<span class="observation__label">01</span>
+				<div class="observation__body">
+					<p class="observation__title">Builders were doing too much across too many tools.</p>
+					<p class="observation__text">Planning, RSVPs, promotion, communication, and logistics were often spread across several platforms. Running the club started to feel like managing software instead of building community.</p>
+				</div>
 			</div>
+
+			<div class="observation">
+				<span class="observation__label">02</span>
+				<div class="observation__body">
+					<p class="observation__title">Joiners didn't have enough context to commit.</p>
+					<p class="observation__text">A club name, description, and event details could explain what was happening, but not what the community actually felt like. Potential joiners still had to guess whether they'd fit in.</p>
+				</div>
+			</div>
+
+			<blockquote class="pull-quote3">💡 Builders needed less work. Joiners needed more confidence.</blockquote>
+			<img src="/images/build-irl/affinitymap.png" alt="Affinity map" class="case-study-image" />
+		</CaseStudySubsection>
+		<br>
+
+		<CaseStudySubsection title="The challenge wasn't adding features. It was deciding what the MVP actually needed to solve."> 
+			<p>Build IRL could have gone in a lot of directions — events, messaging, discovery, club management, profiles, onboarding, creation tools.</p>
+			<p>But trying to solve everything at once would just recreate the same complexity we were trying to reduce. So we narrowed the product around two questions:</p>
+			<blockquote class="pull-quote"><b>01</b> Does this remove meaningful work for builders?</blockquote>
+			<blockquote class="pull-quote"><b>02</b> Does this give joiners enough context to feel confident joining?</blockquote>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+	<CaseStudySection id="constraints" title="Constraints">
+		<CaseStudySubsection title="The product was still moving while we were designing it">
+			<div class="constraint-grid">
+				<div class="constraint-card">
+					<p class="constraint-card__label">⏳ 10-week timeline</p>
+					<p class="constraint-card__text">We had a limited window to research, define the core experience, and move key flows into high fidelity.</p>
+				</div>
+				<div class="constraint-card">
+					<p class="constraint-card__label">📝 0→1 product, shifting scope</p>
+					<p class="constraint-card__text">There wasn't an established product to optimize. Features, flows, and priorities were still being worked out as we designed.</p>
+				</div>
+				<div class="constraint-card">
+					<p class="constraint-card__label">💻 📱 Web + mobile</p>
+					<p class="constraint-card__text">We explored the experience across both platforms, then had to rethink parts of the work as the product moved toward a more mobile-first direction.</p>
+				</div>
+			</div>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+	<CaseStudySection id="exploration" title="Exploration">
+		<CaseStudySubsection title="Before hi-fi, we had to get the flows right">
+			<p>We mapped the core builder and joiner journeys in mid-fi first, using them to work through hierarchy, flow, and scope before committing to high-fidelity screens.</p>
+			<p>This stage was intentionally loose. As we reviewed the experience with stakeholders, screens moved, flows changed, and some ideas were reworked once we could see the product end to end.</p>
+			<img src="/images/build-irl/mid-fi.png" alt="Mid-fi flows" class="case-study-image" />
+			<blockquote class="pull-quote3">💡 Mid-fi gave us room to make those changes quickly without getting too attached to polished UI too early.</blockquote>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+	<CaseStudySection id="solution" title="Solution">
+		<CaseStudySubsection title="Help joiners understand the club before asking them to join.">
+			<p>The joiner experience couldn't just answer what, where, and when. Research showed people were also trying to figure out whether the community actually felt like a fit.</p>
+			<p>So, we brought more of the club's personality and context forward — things like interests, visuals, and community details — before committing.</p>
+			<video src="/images/build-irl/video-1.mp4" autoplay loop muted playsinline class="mockup-video"></video>
+			<blockquote class="pull-quote">💡 The goal wasn't to add more information. It was to surface the information that actually helped someone decide: Can I see myself here?</blockquote>
+		</CaseStudySubsection>
+
+		<CaseStudySubsection title="Don't make every builder start from the same place.">
+			<p>Builders came into Build IRL with very different levels of momentum. Some already knew exactly what they wanted to create. Others had an idea but needed help shaping it. And existing communities might already have a visual identity somewhere else.</p>
+			<p>So instead of forcing everyone through one setup path, we designed three ways where builders could: </p>
+
+<blockquote class = "pull-quote2"> 01: Create from scratch </blockquote>
+<blockquote class = "pull-quote"> For builders who already had a clear vision and wanted full control.</blockquote>
+			<video src="/images/build-irl/video-2.mp4" autoplay loop muted playsinline class="mockup-video"></video> <br>
+
+
+<blockquote class = "pull-quote2"> 02: Generate with AI </blockquote>
+<blockquote class = "pull-quote"> For builders who had the idea, but needed help getting past the blank-page problem.</blockquote>
+			<video src="/images/build-irl/video-3.mp4" autoplay loop muted playsinline class="mockup-video"></video> <br>
+
+
+<blockquote class = "pull-quote2"> 03: Import from Instagram </blockquote>
+<blockquote class = "pull-quote"> For existing communities that already had branding and content they shouldn’t have to rebuild. </blockquote>
+			<video src="/images/build-irl/video-4.mp4" autoplay loop muted playsinline class="mockup-video"></video> <br>
+
+
+			<blockquote class="pull-quote">💡 We adapted onboarding to different starting points instead of treating every builder like a blank slate. </blockquote>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+
+
+<CaseStudySection id="outcome" title="Outcome">
+		<CaseStudySubsection title="From early concept to a conference-ready prototype.">
+			<p>Over 10 weeks, we defined and prototyped the core Build IRL experience across both sides of the community. The final direction was approved by the team and presented at a conference, where it received positive feedback.</p>	
+			<p> Since I didn’t have access to long-term product metrics, the next things I’d want to understand is this: </p>
+			<blockquote class="pull-quote3"><b>Builder completion</b>: Do people finish creating a club once they start?</blockquote>
+			<blockquote class="pull-quote3"><b>Time to publish</b>: How quickly can a builder get a club live?</blockquote>
+			<blockquote class="pull-quote3"><b>Join conversion</b>: Does detailed club context help people feel confident joining?</blockquote>
+			<blockquote class="pull-quote3"><b>Drop-off</b>: Where do builders or joiners lose momentum?</blockquote>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+
+	<CaseStudySection id="reflection" title="Reflection">
+		<CaseStudySubsection title="I got more comfortable designing before everything was figured out!">
+			<p>Build IRL changed a lot while we were working on it. Flows I thought were settled would shift after a stakeholder conversation or once we saw the whole experience together.</p>	
+			<p> I left the project much more comfortable changing direction when the reasoning changes, even if it means letting go of something I already designed.</p>
+			
+		
+		
+		
+		</CaseStudySubsection>
+	</CaseStudySection>
+
 </CaseStudyLayout>
 
 <style>
-	.stats-block {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 32px;
-		margin-top: 32px;
-	}
-
-	.stat {
-		flex: 1;
-		min-width: 180px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
-
-	.stat__number {
-		font-family: 'Instrument Serif', serif;
-		font-size: 60px;
-		font-weight: 400;
-		line-height: 1;
-		color: #4483F0;
-	}
-
-	.stat__caption {
-		margin-top: 12px;
+	.pull-quote {
+		margin: 12px 0;
+		padding: 0;
+		border: none;
 		font-family: 'Work Sans', sans-serif;
 		font-size: 16px;
 		font-weight: 400;
-		line-height: 1.4;
-		color: #000;
+		line-height: 1.3;
+		text-align: center;
+		color: #4A4A4A;
 	}
 
-	.pull-quote {
-		margin: 60px 0;
+	.pull-quote2 {
+		margin: 12px 0;
 		padding: 0;
 		border: none;
-		font-family: 'Instrument Serif', serif;
-		font-size: 32px;
-		font-style: italic;
+		font-family: 'Work Sans', sans-serif;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 1.3;
+		text-align: center;
+		color: #4A4A4A;
+	}
+
+	.pull-quote3 {
+		margin: 24px 0;
+		padding: 0;
+		border: none;
+		font-family: 'Work Sans', sans-serif;
+		font-size: 16px;
 		font-weight: 400;
 		line-height: 1.3;
 		text-align: center;
 		color: #000;
 	}
 
-	.callout {
-		margin: 0;
-		font-family: 'Work Sans', sans-serif;
-		font-size: 18px;
-		font-style: italic;
-		font-weight: 400;
-		line-height: 1.5;
-		text-align: center;
-		color: #a8a8a8;
-	}
-
-	:global(.subsection-body p + p) {
-		margin-top: 1.5em;
-	}
-
-	.hero-videos {
-		display: flex;
-		gap: 16px;
-		justify-content: center;
-		align-items: center;
-		margin: 24px auto 0;
-		max-width: 700px;
-	}
-
-	.hero-video-half {
-		flex: 1;
-		max-width: 300px;
-		border-radius: 20px;
+	.mockup-video {
 		display: block;
+		max-height: 500px;
+		width: auto;
+		margin: 24px auto;
+		border-radius: 12px;
 	}
-	.research-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin: 32px auto 32px;
-    border-radius: 8px;
-}
-.mockup-video {
-    display: block;
-    max-height: 500px;
-    width: auto;
-    margin: 24px auto;
-    border-radius: 12px;
-}
-
-.mockup-video-row {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 24px auto;
-    flex-wrap: wrap;
-}
-
-.mockup-video-row .mockup-video {
-    max-height: 380px;
-}
 
 	@media (max-width: 768px) {
-		.stats-block {
-			flex-direction: column;
-			gap: 24px;
-		}
-
-		.stat {
-			min-width: 0;
-		}
-
-		.stat__number {
-			font-size: 40px;
-		}
-
-		.stat__caption {
-			font-size: 15px;
-		}
-
-		.pull-quote {
-			margin: 40px 0;
-			font-size: 24px;
-		}
-
-		.callout {
-			font-size: 16px;
-		}
-
-		.hero-videos {
-			flex-direction: column;
-			max-width: 100%;
-		}
-
-		.hero-video-half {
-			max-width: 100%;
-			width: 100%;
-		}
-
-		.mockup-video-row {
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.mockup-video-row .mockup-video,
 		.mockup-video {
 			max-height: 280px;
 			width: 100%;
-			max-width: 100%;
-		}
-
-		.research-image {
 			max-width: 100%;
 		}
 	}

@@ -1,0 +1,163 @@
+---
+import CaseStudyLayout from '../../components/CaseStudyLayout.astro';
+import CaseStudyHero from '../../components/CaseStudyHero.astro';
+import CaseStudySection from '../../components/case-study/CaseStudySection.astro';
+import CaseStudySubsection from '../../components/case-study/CaseStudySubsection.astro';
+
+const sections = [
+	{ id: 'overview', label: 'Overview' },
+	{ id: 'problem', label: 'Problem' },
+	{ id: 'exploration', label: 'Exploration' },
+	{ id: 'decision', label: 'Decision' },
+	{ id: 'solution', label: 'Solution' },
+];
+---
+
+<CaseStudyLayout title="Netflix — Julia Heo" sections={sections}>
+	<CaseStudyHero
+		logo="/images/netflix/logo.png"
+		logoAlt="Netflix"
+		headline="Helping Netflix users spend less time choosing and more time watching"
+		role="Personal Project"
+		tags={['Product Design', 'Concept', 'Mobile']}
+	/>
+
+	<CaseStudySection id="overview" title="Overview">
+		<CaseStudySubsection title="Netflix has thousands of options. Somehow, choosing one is still the hard part.">
+			<p>Opening Netflix often starts the same way: scroll through a few rows, open a title, go back, and keep looking. When other people are involved, that indecision turns into a debate over everyone's moods, preferences, and time.</p>
+			<p>I designed a lightweight recommendation flow that helps people narrow down what they want and arrive at one pick — whether they're watching alone or choosing with a group.</p>
+			<div class="visual-placeholder">Hero image / final flow preview</div>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+	<CaseStudySection id="problem" title="Problem">
+		<CaseStudySubsection title="Netflix gives users plenty to watch, but not much help making the final decision.">
+			<p>Existing recommendations still leave people comparing dozens of options. The interface is optimized for browsing, not for helping someone actually pick something to watch.</p>
+			<p>The result is a familiar loop: open Netflix, scroll rows, open titles, back out, keep scrolling. Eventually, someone gives up and rewatches something they've already seen — or the group never actually starts the movie.</p>
+			<div class="visual-placeholder">Screenshot / illustration of the browsing loop</div>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+	<CaseStudySection id="exploration" title="Exploration">
+		<CaseStudySubsection title="I started with a random movie generator.">
+			<p>The first idea was simple: Netflix would choose something at random and remove the need to browse altogether.</p>
+			<p>But pure randomness creates a different problem. It's fast, but it ignores why someone is watching, what they're in the mood for, and how much time they have. Users would probably keep regenerating results until something happened to feel right — which is basically browsing again.</p>
+			<div class="visual-placeholder">Early sketch of the random generator concept</div>
+			<blockquote class="pull-quote3">💡 So I shifted the concept from "pick something random" to "help me make a decision."</blockquote>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+	<CaseStudySection id="decision" title="Decision">
+		<CaseStudySubsection title="A few lightweight questions. One confident recommendation.">
+			<p>The experience asks users four things, then recommends one title based on the answers.</p>
+
+			<div class="observation">
+				<span class="observation__label">01</span>
+				<div class="observation__body">
+					<p class="observation__title">Are you watching alone or with other people?</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">02</span>
+				<div class="observation__body">
+					<p class="observation__title">Do you want a movie, series, or either?</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">03</span>
+				<div class="observation__body">
+					<p class="observation__title">What are you in the mood for?</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">04</span>
+				<div class="observation__body">
+					<p class="observation__title">How long do you want to watch?</p>
+				</div>
+			</div>
+
+			<p>For solo viewers, this creates a faster path from opening Netflix to pressing play. For groups, the same questions become a way to combine everyone's preferences and find a shared match.</p>
+		</CaseStudySubsection>
+
+		<CaseStudySubsection title="Key design decisions">
+			<p>Six choices shaped how the flow actually works.</p>
+
+			<div class="observation">
+				<span class="observation__label">01</span>
+				<div class="observation__body">
+					<p class="observation__title">Starting with context, not content</p>
+					<p class="observation__text">The first question is "How are you watching?" That lets the experience branch immediately — solo viewers move straight into their preferences, while group viewers get the additional invitation and waiting steps they need.</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">02</span>
+				<div class="observation__body">
+					<p class="observation__title">Mood over genre</p>
+					<p class="observation__text">Genres describe what a title is. Moods describe what someone actually wants from the experience. Someone may not know whether they want a comedy or an animated movie, but they probably know they want something comforting, funny, or mind-bending.</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">03</span>
+				<div class="observation__body">
+					<p class="observation__title">Keeping the questions intentionally lightweight</p>
+					<p class="observation__text">The flow only asks for information that meaningfully changes the recommendation: content type, mood, and watch length. Adding actors, languages, release years, and detailed filters would give users more control — but turn a quick decision tool into another search interface.</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">04</span>
+				<div class="observation__body">
+					<p class="observation__title">One recommendation, not another catalog</p>
+					<p class="observation__text">The goal was to reduce decision-making, so the result focuses on one match. A page full of personalized recommendations might be more flexible, but it would return users to the same comparison loop the feature is meant to solve.</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">05</span>
+				<div class="observation__body">
+					<p class="observation__title">Letting groups join without profiles</p>
+					<p class="observation__text">I initially explored using Netflix profiles to represent each participant, but that assumed everyone was sharing the same account and added more setup than the feature needed. Instead, the host shares a QR code or link, and anyone with access can submit their preferences without creating a profile.</p>
+				</div>
+			</div>
+
+			<div class="observation">
+				<span class="observation__label">06</span>
+				<div class="observation__body">
+					<p class="observation__title">Giving readiness control to the host</p>
+					<p class="observation__text">Rather than asking the host to declare group size upfront, the interface shows how many people have submitted. The host decides when the group is ready and moves everyone forward — visibility and control without unnecessary setup.</p>
+				</div>
+			</div>
+		</CaseStudySubsection>
+	</CaseStudySection>
+
+	<CaseStudySection id="solution" title="Solution">
+		<CaseStudySubsection title="Five moments make up the full experience.">
+			<p>Each step is deliberately short. The whole flow can happen in under a minute for solo viewers and a couple of minutes for groups.</p>
+
+			<h3 class="solution-block-heading">01 &nbsp; Choose the viewing context</h3>
+			<p>Solo or group. This first choice branches the entire flow.</p>
+			<div class="visual-placeholder">Screens: solo selected / group selected</div>
+
+			<h3 class="solution-block-heading">02 &nbsp; Set lightweight preferences</h3>
+			<p>Content type, mood, and watch length. Three quick questions, no filters, no scrolling.</p>
+			<div class="visual-placeholder">Screens: content type / mood / watch length</div>
+
+			<h3 class="solution-block-heading">03 &nbsp; Bring the group together</h3>
+			<p>The host shares a QR code or link. Everyone submits their preferences on their own device, and the host sees the count grow in real time.</p>
+			<div class="visual-placeholder">Screens: QR invitation / waiting state</div>
+
+			<h3 class="solution-block-heading">04 &nbsp; Reveal one match (solo)</h3>
+			<p>One title, chosen based on the answers. No comparison list.</p>
+			<div class="visual-placeholder">Screen: solo recommendation</div>
+
+			<h3 class="solution-block-heading">05 &nbsp; Reveal one match (group)</h3>
+			<p>Everyone's preferences combine into a single shared pick.</p>
+			<div class="visual-placeholder">Screen: group recommendation</div>
+		</CaseStudySubsection>
+	</CaseStudySection>
+</CaseStudyLayout>

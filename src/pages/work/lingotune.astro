@@ -19,7 +19,7 @@ const sections = [
 	<CaseStudyHero
 		logo="/images/lingotune/logo.png"
 		logoAlt="Lingotune"
-		headline="Redesigning song lesson navigation to reduce dropoff"
+		headline="Redesigning song navigation to make the library easier to discover"
 		role="Product Design Intern"
 		timeframe="May – August 2025"
 		tags={['Product Design', 'Mobile', 'EdTech']}
@@ -31,7 +31,7 @@ const sections = [
     <a href="https://www.lingotune.ai/" target="_blank" rel="noopener noreferrer" class="inline-link">Lingotune</a> teaches languages through music, pairing songs with short lessons designed to make vocabulary and grammar easier to remember.
 		</p>
 		<p>
-			TLDR; Users were landing on Lingotune’s song lesson page, seeing one card, and thinking that was it. In a week, I worked with another designer and founder to redesign Lingotune's confusing browsing interaction. The new interaction shipped in the next release.
+			Users were landing on Lingotune’s song lesson page, seeing one card, and thinking that was it. In under a week, I worked with another designer and the founder to rethink the browsing interaction around what users were already trying to do. The update shipped in the next release.
 		</p>
 		
 		<img src="/images/lingotune/oldold.png" alt="..." class="case-study-image case-study-image--phone" />
@@ -54,8 +54,11 @@ const sections = [
         <p class="observation__title">Users stopped at the first song</p>
         <p class="observation__text">The arrows were easy to miss, and nothing else on the screen matched the browsing patterns users already knew. Without a clear cue to keep going, many assumed the first song was all there was.</p>
     </div>
+	
 </div>
 		<img src="/images/lingotune/user-test-review.png" alt="..." class="case-study-image" />
+			<p> 💡 At first, I thought the arrows needed fixing. But the bigger issue was that users didn’t realize there was a collection to browse at all.</p>
+
 	</CaseStudySection>
 
 	<CaseStudySection id="constraints" title="Constraints">
@@ -85,7 +88,7 @@ const sections = [
 </CaseStudySection>
 
 	<CaseStudySection id="exploration" title="Exploration">
-		<h2 class="section-tagline">The easiest, most obvious fixes weren't necessarily the right ones.</h2>
+		<h2 class="section-tagline">The obvious fix wasn't enough.</h2>
 		<p>I sketched several directions to make more songs easier to discover before moving into hi-fi.</p>
 		<div class="observation">
     <span class="observation__label">01</span>
@@ -116,11 +119,11 @@ const sections = [
 
 	<CaseStudySection id="decision" title="Decision">
 		<h2 class="section-tagline"> I followed the behavior users were already showing me.</h2>
-		<p>The horizontal carousel solved the problem without asking users to learn a new interaction. It matched the swipe behavior I saw in UXCam, preserved the existing song cards, and kept song browsing separate from the page’s vertical scroll.</p>
+		<p>The horizontal carousel matched the swipe behavior I saw in UXCam, preserved the existing song cards, and kept browsing separate from the page’s vertical scroll.</p>
 		<div class="observation">
     <span class="observation__label">01</span>
     <div class="observation__body">
-        <p class="observation__title">Swipe</p>
+        <p class="observation__title">Swipe for browsing</p>
         <p class="observation__text">How users browse.</p>
     </div>
 </div>
@@ -128,7 +131,7 @@ const sections = [
 <div class="observation">
     <span class="observation__label">02</span>
     <div class="observation__body">
-        <p class="observation__title">Peeking cards</p>
+        <p class="observation__title">Peeking cards for discovering</p>
         <p class="observation__text">How they know there's more.</p>
     </div>
 </div>
@@ -136,7 +139,7 @@ const sections = [
 <div class="observation">
     <span class="observation__label">03</span>
     <div class="observation__body">
-        <p class="observation__title">Pagination</p>
+        <p class="observation__title">Pagination for orientation</p>
         <p class="observation__text">How they know where they are.</p>
     </div>
 </div>
@@ -145,15 +148,10 @@ const sections = [
 
 	<CaseStudySection id="solution" title="Solution">
 		<h3 class="solution-block-heading">01 Swipe to browse</h3>
-		<p>
-			Horizontal swipe became the primary interaction because it matched what users were already attempting in UXCam sessions.
-		</p>
-		<p>Instead of asking users to find a control first, browsing starts with a gesture they already understand.</p>
+		<p>Horizontal swipe matched the behavior users were already attempting in UXCam. Instead of finding a control first, they could browse with a gesture they already understood.</p>
 		<img src="/images/lingotune/3designdecision.png" alt="..." class="case-study-image case-study-image--wide" />
-
 		<h3 class="solution-block-heading">02 Show what's next</h3>
-		<p>I exposed parts of the neighboring cards so users could see immediately that more songs existed.</p>
-		<p>The layout itself became the cue to keep going.</p>
+		<p>I exposed parts of the neighboring cards so users could see immediately that more songs existed. The layout itself became the cue to keep going.</p>
 		<img src="/images/lingotune/1designdecision.png" alt="..." class="case-study-image case-study-image--wide" />
 		<h3 class="solution-block-heading">03 Keep users oriented</h3>
 		<p>Pagination gives lightweight feedback once users start browsing.</p>
@@ -164,15 +162,33 @@ const sections = [
 	<CaseStudySection id="outcome" title="Outcome">
 		<h2 class="section-tagline">The redesign shipped in the next release.</h2>
 		<p>
-			The team approved the direction, and my redesigned song browsing experience shipped in Lingotune's following release!
+			The team approved the direction, and my redesigned song browsing experience shipped in Lingotune's next release.
 		</p>
+		<p> While I didn't have access to post-launch metrics, if I continued measuring this release, I'd track: </p>
+		<div class="observation">
+    <span class="observation__label">01</span>
+    <div class="observation__body">
+        <p class="observation__title">Browse Depth</p>
+        <p class="observation__text">Do more users move beyond the first song?</p>
+    </div>
+</div>
+
+<div class="observation">
+    <span class="observation__label">02</span>
+    <div class="observation__body">
+        <p class="observation__title">Lesson Starts</p>
+        <p class="observation__text">Does browsing lead more users into lessons?</p>
+    </div>
+</div>
+
+<div class="observation">
+    <span class="observation__label">03</span>
+    <div class="observation__body">
+        <p class="observation__title">Screen Drop-Off</p>
+        <p class="observation__text">Are fewer users leaving the app at this point?</p>
+    </div>
+</div>
 		<img src="/images/lingotune/nishoutcome.png" alt="..." class="case-study-image case-study-image--wide" />
-		<p>
-			While I didn't have access to post-launch analytics, I'd measure the following: 
-		</p>
-		<p>1. Whether more users browse beyond the first song</p>
-		<p>2. Whether song-to-lesson conversion improves</p>
-		<p>3. Whether drop-off from the song lesson navigation screen decreases</p>
 	</CaseStudySection>
 
 	<CaseStudySection id="outcome" title="Reflection">
