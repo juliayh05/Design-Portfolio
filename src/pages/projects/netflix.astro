@@ -10,6 +10,7 @@ const sections = [
 	{ id: 'exploration', label: 'Exploration' },
 	{ id: 'decision', label: 'Decision' },
 	{ id: 'solution', label: 'Solution' },
+	{ id: 'reflection', label: 'Reflection' },
 ];
 ---
 
@@ -26,7 +27,58 @@ const sections = [
 		<CaseStudySubsection title="Netflix has thousands of options. Somehow, choosing one is still the hard part.">
 			<p>Opening Netflix often starts the same way: scroll through a few rows, open a title, go back, and keep looking. When other people are involved, that indecision turns into a debate over everyone's moods, preferences, and time.</p>
 			<p>I designed a lightweight recommendation flow that helps people narrow down what they want and arrive at one pick — whether they're watching alone or choosing with a group.</p>
-			<img src="/images/netflix/minions.png" alt="..." class="case-study-image" />
+
+			<div class="netflix-hero">
+				<div class="netflix-hero__glow"></div>
+				<div class="netflix-hero__stack">
+					<div class="netflix-hero__side netflix-hero__side--left">
+						<span class="netflix-hero__label">Solo</span>
+						<div class="netflix-hero__phone">
+							<span class="netflix-hero__placeholder">Mood<br />selection</span>
+						</div>
+					</div>
+					<div class="netflix-hero__main">
+						<div class="netflix-hero__screen">
+							<span class="netflix-hero__placeholder">Final<br />recommendation</span>
+						</div>
+					</div>
+					<div class="netflix-hero__side netflix-hero__side--right">
+						<span class="netflix-hero__label">Group</span>
+						<div class="netflix-hero__phone">
+							<span class="netflix-hero__placeholder">Waiting<br />state</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="split-flow">
+				<div class="split-flow__top">
+					<div class="split-flow__screen">
+						<span class="split-flow__placeholder">Viewing<br />context</span>
+					</div>
+				</div>
+				<div class="split-flow__branches">
+					<div class="split-flow__branch">
+						<span class="split-flow__branch-label">Solo</span>
+						<div class="split-flow__screen">
+							<span class="split-flow__placeholder">Preferences</span>
+						</div>
+						<div class="split-flow__screen">
+							<span class="split-flow__placeholder">Recommendation</span>
+						</div>
+					</div>
+					<div class="split-flow__branch">
+						<span class="split-flow__branch-label">Group</span>
+						<div class="split-flow__screen">
+							<span class="split-flow__placeholder">Invite +<br />wait</span>
+						</div>
+						<div class="split-flow__screen">
+							<span class="split-flow__placeholder">Shared<br />recommendation</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="split-flow__caption">One decision flow, adapted for solo and group viewing.</p>
 		</CaseStudySubsection>
 	</CaseStudySection>
 
@@ -34,7 +86,33 @@ const sections = [
 		<CaseStudySubsection title="Netflix gives users plenty to watch, but not much help making the final decision.">
 			<p>Existing recommendations still leave people comparing dozens of options. The interface is optimized for browsing, not for helping someone actually pick something to watch.</p>
 			<p>The result is a familiar loop: open Netflix, scroll rows, open titles, back out, keep scrolling. Eventually, someone gives up and rewatches something they've already seen — or the group never actually starts the movie.</p>
-			<img src="/images/netflix/Home Page.png" alt="..." class="case-study-image" />
+
+			<div class="browse-loop">
+				<div class="browse-loop__step">
+					<div class="browse-loop__screen">
+						<span class="browse-loop__placeholder">Browse<br />rows</span>
+					</div>
+				</div>
+				<span class="browse-loop__arrow">→</span>
+				<div class="browse-loop__step">
+					<div class="browse-loop__screen">
+						<span class="browse-loop__placeholder">Open<br />title</span>
+					</div>
+				</div>
+				<span class="browse-loop__arrow">→</span>
+				<div class="browse-loop__step">
+					<div class="browse-loop__screen">
+						<span class="browse-loop__placeholder">Go<br />back</span>
+					</div>
+				</div>
+				<span class="browse-loop__arrow">↺</span>
+				<div class="browse-loop__step">
+					<div class="browse-loop__screen">
+						<span class="browse-loop__placeholder">Keep<br />scrolling</span>
+					</div>
+				</div>
+			</div>
+			<p class="browse-loop__caption">More options → more comparison → more indecision → back to browsing.</p>
 		</CaseStudySubsection>
 	</CaseStudySection>
 
@@ -42,94 +120,188 @@ const sections = [
 		<CaseStudySubsection title="I started with a random movie generator.">
 			<p>The first idea was simple: Netflix would choose something at random and remove the need to browse altogether.</p>
 			<p>But pure randomness creates a different problem. It's fast, but it ignores why someone is watching, what they're in the mood for, and how much time they have. Users would probably keep regenerating results until something happened to feel right — which is basically browsing again.</p>
-			<div class="visual-placeholder">Early sketch of the random generator concept</div>
+
+			<div class="shift-compare">
+				<div class="shift-compare__side">
+					<span class="shift-compare__label shift-compare__label--before">Before</span>
+					<div class="shift-compare__frame">
+						<div class="shift-compare__mock">
+							<span class="shift-compare__title">?????</span>
+							<span class="shift-compare__button">Generate again</span>
+						</div>
+					</div>
+					<p class="shift-compare__caption">Random generator — fast, but arbitrary.</p>
+				</div>
+
+				<div class="shift-compare__arrow">
+					<span class="shift-compare__arrow-mark">→</span>
+					<span class="shift-compare__arrow-label">Randomness → Relevance</span>
+				</div>
+
+				<div class="shift-compare__side">
+					<span class="shift-compare__label shift-compare__label--after">After</span>
+					<div class="shift-compare__frame">
+						<div class="shift-compare__mock shift-compare__mock--list">
+							<span class="shift-compare__row">Viewing context</span>
+							<span class="shift-compare__row">Content type</span>
+							<span class="shift-compare__row">Mood</span>
+							<span class="shift-compare__row">Time</span>
+							<span class="shift-compare__row shift-compare__row--result">→ One result</span>
+						</div>
+					</div>
+					<p class="shift-compare__caption">Decision assistant — still fast, but grounded in intent.</p>
+				</div>
+			</div>
+
 			<blockquote class="pull-quote3">💡 So I shifted the concept from "pick something random" to "help me make a decision."</blockquote>
 		</CaseStudySubsection>
 	</CaseStudySection>
 
 	<CaseStudySection id="decision" title="Decision">
 		<CaseStudySubsection title="A few lightweight questions. One confident recommendation.">
-			<p>The experience asks users four things, then recommends one title based on the answers.</p>
+			<p>The experience asks users a short sequence of questions, then recommends one title based on the answers.</p>
 
-			<div class="observation">
-				<span class="observation__label">01</span>
-				<div class="observation__body">
-					<p class="observation__title">Are you watching alone or with other people?</p>
+			<div class="flow-strip">
+				<div class="flow-step">
+					<span class="flow-step__number">01</span>
+					<div class="flow-step__screen">
+						<span class="flow-step__placeholder">Watching<br />context</span>
+					</div>
+					<p class="flow-step__label">Watching context</p>
+				</div>
+				<div class="flow-step">
+					<span class="flow-step__number">02</span>
+					<div class="flow-step__screen">
+						<span class="flow-step__placeholder">Content<br />type</span>
+					</div>
+					<p class="flow-step__label">Content type</p>
+				</div>
+				<div class="flow-step">
+					<span class="flow-step__number">03</span>
+					<div class="flow-step__screen">
+						<span class="flow-step__placeholder">Mood</span>
+					</div>
+					<p class="flow-step__label">Mood</p>
+				</div>
+				<div class="flow-step">
+					<span class="flow-step__number">04</span>
+					<div class="flow-step__screen">
+						<span class="flow-step__placeholder">Watch<br />length</span>
+					</div>
+					<p class="flow-step__label">Watch length</p>
+				</div>
+				<div class="flow-step">
+					<span class="flow-step__number">05</span>
+					<div class="flow-step__screen">
+						<span class="flow-step__placeholder">Recommendation</span>
+					</div>
+					<p class="flow-step__label">Recommendation</p>
 				</div>
 			</div>
 
-			<div class="observation">
-				<span class="observation__label">02</span>
-				<div class="observation__body">
-					<p class="observation__title">Do you want a movie, series, or either?</p>
-				</div>
-			</div>
-
-			<div class="observation">
-				<span class="observation__label">03</span>
-				<div class="observation__body">
-					<p class="observation__title">What are you in the mood for?</p>
-				</div>
-			</div>
-
-			<div class="observation">
-				<span class="observation__label">04</span>
-				<div class="observation__body">
-					<p class="observation__title">How long do you want to watch?</p>
-				</div>
-			</div>
-
-			<p>For solo viewers, this creates a faster path from opening Netflix to pressing play. For groups, the same questions become a way to combine everyone's preferences and find a shared match.</p>
+			<p class="flow-strip__caption">Each question narrows the catalog without making the user build a detailed search.</p>
 		</CaseStudySubsection>
 
 		<CaseStudySubsection title="Key design decisions">
-			<p>Six choices shaped how the flow actually works.</p>
+			<p>Six decisions shaped how the flow actually works, grouped by what they were trying to solve.</p>
 
-			<div class="observation">
-				<span class="observation__label">01</span>
-				<div class="observation__body">
-					<p class="observation__title">Starting with context, not content</p>
-					<p class="observation__text">The first question is "How are you watching?" That lets the experience branch immediately — solo viewers move straight into their preferences, while group viewers get the additional invitation and waiting steps they need.</p>
+			<h3 class="decision-row__heading">Row 1 — Shaping the recommendation</h3>
+			<div class="decision-grid">
+				<div class="decision-card">
+					<div class="decision-card__visual">
+						<div class="mini-branch">
+							<div class="mini-branch__top"><span class="mini-branch__box"></span></div>
+							<div class="mini-branch__lines">
+								<div class="mini-branch__box mini-branch__box--sm"></div>
+								<div class="mini-branch__box mini-branch__box--sm"></div>
+							</div>
+						</div>
+					</div>
+					<p class="decision-card__title">Context first</p>
+					<p class="decision-card__text">The first question ("How are you watching?") splits the flow immediately, so solo and group get different next steps.</p>
+				</div>
+				<div class="decision-card">
+					<div class="decision-card__visual">
+						<table class="decision-card__table">
+							<thead>
+								<tr><th>Genre</th><th>Mood</th></tr>
+							</thead>
+							<tbody>
+								<tr><td>Comedy</td><td>Funny</td></tr>
+								<tr><td>Animation</td><td>Comforting</td></tr>
+								<tr><td>Thriller</td><td>Tense</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="decision-card__title">Mood over genre</p>
+					<p class="decision-card__text">Different genres can satisfy the same mood. Framing the question around mood makes the interaction feel more natural and opens up cross-genre recommendations.</p>
 				</div>
 			</div>
 
-			<div class="observation">
-				<span class="observation__label">02</span>
-				<div class="observation__body">
-					<p class="observation__title">Mood over genre</p>
-					<p class="observation__text">Genres describe what a title is. Moods describe what someone actually wants from the experience. Someone may not know whether they want a comedy or an animated movie, but they probably know they want something comforting, funny, or mind-bending.</p>
+			<h3 class="decision-row__heading">Row 2 — Reducing decision fatigue</h3>
+			<div class="decision-grid">
+				<div class="decision-card">
+					<div class="decision-card__visual">
+						<div class="mini-stack">
+							<span class="mini-stack__box"></span>
+							<span class="mini-stack__box"></span>
+							<span class="mini-stack__box"></span>
+						</div>
+						<span class="decision-card__annotation">Only inputs that meaningfully change the result</span>
+					</div>
+					<p class="decision-card__title">Lightweight questions</p>
+					<p class="decision-card__text">No actor filters, no release-year sliders — anything more turns a decision tool back into a search interface.</p>
+				</div>
+				<div class="decision-card">
+					<div class="decision-card__visual">
+						<div class="mini-fade">
+							<div class="mini-fade__grid">
+								<span></span><span></span><span></span><span></span>
+								<span></span><span></span><span></span><span></span>
+							</div>
+							<span class="mini-fade__arrow">→</span>
+							<div class="mini-fade__one"></div>
+						</div>
+						<span class="decision-card__annotation">Dozens of possibilities → one confident pick</span>
+					</div>
+					<p class="decision-card__title">One match</p>
+					<p class="decision-card__text">A results list would return users to the same comparison loop the feature is meant to solve.</p>
 				</div>
 			</div>
 
-			<div class="observation">
-				<span class="observation__label">03</span>
-				<div class="observation__body">
-					<p class="observation__title">Keeping the questions intentionally lightweight</p>
-					<p class="observation__text">The flow only asks for information that meaningfully changes the recommendation: content type, mood, and watch length. Adding actors, languages, release years, and detailed filters would give users more control — but turn a quick decision tool into another search interface.</p>
+			<h3 class="decision-row__heading">Row 3 — Making groups lightweight</h3>
+			<div class="decision-grid">
+				<div class="decision-card">
+					<div class="decision-card__visual">
+						<div class="mini-qr">
+							<div class="mini-qr__code"></div>
+							<span class="mini-qr__arrow">→</span>
+							<div class="mini-qr__phone"></div>
+						</div>
+						<span class="decision-card__annotation">Open link. Submit preferences. Done.</span>
+					</div>
+					<p class="decision-card__title">No profiles required</p>
+					<p class="decision-card__text">Guests don't need Netflix accounts or manual setup from the host.</p>
 				</div>
-			</div>
-
-			<div class="observation">
-				<span class="observation__label">04</span>
-				<div class="observation__body">
-					<p class="observation__title">One recommendation, not another catalog</p>
-					<p class="observation__text">The goal was to reduce decision-making, so the result focuses on one match. A page full of personalized recommendations might be more flexible, but it would return users to the same comparison loop the feature is meant to solve.</p>
-				</div>
-			</div>
-
-			<div class="observation">
-				<span class="observation__label">05</span>
-				<div class="observation__body">
-					<p class="observation__title">Letting groups join without profiles</p>
-					<p class="observation__text">I initially explored using Netflix profiles to represent each participant, but that assumed everyone was sharing the same account and added more setup than the feature needed. Instead, the host shares a QR code or link, and anyone with access can submit their preferences without creating a profile.</p>
-				</div>
-			</div>
-
-			<div class="observation">
-				<span class="observation__label">06</span>
-				<div class="observation__body">
-					<p class="observation__title">Giving readiness control to the host</p>
-					<p class="observation__text">Rather than asking the host to declare group size upfront, the interface shows how many people have submitted. The host decides when the group is ready and moves everyone forward — visibility and control without unnecessary setup.</p>
+				<div class="decision-card">
+					<div class="decision-card__visual">
+						<div class="mini-waiting">
+							<div class="mini-waiting__version mini-waiting__version--reject">
+								<span class="mini-waiting__label">Rejected</span>
+								<div class="mini-waiting__dots">
+									<span></span><span></span><span></span><span></span>
+								</div>
+							</div>
+							<span class="mini-waiting__arrow">→</span>
+							<div class="mini-waiting__version mini-waiting__version--final">
+								<span class="mini-waiting__label">Final</span>
+								<span class="mini-waiting__count">3 submitted</span>
+								<span class="mini-waiting__btn">Start</span>
+							</div>
+						</div>
+					</div>
+					<p class="decision-card__title">Host-controlled readiness</p>
+					<p class="decision-card__text">Netflix can count submissions, but only the host knows when everyone is there.</p>
 				</div>
 			</div>
 		</CaseStudySubsection>
@@ -140,24 +312,849 @@ const sections = [
 			<p>Each step is deliberately short. The whole flow can happen in under a minute for solo viewers and a couple of minutes for groups.</p>
 
 			<h3 class="solution-block-heading">01 &nbsp; Choose the viewing context</h3>
-			<p>Solo or group. This first choice branches the entire flow.</p>
-			<div class="visual-placeholder">Screens: solo selected / group selected</div>
+			<div class="moment-layout moment-layout--split">
+				<div class="moment-layout__primary">
+					<div class="moment-layout__screen moment-layout__screen--large">
+						<span class="moment-layout__placeholder">Viewing<br />context</span>
+					</div>
+				</div>
+				<div class="moment-layout__secondary">
+					<div class="moment-layout__screen">
+						<span class="moment-layout__placeholder">Solo path</span>
+					</div>
+					<div class="moment-layout__screen">
+						<span class="moment-layout__placeholder">Group path</span>
+					</div>
+				</div>
+			</div>
+			<p class="moment-caption">One early choice keeps the solo experience fast while unlocking the extra steps groups need.</p>
 
 			<h3 class="solution-block-heading">02 &nbsp; Set lightweight preferences</h3>
-			<p>Content type, mood, and watch length. Three quick questions, no filters, no scrolling.</p>
-			<div class="visual-placeholder">Screens: content type / mood / watch length</div>
+			<div class="moment-deck">
+				<div class="moment-deck__card moment-deck__card--1">
+					<span class="moment-deck__placeholder">Content type</span>
+					<span class="moment-deck__selected">Movie</span>
+				</div>
+				<div class="moment-deck__card moment-deck__card--2">
+					<span class="moment-deck__placeholder">Mood</span>
+					<span class="moment-deck__selected">Comforting</span>
+				</div>
+				<div class="moment-deck__card moment-deck__card--3">
+					<span class="moment-deck__placeholder">Watch length</span>
+					<span class="moment-deck__selected">1–2 hours</span>
+				</div>
+			</div>
+			<p class="moment-caption">Movie + comforting + 1–2 hours → Minions.</p>
 
 			<h3 class="solution-block-heading">03 &nbsp; Bring the group together</h3>
-			<p>The host shares a QR code or link. Everyone submits their preferences on their own device, and the host sees the count grow in real time.</p>
-			<div class="visual-placeholder">Screens: QR invitation / waiting state</div>
+			<div class="moment-sequence">
+				<div class="moment-sequence__step">
+					<div class="moment-sequence__screen"><span>Host generates invite</span></div>
+				</div>
+				<span class="moment-sequence__arrow">→</span>
+				<div class="moment-sequence__step">
+					<div class="moment-sequence__screen moment-sequence__screen--phone"><span>Guests submit</span></div>
+				</div>
+				<span class="moment-sequence__arrow">→</span>
+				<div class="moment-sequence__step">
+					<div class="moment-sequence__screen"><span>Host sees progress</span></div>
+				</div>
+			</div>
+			<p class="moment-caption">The host shares a QR code or link. Everyone submits on their own device, and the host sees the count grow in real time.</p>
 
-			<h3 class="solution-block-heading">04 &nbsp; Reveal one match (solo)</h3>
-			<p>One title, chosen based on the answers. No comparison list.</p>
-			<div class="visual-placeholder">Screen: solo recommendation</div>
+			<h3 class="solution-block-heading">04 &nbsp; One flow, two outcomes</h3>
+			<div class="moment-final">
+				<div class="moment-final__side">
+					<span class="moment-final__label">Solo match</span>
+					<div class="moment-final__screen"><span>Based on one person's preferences</span></div>
+				</div>
+				<div class="moment-final__side">
+					<span class="moment-final__label">Group match</span>
+					<div class="moment-final__screen"><span>Based on everyone's overlap</span></div>
+				</div>
+			</div>
+			<p class="moment-caption">Same interface, same confidence — whether it's one person deciding or five.</p>
+		</CaseStudySubsection>
+	</CaseStudySection>
 
-			<h3 class="solution-block-heading">05 &nbsp; Reveal one match (group)</h3>
-			<p>Everyone's preferences combine into a single shared pick.</p>
-			<div class="visual-placeholder">Screen: group recommendation</div>
+	<CaseStudySection id="reflection" title="Reflection">
+		<CaseStudySubsection title="What I'd explore next">
+			<p>This project stopped at a concept, but a few threads would be worth pulling on if it kept going.</p>
+
+			<div class="reflection-grid">
+				<div class="reflection-card">
+					<span class="reflection-card__number">01</span>
+					<p class="reflection-card__title">Test the question order</p>
+					<p class="reflection-card__text">Does starting with mood feel faster than starting with content type?</p>
+				</div>
+				<div class="reflection-card">
+					<span class="reflection-card__number">02</span>
+					<p class="reflection-card__title">Explain the match</p>
+					<p class="reflection-card__text">Show why Netflix selected the title without adding more decision-making.</p>
+				</div>
+				<div class="reflection-card">
+					<span class="reflection-card__number">03</span>
+					<p class="reflection-card__title">Handle disagreement</p>
+					<p class="reflection-card__text">Explore one controlled alternative if the group rejects the first match.</p>
+				</div>
+			</div>
 		</CaseStudySubsection>
 	</CaseStudySection>
 </CaseStudyLayout>
+
+<style>
+	/* Netflix hero composition */
+	.netflix-hero {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 40px 0;
+		margin: 24px 0;
+		overflow: hidden;
+		border-radius: 16px;
+		background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+	}
+	.netflix-hero__glow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 60%;
+		height: 60%;
+		background: radial-gradient(circle, rgba(229, 9, 20, 0.35) 0%, rgba(229, 9, 20, 0) 70%);
+		pointer-events: none;
+	}
+	.netflix-hero__stack {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 24px;
+		width: 100%;
+		z-index: 1;
+	}
+	.netflix-hero__main {
+		flex: 0 0 45%;
+		z-index: 2;
+	}
+	.netflix-hero__screen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 16 / 10;
+		background-color: #1f1f1f;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+	}
+	.netflix-hero__side {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
+		flex: 0 0 20%;
+		transform: translateY(20px);
+	}
+	.netflix-hero__phone {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		aspect-ratio: 9 / 19;
+		background-color: #1f1f1f;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	.netflix-hero__label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.6);
+	}
+	.netflix-hero__placeholder {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: rgba(255, 255, 255, 0.4);
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	/* Split flow (Overview) */
+	.split-flow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;
+		margin: 32px 0 8px;
+	}
+	.split-flow__top { display: flex; justify-content: center; width: 100%; }
+	.split-flow__branches {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 32px;
+		width: 100%;
+		position: relative;
+	}
+	.split-flow__branches::before {
+		content: '';
+		position: absolute;
+		top: -24px;
+		left: 25%;
+		right: 25%;
+		height: 24px;
+		border-top: 1.5px solid #E5E5E5;
+		border-left: 1.5px solid #E5E5E5;
+		border-right: 1.5px solid #E5E5E5;
+		border-radius: 12px 12px 0 0;
+	}
+	.split-flow__branch {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+	.split-flow__branch-label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #4483F0;
+	}
+	.split-flow__screen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 140px;
+		aspect-ratio: 9 / 19;
+		background-color: #f5f5f5;
+		border-radius: 14px;
+	}
+	.split-flow__placeholder {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: #868686;
+		text-align: center;
+		line-height: 1.4;
+	}
+	.split-flow__caption {
+		margin: 0 !important;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		font-style: italic;
+		color: #4a4a4a;
+		text-align: center;
+	}
+
+	/* Browsing loop */
+	.browse-loop {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin: 32px 0 12px;
+	}
+	.browse-loop__step { flex: 1; }
+	.browse-loop__screen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 16 / 10;
+		background-color: #f5f5f5;
+		border-radius: 12px;
+	}
+	.browse-loop__placeholder {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: #868686;
+		text-align: center;
+		line-height: 1.3;
+	}
+	.browse-loop__arrow {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 20px;
+		color: #E50914;
+		flex: 0 0 auto;
+	}
+	.browse-loop__caption {
+		margin: 0 !important;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		font-style: italic;
+		color: #4a4a4a;
+		text-align: center;
+	}
+
+	/* Before/after concept shift */
+	.shift-compare {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		align-items: center;
+		gap: 24px;
+		margin: 32px 0;
+	}
+	.shift-compare__side {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+	.shift-compare__label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+	.shift-compare__label--before { color: #868686; }
+	.shift-compare__label--after { color: #4483F0; }
+	.shift-compare__frame {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		background-color: #f5f5f5;
+		border-radius: 12px;
+		padding: 20px;
+	}
+	.shift-compare__mock {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		width: 100%;
+	}
+	.shift-compare__mock--list {
+		align-items: stretch;
+		gap: 8px;
+	}
+	.shift-compare__title {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 24px;
+		font-weight: 600;
+		color: #1a1a1a;
+		letter-spacing: 0.1em;
+	}
+	.shift-compare__button {
+		padding: 8px 16px;
+		background-color: #E50914;
+		border-radius: 8px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 500;
+		color: #ffffff;
+	}
+	.shift-compare__row {
+		padding: 8px 12px;
+		background-color: #ffffff;
+		border-radius: 6px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: #4a4a4a;
+		text-align: center;
+	}
+	.shift-compare__row--result {
+		background-color: #E4F0FF;
+		color: #4483F0;
+		font-weight: 500;
+	}
+	.shift-compare__caption {
+		margin: 0 !important;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		color: #4a4a4a;
+		text-align: center;
+		line-height: 1.4;
+	}
+	.shift-compare__arrow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+		padding: 0 8px;
+	}
+	.shift-compare__arrow-mark {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 24px;
+		color: #4483F0;
+	}
+	.shift-compare__arrow-label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: #4483F0;
+		text-align: center;
+		max-width: 80px;
+		line-height: 1.3;
+	}
+
+	/* Flow strip (5-step Decision preview) */
+	.flow-strip {
+		display: flex;
+		gap: 12px;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin: 24px 0 16px;
+		overflow-x: auto;
+		padding-bottom: 8px;
+	}
+	.flow-step {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+		flex: 1;
+		min-width: 100px;
+	}
+	.flow-step__number {
+		font-family: 'Instrument Serif', serif;
+		font-size: 48px;
+		font-weight: 400;
+		line-height: 1;
+		color: #E5E5E5;
+	}
+	.flow-step__screen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		aspect-ratio: 9 / 19;
+		background-color: #f5f5f5;
+		border-radius: 16px;
+	}
+	.flow-step__placeholder {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: #868686;
+		text-align: center;
+		line-height: 1.3;
+	}
+	.flow-step__label {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #1a1a1a;
+		text-align: center;
+	}
+	.flow-strip__caption {
+		margin: 0 !important;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		font-style: italic;
+		color: #4a4a4a;
+		text-align: center;
+	}
+
+	/* Decision decisions grid */
+	.decision-row__heading {
+		margin: 40px 0 16px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+		color: #4483F0;
+		text-transform: uppercase;
+	}
+	.decision-row__heading:first-of-type { margin-top: 24px; }
+	.decision-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+		margin-bottom: 16px;
+	}
+	.decision-card {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	.decision-card__visual {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		aspect-ratio: 4 / 3;
+		background-color: #f5f5f5;
+		border-radius: 12px;
+		padding: 16px;
+		overflow: hidden;
+	}
+	.decision-card__annotation {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 11px;
+		font-style: italic;
+		color: #868686;
+		text-align: center;
+	}
+	.decision-card__table {
+		width: 100%;
+		max-width: 220px;
+		border-collapse: collapse;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+	}
+	.decision-card__table th {
+		padding: 6px 8px;
+		text-align: left;
+		font-weight: 500;
+		color: #868686;
+		border-bottom: 1px solid #E5E5E5;
+	}
+	.decision-card__table td {
+		padding: 6px 8px;
+		color: #1a1a1a;
+	}
+	.decision-card__title {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 16px;
+		font-weight: 500;
+		color: #1a1a1a;
+		line-height: 1.3;
+	}
+	.decision-card__text {
+		margin: 0 !important;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		color: #4a4a4a;
+		line-height: 1.5;
+	}
+
+	/* Mini illustrations inside decision cards */
+	.mini-branch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+	.mini-branch__top { display: flex; justify-content: center; }
+	.mini-branch__box {
+		width: 32px; height: 44px;
+		background-color: #ffffff;
+		border: 1px solid #E5E5E5;
+		border-radius: 6px;
+	}
+	.mini-branch__box--sm { width: 26px; height: 36px; }
+	.mini-branch__lines { display: flex; gap: 20px; }
+
+	.mini-stack { display: flex; gap: 6px; }
+	.mini-stack__box {
+		width: 32px; height: 60px;
+		background-color: #ffffff;
+		border: 1px solid #E5E5E5;
+		border-radius: 6px;
+	}
+	.mini-stack__box:nth-child(2) { transform: translateY(-4px); }
+	.mini-stack__box:nth-child(3) { transform: translateY(-8px); }
+
+	.mini-fade { display: flex; align-items: center; gap: 12px; }
+	.mini-fade__grid {
+		display: grid;
+		grid-template-columns: repeat(4, 10px);
+		grid-template-rows: repeat(2, 14px);
+		gap: 4px;
+		opacity: 0.5;
+	}
+	.mini-fade__grid span {
+		background-color: #ffffff;
+		border: 1px solid #E5E5E5;
+		border-radius: 2px;
+	}
+	.mini-fade__arrow {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		color: #E50914;
+	}
+	.mini-fade__one {
+		width: 40px; height: 56px;
+		background-color: #E50914;
+		border-radius: 6px;
+	}
+
+	.mini-qr { display: flex; align-items: center; gap: 12px; }
+	.mini-qr__code {
+		width: 44px; height: 44px;
+		background-image:
+			linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+			linear-gradient(-45deg, #1a1a1a 25%, transparent 25%);
+		background-size: 8px 8px;
+		background-color: #ffffff;
+		border: 1px solid #E5E5E5;
+		border-radius: 4px;
+	}
+	.mini-qr__arrow {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		color: #4483F0;
+	}
+	.mini-qr__phone {
+		width: 26px; height: 44px;
+		background-color: #ffffff;
+		border: 1px solid #E5E5E5;
+		border-radius: 6px;
+	}
+
+	.mini-waiting { display: flex; align-items: center; gap: 8px; }
+	.mini-waiting__version {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+		padding: 8px;
+		border-radius: 6px;
+		background-color: #ffffff;
+		border: 1px solid #E5E5E5;
+	}
+	.mini-waiting__label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 9px;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	.mini-waiting__version--reject .mini-waiting__label { color: #E50914; text-decoration: line-through; }
+	.mini-waiting__version--final .mini-waiting__label { color: #4483F0; }
+	.mini-waiting__dots { display: flex; gap: 4px; }
+	.mini-waiting__dots span {
+		width: 6px; height: 6px;
+		background-color: #a8a8a8;
+		border-radius: 50%;
+	}
+	.mini-waiting__count {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 9px;
+		color: #1a1a1a;
+	}
+	.mini-waiting__btn {
+		padding: 3px 8px;
+		background-color: #4483F0;
+		border-radius: 4px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 8px;
+		font-weight: 500;
+		color: #ffffff;
+	}
+	.mini-waiting__arrow {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: #868686;
+	}
+
+	/* Solution moments */
+	.moment-layout {
+		display: grid;
+		gap: 16px;
+		margin: 16px 0 12px;
+	}
+	.moment-layout--split {
+		grid-template-columns: 2fr 1fr;
+	}
+	.moment-layout__primary,
+	.moment-layout__secondary {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	.moment-layout__screen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 16 / 10;
+		background-color: #f5f5f5;
+		border-radius: 12px;
+	}
+	.moment-layout__screen--large { aspect-ratio: 16 / 12; }
+	.moment-layout__placeholder {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: #868686;
+		text-align: center;
+		line-height: 1.3;
+	}
+
+	.moment-deck {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 24px 0 12px;
+		gap: 0;
+	}
+	.moment-deck__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		width: 180px;
+		aspect-ratio: 9 / 16;
+		background-color: #ffffff;
+		border: 1px solid #E5E5E5;
+		border-radius: 16px;
+		padding: 16px;
+	}
+	.moment-deck__card--1 { transform: rotate(-4deg) translateX(20px); z-index: 1; }
+	.moment-deck__card--2 { z-index: 3; }
+	.moment-deck__card--3 { transform: rotate(4deg) translateX(-20px); z-index: 1; }
+	.moment-deck__placeholder {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 11px;
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: #868686;
+	}
+	.moment-deck__selected {
+		padding: 6px 14px;
+		background-color: #E4F0FF;
+		border-radius: 9999px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #4483F0;
+	}
+
+	.moment-sequence {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		margin: 16px 0 12px;
+	}
+	.moment-sequence__step { flex: 1; }
+	.moment-sequence__screen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		aspect-ratio: 16 / 10;
+		background-color: #f5f5f5;
+		border-radius: 12px;
+		padding: 12px;
+	}
+	.moment-sequence__screen--phone {
+		aspect-ratio: 9 / 14;
+		max-width: 100px;
+		margin: 0 auto;
+	}
+	.moment-sequence__screen span {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 11px;
+		color: #868686;
+		text-align: center;
+		line-height: 1.3;
+	}
+	.moment-sequence__arrow {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 16px;
+		color: #4483F0;
+		flex: 0 0 auto;
+	}
+
+	.moment-final {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+		margin: 16px 0 12px;
+	}
+	.moment-final__side {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+	.moment-final__label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 500;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #4483F0;
+	}
+	.moment-final__screen {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		aspect-ratio: 9 / 16;
+		background-color: #f5f5f5;
+		border-radius: 12px;
+		padding: 16px;
+	}
+	.moment-final__screen span {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		color: #868686;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	.moment-caption {
+		margin: 0 0 24px !important;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		font-style: italic;
+		color: #4a4a4a;
+		text-align: center;
+	}
+
+	/* Reflection cards */
+	.reflection-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 16px;
+		margin: 16px 0 0;
+	}
+	.reflection-card {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		padding: 20px;
+		background-color: transparent;
+		border: 1px solid #EDEDED;
+		border-radius: 12px;
+	}
+	.reflection-card__number {
+		font-family: 'Instrument Serif', serif;
+		font-size: 24px;
+		color: #4483F0;
+		line-height: 1;
+	}
+	.reflection-card__title {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		font-weight: 500;
+		color: #1a1a1a;
+	}
+	.reflection-card__text {
+		margin: 0 !important;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		color: #4a4a4a;
+		line-height: 1.5;
+	}
+
+	/* Mobile */
+	@media (max-width: 640px) {
+		.netflix-hero__stack { flex-direction: column; gap: 16px; }
+		.netflix-hero__side, .netflix-hero__main { flex: 0 0 auto; width: 60%; transform: none; }
+		.browse-loop { flex-wrap: wrap; }
+		.browse-loop__step { flex: 0 0 40%; }
+		.shift-compare { grid-template-columns: 1fr; }
+		.shift-compare__arrow { flex-direction: row; justify-content: center; }
+		.shift-compare__arrow-mark { transform: rotate(90deg); }
+		.flow-strip { flex-wrap: wrap; justify-content: center; }
+		.flow-step { flex: 0 0 45%; min-width: 0; }
+		.flow-step__number { font-size: 36px; }
+		.decision-grid { grid-template-columns: 1fr; }
+		.decision-card__visual { aspect-ratio: 16 / 9; }
+		.moment-layout--split { grid-template-columns: 1fr; }
+		.moment-deck { flex-direction: column; gap: 12px; }
+		.moment-deck__card--1, .moment-deck__card--3 { transform: none; }
+		.moment-sequence { flex-wrap: wrap; }
+		.moment-final { grid-template-columns: 1fr; }
+		.reflection-grid { grid-template-columns: 1fr; }
+	}
+</style>

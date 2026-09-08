@@ -7,7 +7,7 @@ export default {
 		extend: {
 			fontFamily: {
 				serif: ['"Instrument Serif"', 'serif'],
-				sans: ['"Work Sans"', 'system-ui', 'sans-serif'],
+				sans: ['"Manrope"', 'system-ui', 'sans-serif'],
 			},
 		},
 	},

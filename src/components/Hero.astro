@@ -1,107 +1,343 @@
 ---
 const highlights = [
-	{ text: 'product designer*', tooltip: '🧠 Senior @ UC Berkeley. I think in interfaces, systems, and how people learn. Love learning!' },
-	{ text: 'builds*', tooltip: "🚀 I don't just design in Figma, I build! Prototyping with code, using AI to move faster, and I even built this portfolio in Cursor!" },
-	{ text: 'pixels*', tooltip: '🔍 Obsessive about type, spacing, and motion. The details are the design.' },
-	{ text: 'patterns*', tooltip: '🧩 Strong product thinking. I zoom out to systems, zoom in to decisions, and can defend both.' },
-	{ text: 'problems*', tooltip: '🔥 Fast-moving environments are my favorite. I work through ambiguity by shipping, testing, and iterating' },
-	{ text: 'people*', tooltip: '🤝 Design is for someone specific. I care about the users I design for and the team I design with.' },
+	{ text: 'product designer*', tooltip: '🧠 Senior @ UC Berkeley. I think in interfaces, systems, and how people learn.' },
+	{ text: 'builds*', tooltip: '⚡ I use AI and code to turn ideas into working prototypes, test them sooner, and learn faster.' },
+	{ text: 'pixels*', tooltip: '🔍 I care about type, spacing, motion, and the tiny details that make an experience feel right.' },
+	{ text: 'problems*', tooltip: '🧩 I untangle complex problems by connecting user needs with product goals, and make every design decision for a reason.' },
+	{ text: 'psychology*', tooltip: '🧠 I study how people think, learn, and behave, then use those insights to design experiences that feel natural.' },
 ];
+
+const stats = [
+	{ value: '4', label: 'Startups' },
+	{ value: '100+', label: 'Figma Files' },
+	{ value: '20+', label: 'Tools Learned' },
+	{ value: '∞', label: 'Curiosity' },
+];
+
+const tags = ['AI Prototyping', 'UX Psychology', 'Design Thinking', 'HCI'];
+
+// duplicated once so the marquee track can loop seamlessly at -50%
+const tagLoop = [...tags, ...tags];
 ---
 
-<div class="page bg-[#FFFFFF] min-h-screen">
-	<section class="hero flex flex-col items-center pt-24 pb-16 px-8 text-center">
-		<div class="hero-headline hero-animate flex items-center justify-center">
-			<h1 class="font-serif text-[56px] leading-tight text-[#1a1a1a]">Hello! I'm Julia Heo</h1>
-			<img
-				src="/images/about/me.png"
-				alt="Julia Heo"
-				class="hero-headshot ml-4 h-[52px] w-[52px] rounded-full object-cover"
-			/>
+<div class="page bg-[#F9F9F9] min-h-screen">
+<section class="hero hero-layout pt-20 pb-12 pl-8 pr-16 text-left">
+		<div class="hero-text flex flex-col items-start">
+			<div class="hero-headline hero-animate flex items-center justify-center">
+				<h1 class="font-serif text-[56px] leading-tight text-[#1a1a1a]">
+    Hello! I'm Julia Heo
+</h1>
+			</div>
+
+			<div class="group/desc desc-block hero-animate mt-8 max-w-[580px]">
+				<p class="desc-text font-sans text-[24px] leading-[1.8] text-[#1a1a1a]">
+
+					<span class="desc-plain">A </span>
+
+					<span class="highlight relative inline-block cursor-pointer">
+						<span
+							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
+							style="transform: rotate(-0.7deg);"
+						>
+							{highlights[0].text}
+						</span>
+
+						<span class="highlight-tooltip" aria-hidden="true">
+							{highlights[0].tooltip}
+						</span>
+					</span>
+
+					<span class="desc-plain"> who </span>
+
+					<span class="highlight relative inline-block cursor-pointer">
+						<span
+							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
+							style="transform: rotate(0.9deg);"
+						>
+							{highlights[1].text}
+						</span>
+
+						<span class="highlight-tooltip" aria-hidden="true">
+							{highlights[1].tooltip}
+						</span>
+					</span>
+
+					<span class="desc-plain"> and is</span>
+
+					<br />
+
+					<span class="desc-plain">passionate about the </span>
+
+					<span class="highlight relative inline-block cursor-pointer">
+						<span
+							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
+							style="transform: rotate(-0.8deg);"
+						>
+							{highlights[2].text}
+						</span>
+
+						<span class="highlight-tooltip" aria-hidden="true">
+							{highlights[2].tooltip}
+						</span>
+					</span>
+
+					<span class="desc-plain"> </span>
+
+					<span class="highlight relative inline-block cursor-pointer">
+						<span
+							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
+							style="transform: rotate(1.2deg);"
+						>
+							{highlights[3].text}
+						</span>
+
+						<span class="highlight-tooltip" aria-hidden="true">
+							{highlights[3].tooltip}
+						</span>
+					</span>
+
+					<span class="desc-plain"> &</span>
+
+					<br />
+
+					<span class="highlight relative inline-block cursor-pointer">
+						<span
+							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
+							style="transform: rotate(-0.9deg);"
+						>
+							{highlights[4].text}
+						</span>
+
+						<span class="highlight-tooltip" aria-hidden="true">
+							{highlights[4].tooltip}
+						</span>
+					</span>
+
+					<span class="desc-plain">
+						behind effortless experiences.
+					</span>
+
+				</p>
+			</div>
+
 		</div>
 
-		<div class="group/desc desc-block hero-animate mt-8 max-w-3xl">
-			<p class="desc-text font-sans text-[24px] leading-[1.8] text-[#1a1a1a]">
-				<span class="desc-plain">a </span>
-				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
-					{highlights[0].text}
-					<span class="highlight-tooltip" aria-hidden="true">{highlights[0].tooltip}</span>
-				</span>
-				<span class="desc-plain"> based in SF </span>
-				<span class="desc-plain"> who </span>
-				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
-					{highlights[1].text}
-					<span class="highlight-tooltip" aria-hidden="true">{highlights[1].tooltip}</span>
-				</span>
-				
-				<span class="desc-plain"> and is passionate about the </span>
-				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
-					{highlights[2].text}
-					<span class="highlight-tooltip" aria-hidden="true">{highlights[2].tooltip}</span>
-				</span>
-				<span class="desc-plain"> </span>
-				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
-					{highlights[3].text}
-					<span class="highlight-tooltip" aria-hidden="true">{highlights[3].tooltip}</span>
-				</span>
-				<span class="desc-plain"> </span>
-				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
-					{highlights[4].text}
-					<span class="highlight-tooltip" aria-hidden="true">{highlights[4].tooltip}</span>
-				</span>
-				<span class="desc-plain"> and </span>
-				<span class="highlight relative inline-block cursor-pointer rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200">
-					{highlights[5].text}
-					<span class="highlight-tooltip" aria-hidden="true">{highlights[5].tooltip}</span>
-				</span>
-				<span class="desc-plain"> they're designed for.</span>
-			</p>
+		<div class="profile-card-stack">
+			<div class="profile-card-ghost ghost-2"></div>
+			<div class="profile-card-ghost"></div>
+
+			<aside class="profile-card" aria-label="Julia Heo quick facts">
+
+				<div class="profile-card-header"></div>
+
+				<div class="profile-card-top-row">
+
+					<img
+						class="profile-card-avatar"
+						src="/images/about/me.jpg"
+						alt="Julia Heo"
+					/>
+
+					<div class="profile-card-badge">
+						<img
+							src="/images/designerbadge.png"
+							alt=""
+							class="profile-card-badge-icon"
+						/>
+
+						<span>Designer</span>
+					</div>
+
+				</div>
+
+				<div class="profile-card-body">
+
+					<h3 class="profile-card-name">
+						Julia Heo ✦
+					</h3>
+
+					<p class="profile-card-role">
+						Cognitive Science, Education, &amp; Design @ Berkeley
+					</p>
+
+					<div class="profile-card-stats">
+						{stats.map((stat) => (
+							<div class="stat">
+								<span class="stat-value">
+									{stat.value}
+								</span>
+
+								<span class="stat-label">
+									{stat.label}
+								</span>
+							</div>
+						))}
+					</div>
+
+					<div class="profile-card-tags">
+						<div class="profile-card-tags-track">
+							{tagLoop.map((tag, i) => (
+								<>
+									<span class="tag">
+										{tag}
+									</span>
+
+									{i < tagLoop.length - 1 && (
+										<span class="tag-dot">
+											•
+										</span>
+									)}
+								</>
+							))}
+						</div>
+					</div>
+
+				</div>
+
+			</aside>
 		</div>
+
 	</section>
 
 	<section class="below-hero">
+
 		<div class="mini-nav-row flex items-center justify-between mb-4">
-    <div
-        class="tabs mini-nav flex justify-start gap-1"
-        role="tablist"
-        aria-label="Portfolio sections"
-    >
-        <button type="button" class="tab tab--active" data-tab="work" role="tab" aria-selected="true">📁 Selected Work</button>
-        <button type="button" class="tab" data-tab="projects" role="tab" aria-selected="false">✨ Personal Projects</button>
-        <button type="button" class="tab" data-tab="play" role="tab" aria-selected="false">🍪 Fun</button>
-    </div>
-    <div class="status-indicator">
-    <span class="status-dot"></span>
-    <span class="status-text">Currently designing NoTestudo @ <a href="https://narb.cc/" target="_blank" rel="noopener noreferrer" class="status-link-text">narb</a></span>
-</div>
-</div>
+
+			<div
+				class="tabs mini-nav flex justify-start gap-1"
+				role="tablist"
+				aria-label="Portfolio sections"
+			>
+
+				<button
+					type="button"
+					class="tab tab--active"
+					data-tab="work"
+					role="tab"
+					aria-selected="true"
+				>
+					Selected Work
+				</button>
+
+				<button
+					type="button"
+					class="tab"
+					data-tab="projects"
+					role="tab"
+					aria-selected="false"
+				>
+					Personal Projects
+				</button>
+
+				<button
+					type="button"
+					class="tab"
+					data-tab="play"
+					role="tab"
+					aria-selected="false"
+				>
+					Fun
+				</button>
+
+			</div>
+
+		</div>
+
 		<div class="tab-panels">
-			<div class="tab-panel" data-tab-panel="work">
+
+			<div
+				class="tab-panel"
+				data-tab-panel="work"
+			>
 				<div class="cards">
 					<slot name="work" />
 				</div>
 			</div>
-			<div class="tab-panel" data-tab-panel="projects" hidden>
+
+			<div
+				class="tab-panel"
+				data-tab-panel="projects"
+				hidden
+			>
 				<slot name="projects" />
 			</div>
-			<div class="tab-panel" data-tab-panel="play" hidden>
+
+			<div
+				class="tab-panel"
+				data-tab-panel="play"
+				hidden
+			>
 				<slot name="play" />
 			</div>
+
 		</div>
+
 	</section>
 </div>
 
 <style>
+
 	@keyframes hero-load-in {
 		from {
 			opacity: 0;
-			transform: translateY(20px);
+			transform: translateY(10px);
 		}
+
 		to {
 			opacity: 1;
 			transform: translateY(0);
 		}
 	}
+
+
+	/* Card "deal in" animation — ghosts fly in first, main card lands last */
+@keyframes deal-in-ghost-2 {
+    from {
+        opacity: 0;
+        transform: rotate(-25deg) translate(-80px, -40px);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(-5deg) translate(-14px, 14px);
+    }
+}
+
+@keyframes deal-in-ghost-1 {
+    from {
+        opacity: 0;
+        transform: rotate(-20deg) translate(-60px, -30px);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(-2deg) translate(-7px, 7px);
+    }
+}
+
+@keyframes deal-in-main {
+    from {
+        opacity: 0;
+        transform: rotate(15deg) translate(60px, -60px);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(3deg);
+    }
+}
+
+.profile-card-stack .profile-card-ghost.ghost-2 {
+    animation: deal-in-ghost-2 700ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 200ms;
+}
+
+.profile-card-stack .profile-card-ghost:not(.ghost-2) {
+    animation: deal-in-ghost-1 700ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 350ms;
+}
+
+.profile-card-stack .profile-card {
+    animation: deal-in-main 800ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    animation-delay: 500ms;
+}
 
 	.hero-animate {
 		animation: hero-load-in 800ms ease-out both;
@@ -120,7 +356,17 @@ const highlights = [
 		scroll-margin-top: 80px;
 	}
 
-	
+	.hero-layout {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 28px;
+	}
+
+	.hero-text {
+		flex: 0 1 580px;
+		min-width: 0;
+	}
 
 	.highlight-tooltip {
 		position: absolute;
@@ -132,7 +378,7 @@ const highlights = [
 		border-radius: 8px;
 		background-color: #ffffff;
 		padding: 12px;
-		font-family: 'Work Sans', system-ui, sans-serif;
+		font-family: 'Gabarito', system-ui, sans-serif;
 		font-size: 14px;
 		font-weight: 400;
 		line-height: 1.4;
@@ -142,7 +388,9 @@ const highlights = [
 		opacity: 0;
 		visibility: hidden;
 		pointer-events: none;
-		transition: opacity 200ms ease, visibility 200ms ease;
+		transition:
+			opacity 200ms ease,
+			visibility 200ms ease;
 	}
 
 	.highlight:hover .highlight-tooltip {
@@ -155,7 +403,9 @@ const highlights = [
 		transition: color 200ms ease;
 	}
 
-	.desc-block:has(.highlight:hover) .highlight:not(:hover) {
+	.desc-block:has(.highlight:hover)
+		.highlight:not(:hover)
+		.highlight-pill {
 		background-color: transparent;
 		color: #b0b0b0;
 		transition:
@@ -163,12 +413,285 @@ const highlights = [
 			background-color 200ms ease;
 	}
 
+	.highlight-pill {
+		transform-origin: center;
+	}
+
+	/* --- Profile card (stacked-card depth effect) --- */
+
+	.profile-card-stack {
+		position: relative;
+		flex: 0 0 350px;
+		width: 300px;
+		margin-left: 16px;
+	}
+
+	.profile-card-ghost {
+		position: absolute;
+		top: 7px;
+		left: -7px;
+		width: 100%;
+		height: 100%;
+		border-radius: 16px;
+		background: #ffffff;
+		border: 1px solid #EDEDED;
+		box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+		transform: rotate(-2deg);
+		transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.profile-card-ghost.ghost-2 {
+		top: 14px;
+		left: -14px;
+		z-index: -1;
+		transform: rotate(-5deg);
+	}
+
+	.profile-card {
+    position: relative;
+    z-index: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #ECECEC;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    transform: rotate(3deg);
+    transition:
+        transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 300ms ease-out;
+}
+
+/* Hover: straighten out and pop forward */
+.profile-card-stack:hover .profile-card {
+    transform: rotate(0deg) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.profile-card-stack:hover .profile-card-ghost:not(.ghost-2) {
+    transform: rotate(-1deg) translateX(-2px);
+}
+
+.profile-card-stack:hover .profile-card-ghost.ghost-2 {
+    transform: rotate(-3deg) translateX(-4px);
+}
+
+
+
+
+
+
+
+
+
+
+.profile-card-stack {
+    perspective: 1000px;
+}
+
+.profile-card {
+    transform: rotate(3deg);
+    transition: transform 200ms ease-out, box-shadow 300ms ease-out;
+    will-change: transform;
+}
+
+.profile-card-stack:hover .profile-card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.profile-card-header {
+    height: 64px;
+    background: linear-gradient(
+        180deg,
+        #BFDCFF 0%,
+        #FFFFFF 100%
+    );
+}
+
+	.profile-card-top-row {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+    right: 24px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(-50%);
+	padding-top: 28px;
+}
+
+	.profile-card-avatar {
+		width: 64px;
+		height: 64px;
+		border-radius: 50%;
+		border: 1px solid #ffffff;
+		object-fit: cover;
+		display: block;
+		background: #EDEDED;
+		margin: 0;
+		flex-shrink: 0;
+	}
+
+	.profile-card-body {
+    position: relative;
+    padding: 56px 24px 28px;
+}
+
+	.profile-card-meta {
+		font-family: 'Gabarito', system-ui, sans-serif;
+		font-size: 11.5px;
+		color: #767676;
+		margin: 0 0 8px;
+		white-space: nowrap;
+	}
+
+	
+
+	.profile-card-name {
+		font-family: 'Gabarito', system-ui, sans-serif;
+		font-weight: 700;
+		font-size: 19px;
+		color: #14161a;
+		margin: -12 0 0px;
+	}
+
+	.profile-card-role {
+		font-family: 'Gabarito', system-ui, sans-serif;
+		font-size: 11.5px;
+		color: #7a7a7a;
+		margin: 0 0 14px;
+		line-height: 1.4;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.profile-card-stats {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 12px;
+		margin-bottom: 14px;
+		border-top: 1px solid #EDEDED;
+	}
+
+	.profile-card-stats .stat {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.profile-card-stats .stat-value {
+		font-family: 'Gabarito', sans-serif;
+		font-weight: 700;
+		font-size: 17px;
+		color: #14161a;
+	}
+
+	.profile-card-stats .stat-label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 9.5px;
+		color: #9a9a9a;
+		margin-top: 2px;
+		line-height: 1.2;
+		white-space: nowrap;
+	}
+
+	.profile-card-tags {
+		background:rgb(248, 248, 248);
+		border-radius: 8px;
+		padding: 10px 0;
+		overflow: hidden;
+		-webkit-mask-image: linear-gradient(
+			90deg,
+			transparent 0,
+			#000 16px,
+			#000 calc(100% - 16px),
+			transparent 100%
+		);
+		mask-image: linear-gradient(
+			90deg,
+			transparent 0,
+			#000 16px,
+			#000 calc(100% - 16px),
+			transparent 100%
+		);
+	}
+
+	.profile-card-tags-track {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		white-space: nowrap;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 11.5px;
+		color: #5f5f5f;
+		animation: tags-marquee 14s linear infinite;
+	}
+
+	.profile-card-tags .tag-dot {
+		color: #c4c4c4;
+	}
+
+	.profile-card-tags:hover .profile-card-tags-track {
+		animation-play-state: paused;
+	}
+
+	@keyframes tags-marquee {
+		from {
+			transform: translateX(0);
+		}
+
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	.profile-card-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		padding: 3px 11px 3px 4px;
+		background: rgba(255, 255, 255, 0.92);
+		border: 1px solid rgba(0, 0, 0, 0.06);
+		border-radius: 999px;
+		font-family: 'Gabarito', system-ui, sans-serif;
+		font-size: 11px;
+		font-weight: 600;
+		color: #303030;
+		box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+
+	.profile-card-badge-icon {
+		width: 22px;
+		height: 22px;
+		border-radius: 50%;
+		object-fit: cover;
+		background: #e4f0ff;
+	}
+
 	.tab {
 		border: none;
 		background: none;
 		padding: 6px 16px;
-		border-radius: 9999px;
-		font-family: 'Work Sans', system-ui, sans-serif;
+		border-radius: 8px;
+		font-family: 'Gabarito', system-ui, sans-serif;
 		font-size: 14px;
 		font-weight: 400;
 		color: #868686;
@@ -190,39 +713,30 @@ const highlights = [
 		color: #868686;
 	}
 
-	.status-indicator {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-	padding-left: 8px;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    color: #868686;
-}
+	.status-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background-color: #22C55E;
+		animation: pulse 3.2s ease-in-out infinite;
+		flex-shrink: 0;
+	}
 
-.status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #22C55E;
-    animation: pulse 2.0s ease-in-out infinite;
-    flex-shrink: 0;
-}
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+			box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+		}
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
-    }
-    50% {
-        opacity: 0.8;
-        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
-    }
-}
+		50% {
+			opacity: 0.8;
+			box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+		}
+	}
 
 	.below-hero {
-		margin-top: 48px;
+		margin-top: 16px;
 		padding: 0 0 80px;
 	}
 
@@ -231,24 +745,53 @@ const highlights = [
 	}
 
 	.cards {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 40px;
-}
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 40px;
+	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.hero-animate {
-			animation: none;
-			opacity: 1;
-			transform: none;
-		}
-	}
+    .hero-animate {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    .profile-card-tags-track {
+        animation: none;
+    }
+    .profile-card-stack .profile-card,
+    .profile-card-stack .profile-card-ghost {
+        animation: none;
+        opacity: 1;
+    }
+    .profile-card-stack .profile-card {
+        transform: rotate(3deg);
+    }
+    .profile-card-stack .profile-card-ghost:not(.ghost-2) {
+        transform: rotate(-2deg) translate(-7px, 7px);
+    }
+    .profile-card-stack .profile-card-ghost.ghost-2 {
+        transform: rotate(-5deg) translate(-14px, 14px);
+    }
+}
 
 	@media (max-width: 768px) {
 		.hero {
 			min-height: auto;
-			padding: 48px 20px 32px;
+			padding: 32px 20px;
+		}
+
+		.hero-layout {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.profile-card-stack {
+			position: relative;
+			flex: 0 0 350px;
+			width: 300px;
+			margin-left: 0;
 		}
 
 		.hero-headline {
@@ -274,9 +817,9 @@ const highlights = [
 		}
 
 		.below-hero {
-    margin-top: 48px;
-    padding: 0 0 80px;
-	}
+			margin-top: 48px;
+			padding: 0 0 80px;
+		}
 
 		.cards {
 			gap: 24px;
@@ -284,13 +827,13 @@ const highlights = [
 	}
 
 	.status-link-text {
-    color: inherit;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-    transition: color 200ms ease;
-}
+		color: inherit;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		transition: color 200ms ease;
+	}
 
-.status-link-text:hover {
-    color: #4483F0;
-}
+	.status-link-text:hover {
+		color: #4483F0;
+	}
 </style>
