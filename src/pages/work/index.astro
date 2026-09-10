@@ -4,22 +4,18 @@ import CaseStudyCard from '../../components/CaseStudyCard.astro';
 
 const lingotuneCard = {
 	href: '/work/lingotune',
-	logoSrc: '/images/lingotune/logo.png',
-	companyName: 'Lingotune',
-	headline: 'Redesigning song navigation for easier discoverability',
-	tags: ['Product Design', 'Mobile', 'EdTech'],
-	ctaLabel: 'View Lingotune Case Study',
+	title: 'Song Navigation Redesign',
+	description: 'Redesigning song navigation for easier discoverability',
 	previewSrc: '/images/lingotune/preview.png',
+	icon: '/images/lingotune/logo.png',
 };
 
 const buildIrlCard = {
 	href: '/work/build-irl',
-	logoSrc: '/images/build-irl/logo.png',
-	companyName: 'Build IRL',
-	headline: 'Designing a 0→1 platform for building and running club communities',
-	tags: ['Product/UX Design', 'Web/Mobile', 'Social'],
-	ctaLabel: 'View Build IRL Case Study',
+	title: '0 to 1 MVP Design',
+	description: 'Designing an MVP from 0-to-1 for club communities',
 	previewSrc: '/images/build-irl/preview.png',
+	icon: '/images/build-irl/logo.png',
 };
 ---
 
@@ -31,10 +27,10 @@ const buildIrlCard = {
 		</header>
 
 		<div class="work-page__cards">
-			<div class="fade-in-on-scroll" style="--fade-delay: 0ms">
+			<div class="work-page__card-item fade-in-on-scroll" style="--fade-delay: 0ms">
 				<CaseStudyCard {...lingotuneCard} />
 			</div>
-			<div class="fade-in-on-scroll" style="--fade-delay: 100ms">
+			<div class="work-page__card-item fade-in-on-scroll" style="--fade-delay: 100ms">
 				<CaseStudyCard {...buildIrlCard} />
 			</div>
 		</div>
@@ -102,8 +98,13 @@ const buildIrlCard = {
 
 	.work-page__cards {
 		display: flex;
-		flex-direction: column;
-		gap: 40px;
+		flex-wrap: wrap;
+		gap: 48px 40px;
+	}
+
+	.work-page__card-item {
+		flex: 0 1 calc(50% - 20px);
+		min-width: 280px;
 	}
 
 	@media (max-width: 768px) {
@@ -124,7 +125,11 @@ const buildIrlCard = {
 		}
 
 		.work-page__cards {
-			gap: 24px;
+			gap: 32px;
+		}
+
+		.work-page__card-item {
+			flex: 1 1 100%;
 		}
 	}
 </style>

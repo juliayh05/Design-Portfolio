@@ -32,85 +32,71 @@ const sections = [
 				<div class="netflix-hero__glow"></div>
 				<div class="netflix-hero__stack">
 					<div class="netflix-hero__side netflix-hero__side--left">
-						<span class="netflix-hero__label">Solo</span>
 						<div class="netflix-hero__phone">
-							<span class="netflix-hero__placeholder">Mood<br />selection</span>
+							<img src="/images/netflix/frame-112.png" alt="Netflix solo mood selection screen" loading="lazy" />
 						</div>
+                        <span> Solo </span>
 					</div>
 					<div class="netflix-hero__main">
 						<div class="netflix-hero__screen">
-							<span class="netflix-hero__placeholder">Final<br />recommendation</span>
+							<img src="/images/netflix/frame-124.png" alt="Netflix recommendation for Minions based on solo viewing preferences" loading="lazy" />
 						</div>
 					</div>
 					<div class="netflix-hero__side netflix-hero__side--right">
-						<span class="netflix-hero__label">Group</span>
 						<div class="netflix-hero__phone">
-							<span class="netflix-hero__placeholder">Waiting<br />state</span>
+							<img src="/images/netflix/frame-123.png" alt="Netflix group waiting screen showing submitted preferences" loading="lazy" />
 						</div>
+                        <span> Group </span>
 					</div>
 				</div>
 			</div>
-
-			<div class="split-flow">
-				<div class="split-flow__top">
-					<div class="split-flow__screen">
-						<span class="split-flow__placeholder">Viewing<br />context</span>
-					</div>
-				</div>
-				<div class="split-flow__branches">
-					<div class="split-flow__branch">
-						<span class="split-flow__branch-label">Solo</span>
-						<div class="split-flow__screen">
-							<span class="split-flow__placeholder">Preferences</span>
-						</div>
-						<div class="split-flow__screen">
-							<span class="split-flow__placeholder">Recommendation</span>
-						</div>
-					</div>
-					<div class="split-flow__branch">
-						<span class="split-flow__branch-label">Group</span>
-						<div class="split-flow__screen">
-							<span class="split-flow__placeholder">Invite +<br />wait</span>
-						</div>
-						<div class="split-flow__screen">
-							<span class="split-flow__placeholder">Shared<br />recommendation</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<p class="split-flow__caption">One decision flow, adapted for solo and group viewing.</p>
 		</CaseStudySubsection>
 	</CaseStudySection>
 
 	<CaseStudySection id="problem" title="Problem">
 		<CaseStudySubsection title="Netflix gives users plenty to watch, but not much help making the final decision.">
 			<p>Existing recommendations still leave people comparing dozens of options. The interface is optimized for browsing, not for helping someone actually pick something to watch.</p>
-			<p>The result is a familiar loop: open Netflix, scroll rows, open titles, back out, keep scrolling. Eventually, someone gives up and rewatches something they've already seen — or the group never actually starts the movie.</p>
+			<p>The result is a familiar loop: open Netflix, scroll rows, open titles, back out, keep scrolling. Eventually, someone gives up and rewatches something they've already seen, or the group never actually starts the movie. </p>
 
 			<div class="browse-loop">
 				<div class="browse-loop__step">
-					<div class="browse-loop__screen">
-						<span class="browse-loop__placeholder">Browse<br />rows</span>
+
+                <div class="flow-step__screen">
+						<img src="/images/netflix/Crop.png" alt="Choose viewing context" loading="lazy" />
 					</div>
+					<p class="flow-step__label"> Browse rows </p>
+
 				</div>
 				<span class="browse-loop__arrow">→</span>
 				<div class="browse-loop__step">
-					<div class="browse-loop__screen">
-						<span class="browse-loop__placeholder">Open<br />title</span>
+
+
+
+                <div class="flow-step__screen">
+						<img src="/images/netflix/open.png" alt="Choose viewing context" loading="lazy" />
 					</div>
+					<p class="flow-step__label"> Open title </p>
+
+
+				
 				</div>
 				<span class="browse-loop__arrow">→</span>
 				<div class="browse-loop__step">
-					<div class="browse-loop__screen">
-						<span class="browse-loop__placeholder">Go<br />back</span>
+
+                 <div class="flow-step__screen">
+						<img src="/images/netflix/back.png" alt="Choose viewing context" loading="lazy" />
 					</div>
-				</div>
+					<p class="flow-step__label"> Go back </p>
+					</div>
+
+
 				<span class="browse-loop__arrow">↺</span>
 				<div class="browse-loop__step">
-					<div class="browse-loop__screen">
-						<span class="browse-loop__placeholder">Keep<br />scrolling</span>
+                <div class="flow-step__screen">
+						<img src="/images/netflix/scrolling.png" alt="Choose viewing context" loading="lazy" />
 					</div>
-				</div>
+					<p class="flow-step__label"> Keep scrolling </p>
+					</div>
 			</div>
 			<p class="browse-loop__caption">More options → more comparison → more indecision → back to browsing.</p>
 		</CaseStudySubsection>
@@ -119,41 +105,11 @@ const sections = [
 	<CaseStudySection id="exploration" title="Exploration">
 		<CaseStudySubsection title="I started with a random movie generator.">
 			<p>The first idea was simple: Netflix would choose something at random and remove the need to browse altogether.</p>
-			<p>But pure randomness creates a different problem. It's fast, but it ignores why someone is watching, what they're in the mood for, and how much time they have. Users would probably keep regenerating results until something happened to feel right — which is basically browsing again.</p>
+			<p>But pure randomness creates a different problem. It's fast, but it ignores why someone is watching, what they're in the mood for, and how much time they have. Users would probably keep regenerating results until something happened to feel right, which is basically browsing again! </p>
 
-			<div class="shift-compare">
-				<div class="shift-compare__side">
-					<span class="shift-compare__label shift-compare__label--before">Before</span>
-					<div class="shift-compare__frame">
-						<div class="shift-compare__mock">
-							<span class="shift-compare__title">?????</span>
-							<span class="shift-compare__button">Generate again</span>
-						</div>
-					</div>
-					<p class="shift-compare__caption">Random generator — fast, but arbitrary.</p>
-				</div>
+			
 
-				<div class="shift-compare__arrow">
-					<span class="shift-compare__arrow-mark">→</span>
-					<span class="shift-compare__arrow-label">Randomness → Relevance</span>
-				</div>
-
-				<div class="shift-compare__side">
-					<span class="shift-compare__label shift-compare__label--after">After</span>
-					<div class="shift-compare__frame">
-						<div class="shift-compare__mock shift-compare__mock--list">
-							<span class="shift-compare__row">Viewing context</span>
-							<span class="shift-compare__row">Content type</span>
-							<span class="shift-compare__row">Mood</span>
-							<span class="shift-compare__row">Time</span>
-							<span class="shift-compare__row shift-compare__row--result">→ One result</span>
-						</div>
-					</div>
-					<p class="shift-compare__caption">Decision assistant — still fast, but grounded in intent.</p>
-				</div>
-			</div>
-
-			<blockquote class="pull-quote3">💡 So I shifted the concept from "pick something random" to "help me make a decision."</blockquote>
+			<br> <blockquote class="pull-quote3">💡 So I shifted the concept from "pick something random" to "help me make a decision."</blockquote>
 		</CaseStudySubsection>
 	</CaseStudySection>
 
@@ -163,39 +119,34 @@ const sections = [
 
 			<div class="flow-strip">
 				<div class="flow-step">
-					<span class="flow-step__number">01</span>
 					<div class="flow-step__screen">
-						<span class="flow-step__placeholder">Watching<br />context</span>
+						<img src="/images/netflix/frame-109.png" alt="Choose viewing context" loading="lazy" />
 					</div>
-					<p class="flow-step__label">Watching context</p>
+					<p class="flow-step__label"> 01 Watching context</p>
 				</div>
 				<div class="flow-step">
-					<span class="flow-step__number">02</span>
 					<div class="flow-step__screen">
-						<span class="flow-step__placeholder">Content<br />type</span>
+						<img src="/images/netflix/frame-113.png" alt="Choose movie, series, or either" loading="lazy" />
 					</div>
-					<p class="flow-step__label">Content type</p>
+					<p class="flow-step__label"> 02 Content type</p>
 				</div>
 				<div class="flow-step">
-					<span class="flow-step__number">03</span>
 					<div class="flow-step__screen">
-						<span class="flow-step__placeholder">Mood</span>
+						<img src="/images/netflix/frame-112.png" alt="Choose a viewing mood" loading="lazy" />
 					</div>
-					<p class="flow-step__label">Mood</p>
+					<p class="flow-step__label"> 03 Mood</p>
 				</div>
 				<div class="flow-step">
-					<span class="flow-step__number">04</span>
 					<div class="flow-step__screen">
-						<span class="flow-step__placeholder">Watch<br />length</span>
+						<img src="/images/netflix/frame-114.png" alt="Choose a preferred watch length" loading="lazy" />
 					</div>
-					<p class="flow-step__label">Watch length</p>
+					<p class="flow-step__label"> 04 Watch length</p>
 				</div>
 				<div class="flow-step">
-					<span class="flow-step__number">05</span>
 					<div class="flow-step__screen">
-						<span class="flow-step__placeholder">Recommendation</span>
+						<img src="/images/netflix/frame-124.png" alt="Personalized recommendation result" loading="lazy" />
 					</div>
-					<p class="flow-step__label">Recommendation</p>
+					<p class="flow-step__label"> 05 Recommendation</p>
 				</div>
 			</div>
 
@@ -205,15 +156,16 @@ const sections = [
 		<CaseStudySubsection title="Key design decisions">
 			<p>Six decisions shaped how the flow actually works, grouped by what they were trying to solve.</p>
 
-			<h3 class="decision-row__heading">Row 1 — Shaping the recommendation</h3>
+			<h3 class="decision-row__heading">Row 1: Shaping the recommendation</h3>
 			<div class="decision-grid">
 				<div class="decision-card">
 					<div class="decision-card__visual">
 						<div class="mini-branch">
-							<div class="mini-branch__top"><span class="mini-branch__box"></span></div>
+							<div class="mini-branch__box mini-branch__box--root">How are you watching?</div>
+							<div class="mini-branch__connector"></div>
 							<div class="mini-branch__lines">
-								<div class="mini-branch__box mini-branch__box--sm"></div>
-								<div class="mini-branch__box mini-branch__box--sm"></div>
+								<div class="mini-branch__box mini-branch__box--leaf">Solo</div>
+								<div class="mini-branch__box mini-branch__box--leaf">Group</div>
 							</div>
 						</div>
 					</div>
@@ -238,14 +190,14 @@ const sections = [
 				</div>
 			</div>
 
-			<h3 class="decision-row__heading">Row 2 — Reducing decision fatigue</h3>
+			<h3 class="decision-row__heading">Row 2: Reducing decision fatigue</h3>
 			<div class="decision-grid">
 				<div class="decision-card">
 					<div class="decision-card__visual">
 						<div class="mini-stack">
-							<span class="mini-stack__box"></span>
-							<span class="mini-stack__box"></span>
-							<span class="mini-stack__box"></span>
+							<span class="mini-stack__chip">Mood</span>
+							<span class="mini-stack__chip">Time</span>
+							<span class="mini-stack__chip">Watching with</span>
 						</div>
 						<span class="decision-card__annotation">Only inputs that meaningfully change the result</span>
 					</div>
@@ -269,14 +221,14 @@ const sections = [
 				</div>
 			</div>
 
-			<h3 class="decision-row__heading">Row 3 — Making groups lightweight</h3>
+			<h3 class="decision-row__heading">Row 3: Making groups lightweight</h3>
 			<div class="decision-grid">
 				<div class="decision-card">
 					<div class="decision-card__visual">
-						<div class="mini-qr">
-							<div class="mini-qr__code"></div>
-							<span class="mini-qr__arrow">→</span>
-							<div class="mini-qr__phone"></div>
+						<div class="mini-link">
+							<span class="mini-link__chip">🔗 Invite link</span>
+							<span class="mini-link__arrow">↓</span>
+							<div class="mini-link__done">✓</div>
 						</div>
 						<span class="decision-card__annotation">Open link. Submit preferences. Done.</span>
 					</div>
@@ -311,19 +263,47 @@ const sections = [
 		<CaseStudySubsection title="Five moments make up the full experience.">
 			<p>Each step is deliberately short. The whole flow can happen in under a minute for solo viewers and a couple of minutes for groups.</p>
 
+            <div class="split-flow">
+				<div class="split-flow__top">
+					<div class="split-flow__screen">
+						<img src="/images/netflix/frame-109.png" alt="Choose solo or group viewing context" loading="lazy" />
+					</div>
+				</div>
+				<div class="split-flow__branches">
+					<div class="split-flow__branch">
+						<span class="split-flow__branch-label">Solo</span>
+						<div class="split-flow__screen">
+							<img src="/images/netflix/frame-112.png" alt="Select a mood for a solo recommendation" loading="lazy" />
+						</div>
+						<div class="split-flow__screen">
+							<img src="/images/netflix/frame-124.png" alt="Solo recommendation result for Minions" loading="lazy" />
+						</div>
+					</div>
+					<div class="split-flow__branch">
+						<span class="split-flow__branch-label">Group</span>
+						<div class="split-flow__screen">
+							<img src="/images/netflix/frame-117.png" alt="QR code and link for inviting a group" loading="lazy" />
+						</div>
+						<div class="split-flow__screen">
+							<img src="/images/netflix/frame-122.png" alt="Group recommendation result for American Assassin" loading="lazy" />
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<h3 class="solution-block-heading">01 &nbsp; Choose the viewing context</h3>
 			<div class="moment-layout moment-layout--split">
 				<div class="moment-layout__primary">
 					<div class="moment-layout__screen moment-layout__screen--large">
-						<span class="moment-layout__placeholder">Viewing<br />context</span>
+						<img src="/images/netflix/frame-109.png" alt="Initial solo or group selection" loading="lazy" />
 					</div>
 				</div>
 				<div class="moment-layout__secondary">
 					<div class="moment-layout__screen">
-						<span class="moment-layout__placeholder">Solo path</span>
+						<img src="/images/netflix/frame-110.png" alt="Solo viewing path selected" loading="lazy" />
 					</div>
 					<div class="moment-layout__screen">
-						<span class="moment-layout__placeholder">Group path</span>
+						<img src="/images/netflix/frame-116.png" alt="Group viewing path selected" loading="lazy" />
 					</div>
 				</div>
 			</div>
@@ -332,16 +312,13 @@ const sections = [
 			<h3 class="solution-block-heading">02 &nbsp; Set lightweight preferences</h3>
 			<div class="moment-deck">
 				<div class="moment-deck__card moment-deck__card--1">
-					<span class="moment-deck__placeholder">Content type</span>
-					<span class="moment-deck__selected">Movie</span>
+					<img src="/images/netflix/frame-113.png" alt="Movie selected as the content type" loading="lazy" />
 				</div>
 				<div class="moment-deck__card moment-deck__card--2">
-					<span class="moment-deck__placeholder">Mood</span>
-					<span class="moment-deck__selected">Comforting</span>
+					<img src="/images/netflix/frame-112.png" alt="Comforting selected as the mood" loading="lazy" />
 				</div>
 				<div class="moment-deck__card moment-deck__card--3">
-					<span class="moment-deck__placeholder">Watch length</span>
-					<span class="moment-deck__selected">1–2 hours</span>
+					<img src="/images/netflix/frame-114.png" alt="One to two hours selected as the watch length" loading="lazy" />
 				</div>
 			</div>
 			<p class="moment-caption">Movie + comforting + 1–2 hours → Minions.</p>
@@ -349,15 +326,15 @@ const sections = [
 			<h3 class="solution-block-heading">03 &nbsp; Bring the group together</h3>
 			<div class="moment-sequence">
 				<div class="moment-sequence__step">
-					<div class="moment-sequence__screen"><span>Host generates invite</span></div>
+					<div class="moment-sequence__screen"><img src="/images/netflix/frame-117.png" alt="Host invite QR code" loading="lazy" /></div>
 				</div>
 				<span class="moment-sequence__arrow">→</span>
 				<div class="moment-sequence__step">
-					<div class="moment-sequence__screen moment-sequence__screen--phone"><span>Guests submit</span></div>
+					<div class="moment-sequence__screen moment-sequence__screen--phone"><img src="/images/netflix/frame-118.png" alt="Guest mood preference screen" loading="lazy" /></div>
 				</div>
 				<span class="moment-sequence__arrow">→</span>
 				<div class="moment-sequence__step">
-					<div class="moment-sequence__screen"><span>Host sees progress</span></div>
+					<div class="moment-sequence__screen"><img src="/images/netflix/frame-123.png" alt="Host sees how many guests submitted preferences" loading="lazy" /></div>
 				</div>
 			</div>
 			<p class="moment-caption">The host shares a QR code or link. Everyone submits on their own device, and the host sees the count grow in real time.</p>
@@ -366,11 +343,11 @@ const sections = [
 			<div class="moment-final">
 				<div class="moment-final__side">
 					<span class="moment-final__label">Solo match</span>
-					<div class="moment-final__screen"><span>Based on one person's preferences</span></div>
+					<div class="moment-final__screen"><img src="/images/netflix/frame-124.png" alt="Solo match for Minions" loading="lazy" /></div>
 				</div>
 				<div class="moment-final__side">
 					<span class="moment-final__label">Group match</span>
-					<div class="moment-final__screen"><span>Based on everyone's overlap</span></div>
+					<div class="moment-final__screen"><img src="/images/netflix/frame-122.png" alt="Group match for American Assassin" loading="lazy" /></div>
 				</div>
 			</div>
 			<p class="moment-caption">Same interface, same confidence — whether it's one person deciding or five.</p>
@@ -403,6 +380,31 @@ const sections = [
 </CaseStudyLayout>
 
 <style>
+	/* Shared treatment for exported Netflix screens */
+	.netflix-hero__screen,
+	.netflix-hero__phone,
+	.split-flow__screen,
+	.flow-step__screen,
+	.moment-layout__screen,
+	.moment-deck__card,
+	.moment-sequence__screen,
+	.moment-final__screen {
+		overflow: hidden;
+	}
+	.netflix-hero__screen img,
+	.netflix-hero__phone img,
+	.split-flow__screen img,
+	.flow-step__screen img,
+	.moment-layout__screen img,
+	.moment-deck__card img,
+	.moment-sequence__screen img,
+	.moment-final__screen img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
 	/* Netflix hero composition */
 	.netflix-hero {
 		position: relative;
@@ -445,7 +447,7 @@ const sections = [
 		aspect-ratio: 16 / 10;
 		background-color: #1f1f1f;
 		border-radius: 12px;
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		border: 0.5px solid rgba(255, 255, 255, 0.08);
 		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
 	}
 	.netflix-hero__side {
@@ -464,7 +466,7 @@ const sections = [
 		aspect-ratio: 9 / 19;
 		background-color: #1f1f1f;
 		border-radius: 14px;
-		border: 1px solid rgba(255, 255, 255, 0.08);
+		border: 0.5px solid rgba(255, 255, 255, 0.08);
 	}
 	.netflix-hero__label {
 		font-family: 'Gabarito', sans-serif;
@@ -531,7 +533,7 @@ const sections = [
 		width: 140px;
 		aspect-ratio: 9 / 19;
 		background-color: #f5f5f5;
-		border-radius: 14px;
+		border-radius: 4px;
 	}
 	.split-flow__placeholder {
 		font-family: 'Gabarito', sans-serif;
@@ -544,7 +546,6 @@ const sections = [
 		margin: 0 !important;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 15px;
-		font-style: italic;
 		color: #4a4a4a;
 		text-align: center;
 	}
@@ -576,14 +577,13 @@ const sections = [
 	.browse-loop__arrow {
 		font-family: 'Gabarito', sans-serif;
 		font-size: 20px;
-		color: #E50914;
+		color: #4483F0;
 		flex: 0 0 auto;
 	}
 	.browse-loop__caption {
 		margin: 0 !important;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 15px;
-		font-style: italic;
 		color: #4a4a4a;
 		text-align: center;
 	}
@@ -695,6 +695,8 @@ const sections = [
 		line-height: 1.3;
 	}
 
+
+
 	/* Flow strip (5-step Decision preview) */
 	.flow-strip {
 		display: flex;
@@ -713,13 +715,7 @@ const sections = [
 		flex: 1;
 		min-width: 100px;
 	}
-	.flow-step__number {
-		font-family: 'Instrument Serif', serif;
-		font-size: 48px;
-		font-weight: 400;
-		line-height: 1;
-		color: #E5E5E5;
-	}
+	
 	.flow-step__screen {
 		display: flex;
 		align-items: center;
@@ -727,7 +723,7 @@ const sections = [
 		width: 100%;
 		aspect-ratio: 9 / 19;
 		background-color: #f5f5f5;
-		border-radius: 16px;
+		border-radius: 4px;
 	}
 	.flow-step__placeholder {
 		font-family: 'Gabarito', sans-serif;
@@ -748,7 +744,6 @@ const sections = [
 		margin: 0 !important;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 15px;
-		font-style: italic;
 		color: #4a4a4a;
 		text-align: center;
 	}
@@ -758,10 +753,9 @@ const sections = [
 		margin: 40px 0 16px;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 14px;
-		font-weight: 500;
+		font-weight: 600;
 		letter-spacing: 0.02em;
 		color: #4483F0;
-		text-transform: uppercase;
 	}
 	.decision-row__heading:first-of-type { margin-top: 24px; }
 	.decision-grid {
@@ -773,6 +767,7 @@ const sections = [
 	.decision-card {
 		display: flex;
 		flex-direction: column;
+		align-items: stretch;
 		gap: 12px;
 	}
 	.decision-card__visual {
@@ -780,23 +775,21 @@ const sections = [
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 12px;
-		aspect-ratio: 4 / 3;
-		background-color: #f5f5f5;
-		border-radius: 12px;
-		padding: 16px;
-		overflow: hidden;
+		gap: 16px;
+		width: 100%;
+		aspect-ratio: 2 / 1;
+		padding: 0;
 	}
 	.decision-card__annotation {
 		font-family: 'Gabarito', sans-serif;
-		font-size: 11px;
-		font-style: italic;
-		color: #868686;
+		font-size: 12px;
+		color: #6a6a6a;
 		text-align: center;
+		line-height: 1.3;
 	}
 	.decision-card__table {
 		width: 100%;
-		max-width: 220px;
+		max-width: 190px;
 		border-collapse: collapse;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 13px;
@@ -828,119 +821,185 @@ const sections = [
 		line-height: 1.5;
 	}
 
-	/* Mini illustrations inside decision cards */
-	.mini-branch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-	.mini-branch__top { display: flex; justify-content: center; }
+	/* Mini illustrations inside decision cards — Netflix black/red UI language, sized for a small square box */
+	.mini-branch { display: flex; flex-direction: column; align-items: center; }
 	.mini-branch__box {
-		width: 32px; height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 9px 12px;
 		background-color: #ffffff;
-		border: 1px solid #E5E5E5;
-		border-radius: 6px;
+		border: 1px solid #E0E0E0;
+		border-radius: 8px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 500;
+		color: #1a1a1a;
+		text-align: center;
+		line-height: 1.25;
 	}
-	.mini-branch__box--sm { width: 26px; height: 36px; }
-	.mini-branch__lines { display: flex; gap: 20px; }
+	.mini-branch__box--root {
+		max-width: 170px;
+		background-color: #4483F0;
+		border-color: #4483F0;
+		color: #ffffff;
+	}
+	.mini-branch__box--leaf { min-width: 60px; }
+	.mini-branch__connector {
+		position: relative;
+		width: 100%;
+		height: 16px;
+	}
+	.mini-branch__connector::before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 0;
+		width: 1px;
+		height: 100%;
+		background-color: #D0D0D0;
+		transform: translateX(-50%);
+	}
+	.mini-branch__lines {
+		display: flex;
+		gap: 16px;
+		position: relative;
+		padding-top: 16px;
+	}
+	.mini-branch__lines::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 26px;
+		right: 26px;
+		height: 1px;
+		background-color: #D0D0D0;
+	}
+	.mini-branch__box--leaf::before {
+		content: '';
+		position: absolute;
+		top: -16px;
+		left: 50%;
+		width: 1px;
+		height: 16px;
+		background-color: #D0D0D0;
+		transform: translateX(-50%);
+	}
 
-	.mini-stack { display: flex; gap: 6px; }
-	.mini-stack__box {
-		width: 32px; height: 60px;
+	.mini-stack { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+	.mini-stack__chip {
+		min-width: 130px;
+		padding: 8px 14px;
 		background-color: #ffffff;
-		border: 1px solid #E5E5E5;
-		border-radius: 6px;
+		border: 1px solid #E0E0E0;
+		border-radius: 999px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #1a1a1a;
+		text-align: center;
 	}
-	.mini-stack__box:nth-child(2) { transform: translateY(-4px); }
-	.mini-stack__box:nth-child(3) { transform: translateY(-8px); }
 
-	.mini-fade { display: flex; align-items: center; gap: 12px; }
+	.mini-fade { display: flex; align-items: center; gap: 14px; }
 	.mini-fade__grid {
 		display: grid;
-		grid-template-columns: repeat(4, 10px);
-		grid-template-rows: repeat(2, 14px);
+		grid-template-columns: repeat(4, 11px);
+		grid-template-rows: repeat(2, 15px);
 		gap: 4px;
 		opacity: 0.5;
 	}
 	.mini-fade__grid span {
 		background-color: #ffffff;
-		border: 1px solid #E5E5E5;
-		border-radius: 2px;
+		border: 1px solid #d0d0d0;
+		border-radius: 3px;
 	}
 	.mini-fade__arrow {
 		font-family: 'Gabarito', sans-serif;
-		font-size: 14px;
-		color: #E50914;
-	}
-	.mini-fade__one {
-		width: 40px; height: 56px;
-		background-color: #E50914;
-		border-radius: 6px;
-	}
-
-	.mini-qr { display: flex; align-items: center; gap: 12px; }
-	.mini-qr__code {
-		width: 44px; height: 44px;
-		background-image:
-			linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
-			linear-gradient(-45deg, #1a1a1a 25%, transparent 25%);
-		background-size: 8px 8px;
-		background-color: #ffffff;
-		border: 1px solid #E5E5E5;
-		border-radius: 4px;
-	}
-	.mini-qr__arrow {
-		font-family: 'Gabarito', sans-serif;
-		font-size: 14px;
+		font-size: 16px;
+		font-weight: 600;
 		color: #4483F0;
 	}
-	.mini-qr__phone {
-		width: 26px; height: 44px;
-		background-color: #ffffff;
-		border: 1px solid #E5E5E5;
+	.mini-fade__one {
+		width: 42px; height: 56px;
+		background-color: #4483F0;
 		border-radius: 6px;
 	}
 
-	.mini-waiting { display: flex; align-items: center; gap: 8px; }
+	.mini-link { display: flex; flex-direction: column; align-items: center; gap: 9px; }
+	.mini-link__chip {
+		padding: 8px 14px;
+		background-color: #ffffff;
+		border: 1px solid #E0E0E0;
+		border-radius: 999px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #1a1a1a;
+		white-space: nowrap;
+	}
+	.mini-link__arrow {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		font-weight: 600;
+		color: #4483F0;
+	}
+	.mini-link__done {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 38px;
+		background-color: #4483F0;
+		border-radius: 50%;
+		font-size: 17px;
+		font-weight: 700;
+		color: #ffffff;
+	}
+
+	.mini-waiting { display: flex; align-items: center; gap: 10px; }
 	.mini-waiting__version {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 4px;
-		padding: 8px;
-		border-radius: 6px;
+		gap: 5px;
+		padding: 12px 14px;
+		border-radius: 10px;
 		background-color: #ffffff;
-		border: 1px solid #E5E5E5;
+		border: 1px solid #E0E0E0;
 	}
 	.mini-waiting__label {
 		font-family: 'Gabarito', sans-serif;
-		font-size: 9px;
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.04em;
 	}
-	.mini-waiting__version--reject .mini-waiting__label { color: #E50914; text-decoration: line-through; }
-	.mini-waiting__version--final .mini-waiting__label { color: #4483F0; }
+	.mini-waiting__version--reject .mini-waiting__label { color: #4483F0; text-decoration: line-through; }
+	.mini-waiting__version--final .mini-waiting__label { color: #1a1a1a; }
 	.mini-waiting__dots { display: flex; gap: 4px; }
 	.mini-waiting__dots span {
 		width: 6px; height: 6px;
-		background-color: #a8a8a8;
+		background-color: #c4c4c4;
 		border-radius: 50%;
 	}
 	.mini-waiting__count {
 		font-family: 'Gabarito', sans-serif;
-		font-size: 9px;
+		font-size: 10px;
 		color: #1a1a1a;
 	}
 	.mini-waiting__btn {
-		padding: 3px 8px;
+		padding: 4px 10px;
 		background-color: #4483F0;
 		border-radius: 4px;
 		font-family: 'Gabarito', sans-serif;
-		font-size: 8px;
-		font-weight: 500;
+		font-size: 9px;
+		font-weight: 600;
 		color: #ffffff;
 	}
 	.mini-waiting__arrow {
 		font-family: 'Gabarito', sans-serif;
-		font-size: 12px;
-		color: #868686;
+		font-size: 14px;
+		font-weight: 600;
+		color: #6a6a6a;
 	}
 
 	/* Solution moments */
@@ -964,7 +1023,7 @@ const sections = [
 		justify-content: center;
 		aspect-ratio: 16 / 10;
 		background-color: #f5f5f5;
-		border-radius: 12px;
+		border-radius: 6px;
 	}
 	.moment-layout__screen--large { aspect-ratio: 16 / 12; }
 	.moment-layout__placeholder {
@@ -991,8 +1050,8 @@ const sections = [
 		width: 180px;
 		aspect-ratio: 9 / 16;
 		background-color: #ffffff;
-		border: 1px solid #E5E5E5;
-		border-radius: 16px;
+		border: 0.5px solid #E5E5E5;
+		border-radius: 4px;
 		padding: 16px;
 	}
 	.moment-deck__card--1 { transform: rotate(-4deg) translateX(20px); z-index: 1; }
@@ -1030,7 +1089,7 @@ const sections = [
 		justify-content: center;
 		aspect-ratio: 16 / 10;
 		background-color: #f5f5f5;
-		border-radius: 12px;
+		border-radius: 6px;
 		padding: 12px;
 	}
 	.moment-sequence__screen--phone {
@@ -1079,7 +1138,7 @@ const sections = [
 		width: 100%;
 		aspect-ratio: 9 / 16;
 		background-color: #f5f5f5;
-		border-radius: 12px;
+		border-radius: 6px;
 		padding: 16px;
 	}
 	.moment-final__screen span {
@@ -1094,9 +1153,38 @@ const sections = [
 		margin: 0 0 24px !important;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 14px;
-		font-style: italic;
 		color: #4a4a4a;
 		text-align: center;
+	}
+
+	/* The supplied mocks are responsive desktop screens, so their native
+	   proportion is preserved instead of forcing them into phone frames. */
+	.netflix-hero__screen,
+	.netflix-hero__phone,
+	.split-flow__screen,
+	.flow-step__screen,
+	.moment-layout__screen,
+	.moment-layout__screen--large,
+	.moment-deck__card,
+	.moment-sequence__screen,
+	.moment-sequence__screen--phone,
+	.moment-final__screen {
+		aspect-ratio: 1440 / 1318;
+		padding: 0;
+		background: #111;
+	}
+	.netflix-hero__phone,
+	.netflix-hero__screen {
+		border-radius: 10px;
+	}
+	.split-flow__screen {
+		width: min(100%, 240px);
+	}
+	.moment-deck__card {
+		width: 240px;
+	}
+	.moment-sequence__screen--phone {
+		max-width: none;
 	}
 
 	/* Reflection cards */
@@ -1112,7 +1200,7 @@ const sections = [
 		gap: 8px;
 		padding: 20px;
 		background-color: transparent;
-		border: 1px solid #EDEDED;
+		border: 0.5px solid #EDEDED;
 		border-radius: 12px;
 	}
 	.reflection-card__number {
@@ -1136,6 +1224,11 @@ const sections = [
 		line-height: 1.5;
 	}
 
+
+    .pull-quote3 {
+        text-align: center;
+    }
+
 	/* Mobile */
 	@media (max-width: 640px) {
 		.netflix-hero__stack { flex-direction: column; gap: 16px; }
@@ -1147,9 +1240,7 @@ const sections = [
 		.shift-compare__arrow-mark { transform: rotate(90deg); }
 		.flow-strip { flex-wrap: wrap; justify-content: center; }
 		.flow-step { flex: 0 0 45%; min-width: 0; }
-		.flow-step__number { font-size: 36px; }
 		.decision-grid { grid-template-columns: 1fr; }
-		.decision-card__visual { aspect-ratio: 16 / 9; }
 		.moment-layout--split { grid-template-columns: 1fr; }
 		.moment-deck { flex-direction: column; gap: 12px; }
 		.moment-deck__card--1, .moment-deck__card--3 { transform: none; }

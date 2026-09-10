@@ -5,32 +5,27 @@ import CaseStudyCard from '../components/CaseStudyCard.astro';
 
 const lingotuneCard = {
 	href: '/work/lingotune',
-	logoSrc: '/images/lingotune/logo.png',
-	companyName: 'Lingotune',
-	headline: 'Redesigning song navigation for easier discoverability',
-	tags: ['Product Design', 'Mobile', 'EdTech'],
-	ctaLabel: 'View Lingotune Case Study',
+	title: 'Song Navigation Redesign',
+	description: 'Redesigning song navigation for easier discoverability',
 	previewSrc: '/images/lingotune/preview.png',
+	icon: '/images/lingotune/logo.png',
 };
 
 const buildIrlCard = {
 	href: '/work/build-irl',
-	logoSrc: '/images/build-irl/logo.png',
-	companyName: 'Build IRL',
-	headline: 'Designing a 0→1 platform for building and running club communities',
-	tags: ['Product/UX Design', 'Web/Mobile', 'Social'],
-	ctaLabel: 'View Build IRL Case Study',
+	title: '0 to 1 MVP Design',
+	description: 'Designing an MVP from 0-to-1 for club communities',
 	previewSrc: '/images/build-irl/preview.png',
+	icon: '/images/build-irl/logo.png',
 };
 
 const netflixCard = {
 	href: '/projects/netflix',
-	logoSrc: '/images/netflix.png',
-	companyName: 'Netflix',
-	headline: 'Helping Netflix users spend less time choosing and more time watching',
-	tags: ['Product Design', 'Concept', 'Mobile'],
-	ctaLabel: 'View Netflix Case Study',
+	title: 'Netflix Concept Redesign',
+	description: 'Helping Netflix users spend less time choosing and more time watching',
 	previewSrc: '/images/netflix/solonetflixmood.png',
+	icon: '/images/netflix.png',
+	dark: true,
 };
 ---
 
@@ -160,12 +155,6 @@ const netflixCard = {
 		display: block;
 	}
 
-	.case-study-card[href="/work/lingotune"] :global(.case-study-card__logo) {
-		width: 84px !important;
-		height: auto !important;
-		max-height: none !important;
-	}
-
 	@media (max-width: 768px) {
 		.play-bento {
 			grid-template-columns: 1fr;
@@ -183,10 +172,5 @@ const netflixCard = {
 			min-height: 200px;
 		}
 
-		.case-study-card[href="/work/lingotune"] :global(.case-study-card__logo) {
-			width: 56px !important;
-			height: auto !important;
-			max-height: none !important;
-		}
 	}
 </style>

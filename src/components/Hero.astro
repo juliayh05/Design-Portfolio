@@ -20,16 +20,21 @@ const tags = ['AI Prototyping', 'UX Psychology', 'Design Thinking', 'HCI'];
 const tagLoop = [...tags, ...tags];
 ---
 
-<div class="page bg-[#F9F9F9] min-h-screen">
-<section class="hero hero-layout pt-20 pb-12 pl-8 pr-16 text-left">
+<div class="page bg-[#FFFFFF] min-h-screen">
+<section class="hero hero-layout pt-20 pb-12 text-left">
 		<div class="hero-text flex flex-col items-start">
-			<div class="hero-headline hero-animate flex items-center justify-center">
-				<h1 class="font-serif text-[56px] leading-tight text-[#1a1a1a]">
+			<div class="hero-headline hero-animate flex items-center justify-center gap-0">
+				<h1 class="font-serif text-[44px] leading-tight text-[#1a1a1a]">
     Hello! I'm Julia Heo
 </h1>
+				<img
+					src="/images/about/hero-cursor-icon.png"
+					alt="Julia Heo"
+					class="h-20 w-20 object-contain shrink-0 -ml-1"
+				/>
 			</div>
 
-			<div class="group/desc desc-block hero-animate mt-8 max-w-[580px]">
+			<div class="group/desc desc-block hero-animate mt-4 max-w-[580px]">
 				<p class="desc-text font-sans text-[24px] leading-[1.8] text-[#1a1a1a]">
 
 					<span class="desc-plain">A </span>
@@ -37,7 +42,7 @@ const tagLoop = [...tags, ...tags];
 					<span class="highlight relative inline-block cursor-pointer">
 						<span
 							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
-							style="transform: rotate(-0.7deg);"
+							style="transform: rotate(0deg);"
 						>
 							{highlights[0].text}
 						</span>
@@ -52,7 +57,7 @@ const tagLoop = [...tags, ...tags];
 					<span class="highlight relative inline-block cursor-pointer">
 						<span
 							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
-							style="transform: rotate(0.9deg);"
+							style="transform: rotate(0deg);"
 						>
 							{highlights[1].text}
 						</span>
@@ -71,7 +76,7 @@ const tagLoop = [...tags, ...tags];
 					<span class="highlight relative inline-block cursor-pointer">
 						<span
 							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
-							style="transform: rotate(-0.8deg);"
+							style="transform: rotate(0deg);"
 						>
 							{highlights[2].text}
 						</span>
@@ -86,7 +91,7 @@ const tagLoop = [...tags, ...tags];
 					<span class="highlight relative inline-block cursor-pointer">
 						<span
 							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
-							style="transform: rotate(1.2deg);"
+							style="transform: rotate(0deg);"
 						>
 							{highlights[3].text}
 						</span>
@@ -100,22 +105,20 @@ const tagLoop = [...tags, ...tags];
 
 					<br />
 
-					<span class="highlight relative inline-block cursor-pointer">
+					<span class="highlight highlight--edge relative inline-block cursor-pointer">
 						<span
 							class="highlight-pill inline-block rounded-md bg-[#E4F0FF] px-2 py-0.5 font-medium leading-tight text-[#4483F0] transition-all duration-200"
-							style="transform: rotate(-0.9deg);"
+							style="transform: rotate(0deg);"
 						>
 							{highlights[4].text}
 						</span>
 
-						<span class="highlight-tooltip" aria-hidden="true">
+						<span class="highlight-tooltip highlight-tooltip--edge" aria-hidden="true">
 							{highlights[4].tooltip}
 						</span>
 					</span>
 
-					<span class="desc-plain">
-						behind effortless experiences.
-					</span>
+					<span class="desc-plain"> behind effortless experiences.</span>
 
 				</p>
 			</div>
@@ -128,33 +131,23 @@ const tagLoop = [...tags, ...tags];
 
 			<aside class="profile-card" aria-label="Julia Heo quick facts">
 
-				<div class="profile-card-header"></div>
+				<div class="profile-card-body profile-card-body--no-photo">
 
-				<div class="profile-card-top-row">
+					<div class="profile-card-name-row">
+						<h3 class="profile-card-name">
+							Julia Heo
+						</h3>
 
-					<img
-						class="profile-card-avatar"
-						src="/images/about/me.jpg"
-						alt="Julia Heo"
-					/>
+						<div class="profile-card-badge">
+							<img
+								src="/images/designerbadge.png"
+								alt=""
+								class="profile-card-badge-icon"
+							/>
 
-					<div class="profile-card-badge">
-						<img
-							src="/images/designerbadge.png"
-							alt=""
-							class="profile-card-badge-icon"
-						/>
-
-						<span>Designer</span>
+							<span>Designer</span>
+						</div>
 					</div>
-
-				</div>
-
-				<div class="profile-card-body">
-
-					<h3 class="profile-card-name">
-						Julia Heo ✦
-					</h3>
 
 					<p class="profile-card-role">
 						Cognitive Science, Education, &amp; Design @ Berkeley
@@ -259,7 +252,9 @@ const tagLoop = [...tags, ...tags];
 				data-tab-panel="projects"
 				hidden
 			>
-				<slot name="projects" />
+				<div class="cards">
+					<slot name="projects" />
+				</div>
 			</div>
 
 			<div
@@ -393,6 +388,11 @@ const tagLoop = [...tags, ...tags];
 			visibility 200ms ease;
 	}
 
+	.highlight-tooltip--edge {
+		left: 0;
+		transform: none;
+	}
+
 	.highlight:hover .highlight-tooltip {
 		opacity: 1;
 		visibility: visible;
@@ -421,8 +421,8 @@ const tagLoop = [...tags, ...tags];
 
 	.profile-card-stack {
 		position: relative;
-		flex: 0 0 350px;
-		width: 300px;
+		flex: 0 0 380px;
+		width: 330px;
 		margin-left: 16px;
 	}
 
@@ -512,11 +512,7 @@ const tagLoop = [...tags, ...tags];
 
 	.profile-card-header {
     height: 64px;
-    background: linear-gradient(
-        180deg,
-        #BFDCFF 0%,
-        #FFFFFF 100%
-    );
+    background: #ffffff;
 }
 
 	.profile-card-top-row {
@@ -529,7 +525,7 @@ const tagLoop = [...tags, ...tags];
     align-items: center;
     justify-content: space-between;
     transform: translateY(-50%);
-	padding-top: 28px;
+	padding-top: 0px;
 }
 
 	.profile-card-avatar {
@@ -546,8 +542,16 @@ const tagLoop = [...tags, ...tags];
 
 	.profile-card-body {
     position: relative;
-    padding: 56px 24px 28px;
+    padding: 24px 24px 20px;
 }
+
+	.profile-card-name-row {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 8px;
+		margin-bottom: 4px;
+	}
 
 	.profile-card-meta {
 		font-family: 'Gabarito', system-ui, sans-serif;
@@ -564,7 +568,7 @@ const tagLoop = [...tags, ...tags];
 		font-weight: 700;
 		font-size: 19px;
 		color: #14161a;
-		margin: -12 0 0px;
+		margin: 0;
 	}
 
 	.profile-card-role {
@@ -616,17 +620,17 @@ const tagLoop = [...tags, ...tags];
 		overflow: hidden;
 		-webkit-mask-image: linear-gradient(
 			90deg,
-			transparent 0,
-			#000 16px,
-			#000 calc(100% - 16px),
-			transparent 100%
+			rgba(0, 0, 0, 0.55) 0,
+			#000 8px,
+			#000 calc(100% - 8px),
+			rgba(0, 0, 0, 0.55) 100%
 		);
 		mask-image: linear-gradient(
 			90deg,
-			transparent 0,
-			#000 16px,
-			#000 calc(100% - 16px),
-			transparent 100%
+			rgba(0, 0, 0, 0.55) 0,
+			#000 8px,
+			#000 calc(100% - 8px),
+			rgba(0, 0, 0, 0.55) 100%
 		);
 	}
 
@@ -662,16 +666,16 @@ const tagLoop = [...tags, ...tags];
 	.profile-card-badge {
 		display: inline-flex;
 		align-items: center;
-		gap: 7px;
-		padding: 3px 11px 3px 4px;
+		gap: 5px;
+		padding: 2px 9px 2px 3px;
 		background: rgba(255, 255, 255, 0.92);
 		border: 1px solid rgba(0, 0, 0, 0.06);
 		border-radius: 999px;
 		font-family: 'Gabarito', system-ui, sans-serif;
-		font-size: 11px;
+		font-size: 10px;
 		font-weight: 600;
 		color: #303030;
-		box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
 		white-space: nowrap;
@@ -679,8 +683,8 @@ const tagLoop = [...tags, ...tags];
 	}
 
 	.profile-card-badge-icon {
-		width: 22px;
-		height: 22px;
+		width: 15px;
+		height: 15px;
 		border-radius: 50%;
 		object-fit: cover;
 		background: #e4f0ff;
@@ -689,8 +693,8 @@ const tagLoop = [...tags, ...tags];
 	.tab {
 		border: none;
 		background: none;
-		padding: 6px 16px;
-		border-radius: 8px;
+		padding: 6px 12px;
+		border-radius: 4px;
 		font-family: 'Gabarito', system-ui, sans-serif;
 		font-size: 14px;
 		font-weight: 400;
@@ -736,7 +740,7 @@ const tagLoop = [...tags, ...tags];
 	}
 
 	.below-hero {
-		margin-top: 16px;
+		margin-top: 80px;
 		padding: 0 0 80px;
 	}
 
@@ -746,9 +750,14 @@ const tagLoop = [...tags, ...tags];
 
 	.cards {
 		display: flex;
-		flex-direction: column;
+		flex-wrap: wrap;
 		align-items: stretch;
-		gap: 40px;
+		gap: 48px 40px;
+	}
+
+	.cards > :global(*) {
+		flex: 0 1 calc(50% - 20px);
+		min-width: 280px;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -823,6 +832,10 @@ const tagLoop = [...tags, ...tags];
 
 		.cards {
 			gap: 24px;
+		}
+
+		.cards > :global(*) {
+			flex: 1 1 100%;
 		}
 	}
 

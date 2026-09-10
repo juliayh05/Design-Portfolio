@@ -19,32 +19,45 @@ const sections = [
 	<CaseStudyHero
 		logo="/images/lingotune/logo.png"
 		logoAlt="Lingotune"
-		headline="Redesigning song navigation for easier discoverability"
+		headline="Making Lingotune's song library feel discoverable"
 		role="Product Design Intern"
 		timeframe="May – August 2025"
 		tags={['Product Design', 'Mobile', 'EdTech']}
 	/>
 
 	<CaseStudySection id="overview" title="Overview">
-	<h2 class="section-tagline">Users saw one song. Lingotune had an entire library.</h2>
+	<h2 class="section-tagline">Lingotune had a library of songs. Users thought it only had one.</h2>
 		<p>
-    <a href="https://www.lingotune.ai/" target="_blank" rel="noopener noreferrer" class="inline-link">Lingotune</a> teaches languages through music, pairing songs with short lessons designed to make vocabulary and grammar easier to remember.
+    <a href="https://www.lingotune.ai/" target="_blank" rel="noopener noreferrer" class="inline-link">Lingotune</a> helps people learn languages through music, pairing songs with short lessons that make vocabulary and grammar easier to remember.
 		</p>
 		<p>
-			Users were landing on Lingotune’s song lesson page, seeing one card, and thinking that was it. In under a week, I worked with another designer and the founder to rethink the browsing interaction around what users were already trying to do. The update shipped in the next release.
+			However, users arriving on the song selection screen often saw the first card and stopped there. The rest of the library technically existed, it just wasn't visible and intuitive.
 		</p>
-		
-		<img src="/images/lingotune/oldold.png" alt="..." class="case-study-image case-study-image--phone" />
+		<p>
+			In under a week, I redesigned the browsing experience, from a single static card to a browsable song library. The new interaction shipped in Lingotune's next release.
+		</p>
+
+		<div class="before-after">
+			<div class="before-after__item">
+				<img src="/images/lingotune/oldold.png" alt="Original song selection screen showing a single song card with small arrows" class="case-study-image case-study-image--phone" />
+				<p class="before-after__label">Before</p>
+			</div>
+			<div class="before-after__item">
+				<img src="/images/lingotune/preview.png" alt="Shipped redesign: horizontal carousel with a peeking next card and pagination dots" class="case-study-image case-study-image--phone" />
+				<p class="before-after__label before-after__label--after">After</p>
+			</div>
+		</div>
 	</CaseStudySection>
 
 	<CaseStudySection id="problem" title="Problem">
-		<h2 class="section-tagline">More songs existed, but the interface didn’t make that clear.</h2>
-		<p>The original screen showed one song at a time, with arrows to browse. But after reviewing ~20 UXCam sessions, I kept seeing the same disconnect:</p>
+		<h2 class="section-tagline">The interface showed a song, not a collection.</h2>
+		<p>The original experience displayed one song card at a time, with small arrows for moving between options. Functionally, users could browse. Visually, almost nothing suggested that they should.</p>
+		<p>Reviewing and analyzing over 20 UXCam test sessions revealed two repeated behaviors:</p>
 		<div class="observation">
     <span class="observation__label">01</span>
     <div class="observation__body">
-        <p class="observation__title">Users were trying to swipe</p>
-        <p class="observation__text">They reached for a familiar gesture before using the arrows.</p>
+        <p class="observation__title">Users tried to swipe</p>
+        <p class="observation__text">Before looking for another control, users tried to swipe the card horizontally, a gesture they already associated with browsing a collection on mobile.</p>
     </div>
 </div>
 
@@ -52,150 +65,292 @@ const sections = [
     <span class="observation__label">02</span>
     <div class="observation__body">
         <p class="observation__title">Users stopped at the first song</p>
-        <p class="observation__text">The arrows were easy to miss, and nothing else on the screen matched the browsing patterns users already knew. Without a clear cue to keep going, many assumed the first song was all there was.</p>
+        <p class="observation__text">When swiping did nothing and the arrows went unnoticed, many users didn't continue exploring. The screen looked complete, so the first card felt like the only available option.</p>
     </div>
-	
+
 </div>
-		<img src="/images/lingotune/user-test-review.png" alt="..." class="case-study-image" />
-			<p> 💡 At first, I thought the arrows needed fixing. But the bigger issue was that users didn’t realize there was a collection to browse at all.</p>
+		<img src="/images/lingotune/user-test-review.png" alt="UXCam session footage showing a user swiping the song card with no response from the interface" class="case-study-image" />
+		<div class="reframe">
+			<p class="reframe__final"> 🤔 How might I make the library itself feel browsable?</p>
+		</div>
 
 	</CaseStudySection>
 
 	<CaseStudySection id="constraints" title="Constraints">
-    <h2 class="section-tagline">Move fast, without rebuilding the experience.</h2>
+    <h2 class="section-tagline">Improve discoverability without rebuilding the entire screen.</h2>
 
     <div class="constraint-grid">
         <div class="constraint-card">
-            <p class="constraint-card__label">⏳ &lt; 1 week</p>
-            <p class="constraint-card__text">Users were already raising issues, so the turnaround needed to be quick.</p>
+            <p class="constraint-card__label">⏳ Under one week</p>
+            <p class="constraint-card__text">Users were already running into the issue, so we needed a direction that could be designed, approved, and prepared for development quickly.</p>
         </div>
 
         <div class="constraint-card">
             <p class="constraint-card__label"> 🎶 Keep the existing song cards</p>
-            <p class="constraint-card__text">The solution had to work around the current content structure rather than redesigning it from scratch.</p>
+            <p class="constraint-card__text">The cards and their content structure were already established. I needed to improve the way users moved between them without redesigning each card.</p>
         </div>
 
         <div class="constraint-card">
-            <p class="constraint-card__label"> 🗒️ Work within the existing design system</p>
-            <p class="constraint-card__text">New patterns still had to feel native to Lingotune, so I designed within the product's existing components and visual language rather than introducing a totally new system.</p>
+            <p class="constraint-card__label"> 🗒️ Use the existing design system</p>
+            <p class="constraint-card__text">The new interaction still had to feel native to Lingotune and remain realistic for the team to implement.</p>
         </div>
 
         <div class="constraint-card">
-            <p class="constraint-card__label"> 👤👤👤 Small team, fast decisions</p>
-            <p class="constraint-card__text">I worked with another designer and closely with the founder to move from findings to direction quickly.</p>
+            <p class="constraint-card__label"> 👤👤👤 Small team, quick decisions</p>
+            <p class="constraint-card__text">I worked alongside another designer and the founder, which meant sharing early explorations, narrowing the direction quickly, and keeping the solution focused.</p>
         </div>
     </div>
 </CaseStudySection>
 
 	<CaseStudySection id="exploration" title="Exploration">
-		<h2 class="section-tagline">The obvious fix wasn't enough.</h2>
-		<p>I sketched several directions to make more songs easier to discover before moving into hi-fi.</p>
+		<h2 class="section-tagline">I explored how much of the experience actually needed to change.</h2>
+		<p>I quickly sketched three directions, from a small interface adjustment to a larger change in how songs were presented.</p>
 		<div class="observation">
     <span class="observation__label">01</span>
     <div class="observation__body">
-        <p class="observation__title">Bigger arrows</p>
-        <p class="observation__text">The smallest change, but they still relied on the same interaction users were already overlooking.</p>
+        <p class="observation__title">Make the arrows more prominent</p>
+        <p class="observation__text">This was the fastest change, but it still asked users to notice and learn a control they were already overlooking. It treated the symptom without fixing the screen's lack of discoverability.</p>
     </div>
 </div>
 
 <div class="observation">
     <span class="observation__label">02</span>
     <div class="observation__body">
-        <p class="observation__title">Vertical feed</p>
-        <p class="observation__text">More songs would be visible at once, but it competed with the page's existing vertical scroll.</p>
+        <p class="observation__title">Turn the library into a vertical feed</p>
+        <p class="observation__text">Showing several songs at once would make the library more visible, but it introduced another vertical browsing pattern into an already vertically scrolling page. Songs and page content would compete for the same gesture.</p>
     </div>
 </div>
 
 <div class="observation">
     <span class="observation__label">03</span>
     <div class="observation__body">
-        <p class="observation__title">Horizontal Carousel</p>
-        <p class="observation__text">It preserved the existing cards, separated browsing from page navigation, and matched the swipe behavior I was already seeing in UXCam.</p>
+        <p class="observation__title">Use a horizontal carousel</p>
+        <p class="observation__text">A carousel preserved the existing cards, kept song browsing separate from page scrolling, and supported the swipe gesture users were already attempting.</p>
     </div>
 </div>
-		<img src="/images/lingotune/brainstorming.png" alt="..." class="case-study-image" />
-		
+		<img src="/images/lingotune/brainstorming.png" alt="Sketches comparing three exploration directions: larger arrows, vertical feed, and horizontal carousel" class="case-study-image" />
+
 	</CaseStudySection>
 
 	<CaseStudySection id="decision" title="Decision">
-		<h2 class="section-tagline"> I followed the behavior users were already showing me.</h2>
-		<p>The horizontal carousel matched the swipe behavior I saw in UXCam, preserved the existing song cards, and kept browsing separate from the page’s vertical scroll.</p>
+		<h2 class="section-tagline">Instead of teaching users a new behavior, I designed around the one they already had.</h2>
+		<p>I moved forward with the horizontal carousel because it addressed both sides of the problem: it made browsing feel familiar, and it made the existence of additional songs visible before users interacted.</p>
 		<div class="observation">
     <span class="observation__label">01</span>
     <div class="observation__body">
-        <p class="observation__title">Swipe for browsing</p>
-        <p class="observation__text">How users browse.</p>
+        <p class="observation__title">How do users browse?</p>
+        <p class="observation__text">Swipe between songs.</p>
     </div>
 </div>
 
 <div class="observation">
     <span class="observation__label">02</span>
     <div class="observation__body">
-        <p class="observation__title">Peeking cards for discovering</p>
-        <p class="observation__text">How they know there's more.</p>
+        <p class="observation__title">How do they know there's more?</p>
+        <p class="observation__text">Show part of the next card.</p>
     </div>
 </div>
 
 <div class="observation">
     <span class="observation__label">03</span>
     <div class="observation__body">
-        <p class="observation__title">Pagination for orientation</p>
-        <p class="observation__text">How they know where they are.</p>
+        <p class="observation__title">How do they know where they are?</p>
+        <p class="observation__text">Provide lightweight pagination.</p>
     </div>
 </div>
-		<img src="/images/lingotune/preview.png" alt="..." class="case-study-image case-study-image--phone" />
+		<img src="/images/lingotune/preview.png" alt="Shipped carousel design showing the centered song card, a peeking next card, and pagination dots" class="case-study-image case-study-image--phone" />
 	</CaseStudySection>
 
 	<CaseStudySection id="solution" title="Solution">
-		<h3 class="solution-block-heading">01 Swipe to browse</h3>
-		<p>Horizontal swipe matched the behavior users were already attempting in UXCam. Instead of finding a control first, they could browse with a gesture they already understood.</p>
-		<img src="/images/lingotune/3designdecision.png" alt="..." class="case-study-image case-study-image--wide" />
-		<h3 class="solution-block-heading">02 Show what's next</h3>
-		<p>I exposed parts of the neighboring cards so users could see immediately that more songs existed. The layout itself became the cue to keep going.</p>
-		<img src="/images/lingotune/1designdecision.png" alt="..." class="case-study-image case-study-image--wide" />
-		<h3 class="solution-block-heading">03 Keep users oriented</h3>
-		<p>Pagination gives lightweight feedback once users start browsing.</p>
-		<p>The peeking cards answer "is there more?" The dots answer "where am I?"</p>
-		<img src="/images/lingotune/2designdecision.png" alt="..." class="case-study-image case-study-image--wide" />
+		<h3 class="solution-block-heading">01 Make browsing feel immediate</h3>
+		<p>Users could now swipe horizontally between songs, the same gesture I repeatedly saw them attempt in test sessions. This removed the need to find a separate control before exploring because the interaction matched what users already expected the card to do.</p>
+		<video src="/images/lingotune/demo.mp4" autoplay loop muted playsinline class="mockup-video"></video>
+		<h3 class="solution-block-heading">02 Let the next song enter the frame</h3>
+		<p>I exposed part of the neighboring card so the interface no longer appeared to end after the first song. Rather than relying on instructions or a more prominent arrow, the layout itself communicated that the library continued.</p>
+		<img src="/images/lingotune/1designdecision.png" alt="Close-up comparing a fully centered card with no peeking edge to the redesigned layout showing part of the next card" class="case-study-image case-study-image--wide" />
+		<h3 class="solution-block-heading">03 Give users a sense of progress</h3>
+		<p>Pagination dots provided lightweight feedback as users moved through the library.</p>
+		<p>The side peeking cards answered "is there more?" The pagination dots answered "where am I?"</p>
+		<img src="/images/lingotune/2designdecision.png" alt="Three-song sequence showing pagination dots updating as the user swipes between songs" class="case-study-image case-study-image--wide" />
 	</CaseStudySection>
 
 	<CaseStudySection id="outcome" title="Outcome">
-		<h2 class="section-tagline">The redesign shipped in the next release.</h2>
+		<h2 class="section-tagline">From observed behavior to a shipped redesign, in under a week.</h2>
 		<p>
-			The team approved the direction, and my redesigned song browsing experience shipped in Lingotune's next release.
+			The team approved the direction, and the redesigned song browsing experience shipped in Lingotune's next release.
 		</p>
-		<p> While I didn't have access to post-launch metrics, if I continued measuring this release, I'd track: </p>
+		<p> I didn't have access to post-launch analytics, so I can't claim a measured change in engagement. If I were evaluating the release, I would focus on three signals: </p>
 		<div class="observation">
     <span class="observation__label">01</span>
     <div class="observation__body">
-        <p class="observation__title">Browse Depth</p>
-        <p class="observation__text">Do more users move beyond the first song?</p>
+        <p class="observation__title">Browse depth</p>
+        <p class="observation__text">Are more users moving beyond the first song?</p>
     </div>
 </div>
 
 <div class="observation">
     <span class="observation__label">02</span>
     <div class="observation__body">
-        <p class="observation__title">Lesson Starts</p>
-        <p class="observation__text">Does browsing lead more users into lessons?</p>
+        <p class="observation__title">Lesson starts</p>
+        <p class="observation__text">Does exploring more of the library lead to more lesson selections?</p>
     </div>
 </div>
 
 <div class="observation">
     <span class="observation__label">03</span>
     <div class="observation__body">
-        <p class="observation__title">Screen Drop-Off</p>
-        <p class="observation__text">Are fewer users leaving the app at this point?</p>
+        <p class="observation__title">Screen exit rate</p>
+        <p class="observation__text">Are fewer users leaving before choosing a song?</p>
     </div>
 </div>
-		<img src="/images/lingotune/nishoutcome.png" alt="..." class="case-study-image case-study-image--wide" />
+		<img src="/images/lingotune/nishoutcome.png" alt="Final shipped song browsing experience with multiple song cards and a swipe indicator" class="case-study-image case-study-image--wide" />
 	</CaseStudySection>
 
 	<CaseStudySection id="outcome" title="Reflection">
-		<h2 class="section-tagline">What I learned!</h2>
-		<p> Sometimes the answer is already in the <b> behavior. </b> </p>
-		<p> The best UX often isn't inventing something new. It's noticing the mental models users already carry into your product and designing <b> with </b> them, not against them. </p>
+		<h2 class="section-tagline">Sometimes, the clearest design direction is already hiding in user behavior.</h2>
+		<p>I entered the project thinking the navigation control needed to be fixed. Watching real sessions changed how I framed the problem: users didn't just need a better way to move forward — they needed to understand that there was somewhere to go.</p>
+		<p>This project reminded me that familiar interaction patterns are useful for more than usability. When used intentionally, they can also communicate what a product contains and what users can do next.</p>
+		<p class="reflection-closing">The behavior didn't need to be invented. It needed to be supported.</p>
 	</CaseStudySection>
 
-	
+
 </CaseStudyLayout>
+
+<style>
+	.before-after {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		gap: 32px;
+		margin-top: 24px;
+		flex-wrap: wrap;
+	}
+
+	.before-after__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.before-after__item .case-study-image--phone {
+		margin: 0;
+	}
+
+	.before-after__item:first-child .case-study-image--phone {
+		opacity: 0.55;
+		transform: scale(0.92);
+	}
+
+	.before-after__label {
+		margin: 10px 0 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #868686;
+		text-align: center;
+	}
+
+	.before-after__label--after {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.before-after__caption {
+		margin-top: 12px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		color: #868686;
+		text-align: center;
+		font-style: italic;
+	}
+
+	.problem-annotation {
+		font-family: 'Gabarito', sans-serif;
+		font-style: italic;
+		color: #4a4a4a;
+	}
+
+	.reframe {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		margin: 24px auto 8px;
+		padding: 24px;
+		max-width: 480px;
+		border-radius: 12px;
+		text-align: center;
+	}
+
+	.reframe__initial {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		color: #868686;
+	}
+
+	.reframe__arrow {
+		font-size: 18px;
+		color: #c4c4c4;
+	}
+
+	.reframe__final {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 17px;
+		font-weight: 600;
+		color: #4483F0;
+	}
+
+	.constraints-note {
+		margin-top: 16px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		font-style: italic;
+		color: #868686;
+		text-align: center;
+	}
+
+	.flow-line {
+		margin: 20px 0 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		font-weight: 600;
+		color: #4483F0;
+		text-align: center;
+		letter-spacing: 0.01em;
+	}
+
+	.flow-line span {
+		color: #c4c4c4;
+		font-weight: 400;
+		margin: 0 4px;
+	}
+
+	.reflection-closing {
+		font-family: 'Gabarito', sans-serif;
+		font-weight: 600;
+		font-size: 17px;
+		color: #1a1a1a;
+	}
+
+	.mockup-video {
+		display: block;
+		max-height: 500px;
+		width: auto;
+		margin: 24px auto;
+		border-radius: 12px;
+	}
+
+	@media (max-width: 768px) {
+		.mockup-video {
+			max-height: 280px;
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.before-after {
+			gap: 16px;
+		}
+	}
+</style>

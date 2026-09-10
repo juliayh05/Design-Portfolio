@@ -4,14 +4,12 @@ import CaseStudyCard from '../../components/CaseStudyCard.astro';
 
 const netflixCard = {
 	href: '/projects/netflix',
-	logoSrc: '/images/netflix.png',
-	companyName: 'Netflix',
-	headline: 'Helping Netflix users spend less time choosing and more time watching',
-	tags: ['Product Design', 'Web', 'Concept Design'],
-	ctaLabel: 'View Netflix Project',
+	title: 'Netflix Concept Redesign',
+	description: 'Helping Netflix users spend less time choosing and more time watching',
 	previewSrc: '/images/netflix/solonetflixmood.png',
+	icon: '/images/netflix.png',
+	dark: true,
 };
-
 ---
 
 <Layout title="Projects — Julia Heo">
@@ -22,7 +20,7 @@ const netflixCard = {
 		</header>
 
 		<div class="work-page__cards">
-			<div class="fade-in-on-scroll" style="--fade-delay: 0ms">
+			<div class="work-page__card-item fade-in-on-scroll" style="--fade-delay: 0ms">
 				<CaseStudyCard {...netflixCard} />
 			</div>
 			
@@ -91,8 +89,13 @@ const netflixCard = {
 
 	.work-page__cards {
 		display: flex;
-		flex-direction: column;
-		gap: 40px;
+		flex-wrap: wrap;
+		gap: 48px 40px;
+	}
+
+	.work-page__card-item {
+		flex: 0 1 calc(50% - 20px);
+		min-width: 280px;
 	}
 
 	@media (max-width: 768px) {
@@ -113,7 +116,11 @@ const netflixCard = {
 		}
 
 		.work-page__cards {
-			gap: 24px;
+			gap: 32px;
+		}
+
+		.work-page__card-item {
+			flex: 1 1 100%;
 		}
 	}
 </style>
