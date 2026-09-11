@@ -23,15 +23,12 @@ const tagLoop = [...tags, ...tags];
 <div class="page bg-[#FFFFFF] min-h-screen">
 <section class="hero hero-layout pt-[108px] pb-[76px] text-left">
 		<div class="hero-text flex flex-col items-start">
-			<div class="hero-headline hero-animate flex items-center justify-center gap-0">
-				<h1 class="font-serif text-[44px] leading-tight text-[#1a1a1a]">
-    Hello! I'm Julia Heo
-</h1>
-				<img
+			<div class="hero-headline hero-animate">
+				<h1 class="font-serif text-[44px] leading-tight text-[#1a1a1a]">Hello! I'm Julia Heo<img
 					src="/images/about/hero-cursor-icon.png"
-					alt="Julia Heo"
-					class="hero-cursor-icon h-20 w-20 object-contain shrink-0 -ml-1"
-				/>
+					alt=""
+					class="hero-cursor-icon inline-block align-middle h-20 w-20 object-contain -ml-1 -mt-3"
+				/></h1>
 			</div>
 
 			<div class="group/desc desc-block hero-animate mt-4 max-w-[580px]">
@@ -810,16 +807,11 @@ const tagLoop = [...tags, ...tags];
 			margin-top: 32px;
 		}
 
-		.hero-headline {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 8px;
-		}
-
 		.hero-cursor-icon {
-			height: 48px;
-			width: 48px;
-			margin-left: 0;
+			height: 40px;
+			width: 40px;
+			margin-left: 4px;
+			margin-top: -8px;
 		}
 
 		.hero-headline h1 {
@@ -864,4 +856,5 @@ const tagLoop = [...tags, ...tags];
 		color: #4483F0;
 	}
 </style>
+
 
