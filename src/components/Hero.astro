@@ -30,7 +30,7 @@ const tagLoop = [...tags, ...tags];
 				<img
 					src="/images/about/hero-cursor-icon.png"
 					alt="Julia Heo"
-					class="h-20 w-20 object-contain shrink-0 -ml-1"
+					class="hero-cursor-icon h-20 w-20 object-contain shrink-0 -ml-1"
 				/>
 			</div>
 
@@ -812,7 +812,14 @@ const tagLoop = [...tags, ...tags];
 
 		.hero-headline {
 			flex-direction: column;
-			gap: 16px;
+			align-items: flex-start;
+			gap: 8px;
+		}
+
+		.hero-cursor-icon {
+			height: 48px;
+			width: 48px;
+			margin-left: 0;
 		}
 
 		.hero-headline h1 {
@@ -857,3 +864,4 @@ const tagLoop = [...tags, ...tags];
 		color: #4483F0;
 	}
 </style>
+

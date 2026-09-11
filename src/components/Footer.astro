@@ -31,8 +31,10 @@
             </a>
         </div>
         
-        <p class="footer-credit">Designed & built by me | Powered by oat-milk chai lattes ⛾ </p>
-<p class="footer-credit">© 2026 Julia Heo</p>
+        <div class="footer-credits">
+            <p class="footer-credit">Designed & built by me | Powered by oat-milk chai lattes ⛾ </p>
+            <p class="footer-credit">© 2026 Julia Heo</p>
+        </div>
     </div>
 </footer>
 
@@ -54,19 +56,6 @@
         gap: 50px;
     }
 
-    .footer-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    font-family: 'Gabarito', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    margin-top: -32px;
-}
-
-.footer-credit + .footer-credit {
-    margin-top: -44px;
-}
     .footer-headline {
         font-family: 'Instrument Serif', serif;
         font-size: 44px;
@@ -103,6 +92,13 @@
     .footer-link:hover {
         color: #4483F0;
         transform: translateY(-1px);
+    }
+
+    .footer-credits {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
     }
 
     .footer-credit {
