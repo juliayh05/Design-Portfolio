@@ -5,7 +5,6 @@ const navItems = [
 	{ label: 'About', href: '/about', key: 'about' },
 	{ label: 'Work', href: '/work', key: 'work' },
 	{ label: 'Projects', href: '/projects', key: 'projects' },
-	{ label: 'Play', href: '/play', key: 'play' },
 ];
 
 const isActive = (key: string) => {
@@ -17,9 +16,6 @@ const isActive = (key: string) => {
 	}
 	if (key === 'projects') {
 		return pathname === '/projects' || pathname.startsWith('/projects/');
-	}
-	if (key === 'play') {
-		return pathname === '/play' || pathname.startsWith('/play/');
 	}
 	return false;
 };
@@ -162,3 +158,4 @@ const isActive = (key: string) => {
 		}
 	}
 </style>
+

@@ -36,14 +36,6 @@ const netflixCard = {
 
 		<CaseStudyCard slot="projects" {...netflixCard} />
 
-		<div slot="play" class="play-bento">
-			<div class="play-item play-item--2x2 fade-in-on-scroll" style="--fade-delay: 0ms">
-				<img src="/images/play/play-1.png" alt="Play item 1" class="play-image" />
-			</div>
-			<div class="play-item play-item--2x2 fade-in-on-scroll" style="--fade-delay: 100ms">
-				<img src="/images/play/play-2.png" alt="Play item 2" class="play-image" />
-			</div>
-		</div>
 	</Hero>
 </Layout>
 
@@ -51,7 +43,7 @@ const netflixCard = {
 	const tabs = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
 	const panels = document.querySelectorAll<HTMLElement>('[data-tab-panel]');
 	const tabBar = document.querySelector<HTMLElement>('.tabs');
-	const validTabs = new Set(['work', 'projects', 'play']);
+	const validTabs = new Set(['work', 'projects']);
 
 	const activateTab = (target: string, { scroll = false }: { scroll?: boolean } = {}) => {
 		if (!validTabs.has(target)) return;
@@ -104,73 +96,4 @@ const netflixCard = {
 		justify-items: center;
 	}
 
-	.play-bento {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 16px;
-		max-width: 600px;
-		margin: 0 auto;
-	}
-
-	.play-item {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 120px;
-		background-color: #eeeeee;
-		border-radius: 24px;
-		font-family: 'Gabarito', sans-serif;
-		font-size: 16px;
-		font-weight: 400;
-		color: #000;
-	}
-
-	.play-item--2x2 {
-		grid-column: span 2;
-		grid-row: span 2;
-		min-height: 256px;
-	}
-
-	.play-item--1x1 {
-		grid-column: span 1;
-		grid-row: span 1;
-	}
-
-	.play-item--1x2 {
-		grid-column: span 1;
-		grid-row: span 2;
-		min-height: 256px;
-	}
-
-	.play-item--2x1 {
-		grid-column: span 2;
-		grid-row: span 1;
-	}
-
-	.play-image {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		border-radius: 24px;
-		display: block;
-	}
-
-	@media (max-width: 768px) {
-		.play-bento {
-			grid-template-columns: 1fr;
-			max-width: 100%;
-			gap: 16px;
-		}
-
-		.play-item,
-		.play-item--2x2,
-		.play-item--1x1,
-		.play-item--1x2,
-		.play-item--2x1 {
-			grid-column: span 1;
-			grid-row: span 1;
-			min-height: 200px;
-		}
-
-	}
 </style>

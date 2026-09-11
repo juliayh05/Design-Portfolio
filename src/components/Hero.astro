@@ -219,16 +219,6 @@ const tagLoop = [...tags, ...tags];
 					Personal Projects
 				</button>
 
-				<button
-					type="button"
-					class="tab"
-					data-tab="play"
-					role="tab"
-					aria-selected="false"
-				>
-					Fun
-				</button>
-
 			</div>
 
 		</div>
@@ -252,14 +242,6 @@ const tagLoop = [...tags, ...tags];
 				<div class="cards">
 					<slot name="projects" />
 				</div>
-			</div>
-
-			<div
-				class="tab-panel"
-				data-tab-panel="play"
-				hidden
-			>
-				<slot name="play" />
 			</div>
 
 		</div>
@@ -856,5 +838,6 @@ const tagLoop = [...tags, ...tags];
 		color: #4483F0;
 	}
 </style>
+
 
 
