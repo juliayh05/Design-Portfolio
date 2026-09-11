@@ -1,50 +1,65 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const currentlyReading = {
+	title: 'The Design Thinking Playbook',
+	author: 'Michael Lewrick, Patrick Link & Larry Leifer',
+	progressPercent: 35,
+	color: '#4483F0',
+};
+
+const alsoOnShelf = [
+	{ title: 'Grid Systems in Graphic Design', author: 'Josef Müller-Brockmann', color: '#E8B4B8', cover: '/images/about/grid-systems.jpg' },
+	{ title: 'Atomic Design', author: 'Brad Frost', color: '#8FBF9F', cover: '/images/about/atomic-design.jpg' },
+	{ title: 'Universal Principles of Design', author: 'William Lidwell, Kritina Holden & Jill Butler', color: '#F2C879', cover: '/images/about/universal-principles.jpg' },
+	{ title: "Don't Make Me Think, Revisited", author: 'Steve Krug', color: '#B5A8D5', cover: '/images/about/dont-make-me-think.jpg' },
+];
+
 const tools = [
-	'Figma',
-	'Adobe Illustrator',
-	'Adobe Photoshop',
-	'Adobe After Effects',
-	'Cursor',
-	'Framer',
-	'Lovable',
-	'Canva',
-	'Ideogram',
-	'GitHub',
-	'Vercel',
-	'Replit',
-	'Claude Code',
-	'UX Cam',
+	{ name: 'Figma', icon: 'figma' },
+	{ name: 'Cursor', icon: 'cursor' },
+	{ name: 'Claude Code', icon: 'claude-code' },
+	{ name: 'Framer', icon: 'framer' },
+	{ name: 'ProtoPie', icon: 'protopie' },
+	{ name: 'Adobe Creative Suite', icon: 'adobe-suite' },
+	{ name: 'UXCam', icon: 'ux-cam' },
+	{ name: 'Replit', icon: 'replit' },
 ];
 
 const experiences = [
 	{
 		company: 'IPMD',
+		logo: '/images/about/logo-ipmd.png',
 		role: 'Product Designer & UI/UX Intern',
+		focus: 'Simplifying clinic-to-home workflows',
 		date: 'June 2026 – Present',
 		status: 'Current',
 		href: '#',
 	},
-	
 	{
 		company: 'narb',
+		logo: '/images/about/logo-narb.png',
 		role: 'Product Designer',
+		focus: 'Leading end-to-end product design',
 		date: 'May 2025 – Present',
 		status: 'Current',
 		href: '#',
 	},
 	{
 		company: 'Lingotune',
+		logo: '/images/lingotune/logo.png',
 		role: 'Product Design Intern',
-		date: 'May 2025 – August 2025',
+		focus: 'Improving lesson discovery',
+		date: 'May – August 2025',
 		status: 'Past',
 		href: '/work/lingotune',
 	},
 	{
 		company: 'Build IRL',
+		logo: '/images/build-irl/logo.png',
 		role: 'UX/Product Design Intern',
-		date: 'January 2025 – May 2025',
+		focus: 'Designing a platform from 0→1',
+		date: 'January – May 2025',
 		status: 'Past',
 		href: '/work/build-irl',
 	},
@@ -56,27 +71,74 @@ const experiences = [
 		<main class="about-main">
 			<section class="about-section intro fade-in-on-scroll">
 				<div class="intro__inner">
-					<div class="intro__image-wrap">
-						<img src="/images/about/profilephoto.png" alt="Julia" class="intro-image" />
-					</div>
 					<div class="intro__text">
     <h1 class="intro__headline">
-        Nice to meet you, I'm Julia! 
+        Nice to meet you, I'm Julia!
     </h1>
-	<p class="subhead subhead--blue" style="margin: -12px 0 32px;">A product designer who learns by making and doing ✿</p>
+	<p class="subhead subhead--blue" style="margin: -12px 0 16px;">A product designer who learns by making and doing ✿</p>
     <p class="body-text">
-        I’m a senior @ UC Berkeley 🐻 studying Cognitive Science, Education, and Design. I’ve always learned best by making: designing the screen, building the prototype, and testing the unique idea. 
-
-That curiosity has taken me through startups, classrooms, countless Figma files, and lately, into code! I love taking on unfamiliar problems and turning them into intuitive, thoughtful experiences.
-
-Outside of design, I’m especially passionate about early childhood development and elementary education.
-    </p>
+        I’m a UC Berkeley senior studying Cognitive Science, Education, and Design. I learn best by making: designing screens, building prototypes, and seeing how people use them. From startups and classrooms to Figma and code, I love turning unfamiliar, messy problems into thoughtful experiences. My interests in early childhood development and elementary education also shapes how I think about people, learning, and technology. </p>
 </div>
+					<div class="intro__image-wrap">
+						<img src="/images/about/hero-headshot.jpg" alt="Julia" class="intro-image" />
+					</div>
+				</div>
+			</section>
+
+			<section class="about-section experiences">
+				<h2 class="section-heading section-heading--blue">Experiences at a Glance</h2>
+				<p class="subhead subhead--center">
+					A quick look at what I've been up to the past couple of years,<br />
+					and where I'm at currently!
+				</p>
+
+				<div class="experience-list">
+					{
+						experiences.map((experience, index) => {
+							const hasCaseStudy = Boolean(experience.href) && experience.href !== '#';
+							return (
+								<a
+									href={hasCaseStudy ? experience.href : undefined}
+									class:list={[
+										'experience-row',
+										'fade-in-on-scroll',
+										hasCaseStudy ? 'experience-row--linked' : 'experience-row--static',
+										experience.status === 'Current' ? 'experience-row--current' : '',
+									]}
+									style={`--fade-delay: ${index * 100}ms`}
+								>
+									<span class="experience-company-cell">
+										<img src={experience.logo} alt="" class="experience-logo" aria-hidden="true" />
+										<span class="experience-company">{experience.company}</span>
+									</span>
+									<span class="experience-role">{experience.role}</span>
+									<span class="experience-focus">{experience.focus}</span>
+									<div class="experience-meta">
+										<span
+											class:list={[
+												'experience-date',
+												experience.status === 'Current' ? 'experience-date--current' : '',
+											]}
+										>
+											{experience.date}
+										</span>
+										<span
+											class:list={[
+												'experience-status',
+												experience.status === 'Current' ? 'experience-status--current' : 'experience-status--past',
+											]}
+											aria-label={experience.status}
+										/>
+									</div>
+								</a>
+							);
+						})
+					}
 				</div>
 			</section>
 
 			<section class="about-section toolbox fade-in-on-scroll">
-				<h2 class="section-heading section-heading--blue">Currently in My ToolBox</h2>
+				<h2 class="section-heading section-heading--blue">Tools I Make With</h2>
 				<p class="subhead subhead--center">I love learning new softwares and tools! What should I try next? </p>
 
 				<div class="marquee">
@@ -86,11 +148,11 @@ Outside of design, I’m especially passionate about early childhood development
     tools.map((tool) => (
         <div class="tool-item">
             <img
-                src={`/images/about/${tool.toLowerCase().replace(/\s+/g, '-')}.png`}
-                alt={tool}
+                src={`/images/about/${tool.icon}.png`}
+                alt={tool.name}
                 class="tool-icon"
             />
-            <span class="tool-name">{tool}</span>
+            <span class="tool-name">{tool.name}</span>
         </div>
     ))
 }
@@ -100,11 +162,11 @@ Outside of design, I’m especially passionate about early childhood development
     tools.map((tool) => (
         <div class="tool-item">
             <img
-                src={`/images/about/${tool.toLowerCase().replace(/\s+/g, '-')}.png`}
-                alt={tool}
+                src={`/images/about/${tool.icon}.png`}
+                alt={tool.name}
                 class="tool-icon"
             />
-            <span class="tool-name">{tool}</span>
+            <span class="tool-name">{tool.name}</span>
         </div>
     ))
 }
@@ -113,61 +175,49 @@ Outside of design, I’m especially passionate about early childhood development
 				</div>
 			</section>
 
-			<section class="about-section experiences">
-				<h2 class="section-heading section-heading--blue">My Experiences At a Glimpse...</h2>
-				<p class="subhead subhead--center">
-					A quick look at what I've been up to the past couple of years,<br />
-					and where I'm at currently!
-				</p>
+			<section class="about-section shelf fade-in-on-scroll">
+				<h2 class="section-heading section-heading--blue">Currently on My Shelf</h2>
+				<p class="subhead subhead--center">Placeholder copy — real books coming soon</p>
 
-				<div class="experience-list">
-					{
-						experiences.map((experience, index) => (
-							<div class="experience-row fade-in-on-scroll" style={`--fade-delay: ${index * 100}ms`}>
-								<span class="experience-company">{experience.company}</span>
-								<a href={experience.href} class="experience-role">{experience.role}</a>
-								<div class="experience-meta">
-									<span class="experience-date">{experience.date}</span>
-									<span
-										class:list={[
-											'experience-status',
-											experience.status === 'Current' ? 'experience-status--current' : 'experience-status--past',
-										]}
-										aria-label={experience.status}
-									/>
+				<div class="shelf__layout">
+					<div class="shelf__featured-col">
+						<span class="shelf__eyebrow">Currently Reading 📖</span>
+						<div class="shelf__featured">
+							<img src="/images/about/currently-reading.jpg" alt={currentlyReading.title} class="shelf__featured-cover" />
+							<div class="shelf__featured-info">
+								<h3 class="shelf__book-title">{currentlyReading.title}</h3>
+								<p class="shelf__book-author">{currentlyReading.author}</p>
+								<div class="shelf__progress">
+									<div class="shelf__progress-track">
+										<div class="shelf__progress-fill" style={`width: ${currentlyReading.progressPercent}%;`}></div>
+									</div>
+									<span class="shelf__progress-label">{currentlyReading.progressPercent}% done</span>
 								</div>
 							</div>
-						))
-					}
-				</div>
-			</section>
+						</div>
+					</div>
 
-			<section class="about-section scrapbook">
-				<h2 class="section-heading section-heading--blue">Outside of Design, You Can Catch Me...</h2>
-				<p class="subhead subhead--center">A quick look at what fills my time when I'm not in Figma! </p>
-
-				<div class="scrapbook__canvas">
-					<div class="scrapbook-item scrapbook-item--1 fade-in-on-scroll" style="--fade-delay: 0ms">
-						<img src="/images/about/cooking.png" alt="Cooking" class="scrapbook-image" />
-						<span class="sticker" style="top: 12px; left: 12px; transform: rotate(-8deg); --sticker-rotate-hover: -10deg;">Cooking and Baking</span>
-					</div>
-					<div class="scrapbook-item scrapbook-item--2 fade-in-on-scroll" style="--fade-delay: 100ms">
-						<img src="/images/about/yoga.jpg" alt="yoga" class="scrapbook-image" />
-						<span class="sticker" style="bottom: 16px; right: 12px; transform: rotate(6deg); --sticker-rotate-hover: 8deg;">Yoga and Pilates</span>
-					</div>
-					<div class="scrapbook-item scrapbook-item--3 fade-in-on-scroll" style="--fade-delay: 200ms">
-						<img src="/images/about/food.png" alt="Food" class="scrapbook-image" />
-						<span class="sticker sticker--centered" style="top: 8px; left: 50%; transform: translateX(-50%) rotate(-5deg); --sticker-rotate-hover: -7deg;">
-    Trying new food spots (#avidbeliuser)
-</span>
-					</div>
-					<div class="scrapbook-item scrapbook-item--4 fade-in-on-scroll" style="--fade-delay: 300ms">
-						<img src="/images/about/exploring.png" alt="Exploring" class="scrapbook-image" />
-						<span class="sticker" style="bottom: 16px; left: 16px; transform: rotate(4deg); --sticker-rotate-hover: 6deg;">Exploring</span>
-					</div>
-					<div class="scrapbook-item scrapbook-item--5 fade-in-on-scroll" style="--fade-delay: 400ms">
-						<img src="/images/about/guitar.png" alt="guitar" class="scrapbook-image" />
-						<span class="sticker" style="bottom: 20px; left: 16px; transform: rotate(-6deg); --sticker-rotate-hover: -8deg;">Learning the guitar</span>
+					<div class="shelf__also">
+						<span class="shelf__also-label">Also on My Shelf 📚</span>
+						<div class="shelf__row">
+							{
+								alsoOnShelf.map((book) => (
+									<div class="shelf__item">
+										{book.cover ? (
+											<img src={book.cover} alt={book.title} class="shelf__cover" />
+										) : (
+											<div class="shelf__cover" style={`background-color: ${book.color};`}>
+												<span class="shelf__cover-title">{book.title}</span>
+											</div>
+										)}
+										<div class="shelf__hover-info">
+											<span class="shelf__hover-title">{book.title}</span>
+											<span class="shelf__hover-author">{book.author}</span>
+										</div>
+									</div>
+								))
+							}
+						</div>
 					</div>
 				</div>
 			</section>
@@ -182,7 +232,7 @@ Outside of design, I’m especially passionate about early childhood development
 	}
 
 	.about-main {
-		padding: 80px 0px 120px;
+		padding: 80px 0px 160px;
 	}
 
 	.about-section + .about-section {
@@ -199,11 +249,11 @@ Outside of design, I’m especially passionate about early childhood development
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 1.4;
-		color: #000000;
+		color: #4A4A4A;
 	}
 
 	.subhead--blue {
-    color: #1a1a1a;
+    color: #4A4A4A;
 }
 
 	.subhead--center {
@@ -214,7 +264,7 @@ Outside of design, I’m especially passionate about early childhood development
 	.section-heading {
 		margin: 0 0 20px;
 		font-family: 'Instrument Serif', serif;
-		font-size: 44px;
+		font-size: 36px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.1;
@@ -232,43 +282,13 @@ Outside of design, I’m especially passionate about early childhood development
 		font-size: 18px;
 		font-weight: 400;
 		line-height: 1.6;
-		color: #000;
-	}
-
-	.sticker {
-    position: absolute;
-    z-index: 2;
-    padding: 8px 16px;
-    border-radius: 999px;
-    background-color: #4483F0;
-    border: 3px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    font-family: 'Gabarito', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.3;
-    color: #ffffff;
-    white-space: nowrap;
-    transition: transform 200ms ease-out;
-}
-
-	.sticker:hover {
-		transform: rotate(var(--sticker-rotate-hover, -10deg)) scale(1.05);
-	}
-
-	.sticker--centered:hover {
-		transform: translateX(-50%) rotate(var(--sticker-rotate-hover, -7deg)) scale(1.05);
-	}
-
-	.scrapbook-sticker--two-line {
-		white-space: normal;
-		text-align: center;
+		color: #4A4A4A;
 	}
 
 	/* Section 1: Intro */
 	.intro__inner {
     display: flex;
-    align-items: flex-start; /* change this */
+    align-items: center;
     gap: 64px;
     max-width: 1000px;
     margin: 0 auto;
@@ -277,16 +297,18 @@ Outside of design, I’m especially passionate about early childhood development
 	.intro__image-wrap {
     position: relative;
     flex-shrink: 0;
-    margin-top: 6px;
+    width: 240px;
+    height: 240px;
 }
 
 	.intro-image {
-    width: 400px;
-    height: 390px;
+    width: 100%;
+    height: 100%;
     border-radius: 16px;
     object-fit: cover;
     display: block;
 }
+
 	.intro__text {
 		flex: 1;
 		min-width: 0;
@@ -295,7 +317,7 @@ Outside of design, I’m especially passionate about early childhood development
 	.intro__headline {
 		margin: 0 0 24px;
 		font-family: 'Instrument Serif', serif;
-		font-size: 44px;
+		font-size: 36px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.1;
@@ -353,22 +375,22 @@ Outside of design, I’m especially passionate about early childhood development
 
 	.marquee__content {
 		display: flex;
-		gap: 32px;
-		padding-right: 32px;
+		gap: 24px;
+		padding-right: 24px;
 	}
 
 	.tool-item {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 12px;
+		gap: 8px;
 		flex-shrink: 0;
 	}
 
 	.tool-icon {
-		width: 100px;
-		height: 100px;
-		border-radius: 20px;
+		width: 80px;
+		height: 80px;
+		border-radius: 18px;
 		transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 
@@ -393,6 +415,188 @@ Outside of design, I’m especially passionate about early childhood development
 		}
 	}
 
+	/* Section: Currently on My Shelf */
+	.shelf {
+		max-width: 900px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.shelf__layout {
+		display: flex;
+		align-items: flex-start;
+		gap: 56px;
+		margin-top: 40px;
+	}
+
+	.shelf__featured-col {
+		flex-shrink: 0;
+		max-width: 420px;
+	}
+
+	.shelf__featured {
+		display: flex;
+		gap: 24px;
+	}
+
+	.shelf__featured-cover {
+		flex-shrink: 0;
+		width: 220px;
+		aspect-ratio: 1000 / 820;
+		border-radius: 10px;
+		object-fit: cover;
+		display: block;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+	}
+
+	.shelf__featured-info {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		padding-top: 4px;
+	}
+
+	.shelf__eyebrow {
+		display: block;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		color: #4483F0;
+		margin-bottom: 16px;
+	}
+
+	.shelf__book-title {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+		color: #000;
+	}
+
+	.shelf__book-author {
+		margin: 0 0 8px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		color: #6b6b6b;
+	}
+
+	.shelf__progress {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0 0 8px;
+	}
+
+	.shelf__progress-track {
+		flex: 1;
+		max-width: 140px;
+		height: 6px;
+		border-radius: 999px;
+		background-color: #e8edfa;
+		overflow: hidden;
+	}
+
+	.shelf__progress-fill {
+		height: 100%;
+		border-radius: 999px;
+		background-color: #4483F0;
+		transition: width 400ms ease-out;
+	}
+
+	.shelf__progress-label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #4483F0;
+		white-space: nowrap;
+	}
+
+	.shelf__also {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.shelf__also-label {
+		display: block;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		color: #6b6b6b;
+		margin-bottom: 16px;
+	}
+
+	.shelf__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+	}
+
+	.shelf__item {
+		position: relative;
+		width: 100px;
+		aspect-ratio: 2 / 3;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+	}
+
+	.shelf__cover {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+		text-align: center;
+		object-fit: cover;
+	}
+
+	img.shelf__cover {
+		padding: 0;
+	}
+
+	.shelf__cover-title {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1.3;
+		color: rgba(255, 255, 255, 0.92);
+	}
+
+	.shelf__hover-info {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2px;
+		padding: 10px;
+		text-align: center;
+		background-color: rgba(0, 0, 0, 0.78);
+		opacity: 0;
+		transition: opacity 200ms ease-out;
+	}
+
+	.shelf__item:hover .shelf__hover-info {
+		opacity: 1;
+	}
+
+	.shelf__hover-title {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+		color: #fff;
+	}
+
+	.shelf__hover-author {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 11px;
+		font-weight: 400;
+		color: rgba(255, 255, 255, 0.85);
+	}
+
 	/* Section 3: Experiences */
 	.experiences {
 		max-width: 900px;
@@ -407,30 +611,64 @@ Outside of design, I’m especially passionate about early childhood development
 	}
 
 	.experience-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 140px 1fr 1fr auto;
     align-items: center;
     gap: 24px;
-    padding: 20px 32px;
+    padding: 16px 28px;
     background-color: #f9f9f9;
     border: 1px solid #e8e8e8;
     border-radius: 999px;
-    transition: box-shadow 200ms ease-out;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 200ms ease-out, background-color 200ms ease-out, border-color 200ms ease-out;
 }
 
-	.experience-row:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+	.experience-row--static {
+		cursor: default;
+	}
+
+	.experience-row--linked {
+		cursor: pointer;
+	}
+
+	.experience-row--linked:hover {
+    background-color: #f2f6ff;
+    border-color: #d7e4fb;
+    box-shadow: 0 4px 16px rgba(68, 131, 240, 0.1);
 }
+
+	.experience-row--linked:hover .experience-role {
+		text-decoration: underline;
+	}
+
+	.experience-company-cell {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		min-width: 0;
+	}
+
+	.experience-logo {
+		width: 24px;
+		height: 24px;
+		border-radius: 6px;
+		object-fit: contain;
+		flex-shrink: 0;
+	}
 
 	.experience-company {
-		flex: 0 0 140px;
+		min-width: 0;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 16px;
 		font-weight: 500;
 		color: #000;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.experience-role {
-		flex: 1;
 		min-width: 0;
 		font-family: 'Gabarito', sans-serif;
 		font-size: 16px;
@@ -439,8 +677,15 @@ Outside of design, I’m especially passionate about early childhood development
 		text-decoration: none;
 	}
 
-	.experience-role:hover {
-		text-decoration: underline;
+	.experience-focus {
+		min-width: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		color: #6b6b6b;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	.experience-meta {
@@ -448,6 +693,7 @@ Outside of design, I’m especially passionate about early childhood development
 		flex-shrink: 0;
 		align-items: center;
 		gap: 10px;
+		justify-self: end;
 	}
 
 	.experience-date {
@@ -458,6 +704,11 @@ Outside of design, I’m especially passionate about early childhood development
 		white-space: nowrap;
 	}
 
+	.experience-date--current {
+		color: #4483F0;
+		font-weight: 500;
+	}
+
 	.experience-status {
 		width: 8px;
 		height: 8px;
@@ -466,122 +717,32 @@ Outside of design, I’m especially passionate about early childhood development
 	}
 
 	.experience-status--current {
-		background-color: #22c55e;
+		background-color: #4483F0;
+		animation: status-blink 1.6s ease-in-out infinite;
+	}
+
+	@keyframes status-blink {
+		0%, 100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.25;
+		}
 	}
 
 	.experience-status--past {
 		background-color: #a8a8a8;
 	}
 
-	/* Section 4: Scrapbook */
-.scrapbook {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.scrapbook__canvas {
-    position: relative;
-    min-height: 720px;
-    max-width: 900px;
-    margin: 48px auto 0;
-}
-
-.scrapbook-item {
-    position: absolute;
-    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
-}
-
-.scrapbook-item:hover {
-	z-index: 10;
-}
-
-.scrapbook-item:hover .scrapbook-image {
-	box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
-}
-
-.scrapbook-item--1:hover {
-	transform: translateY(-8px) rotate(0deg);
-}
-
-.scrapbook-item--2:hover {
-	transform: translateY(-8px) rotate(0deg);
-}
-
-.scrapbook-item--3:hover {
-	transform: translateY(-8px) rotate(0deg);
-}
-
-.scrapbook-item--4:hover {
-	transform: translateY(-8px) rotate(0deg);
-}
-
-.scrapbook-item--5:hover {
-	transform: translateX(-50%) translateY(-8px) rotate(0deg);
-}
-
-.scrapbook-item .scrapbook-image {
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-    background-color: #eeeeee;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 200ms ease-out;
-}
-
-.scrapbook-item--1 {
-    top: 0;
-    left: 60px;
-    width: 300px;
-    height: 240px;
-    transform: rotate(-5deg);
-    z-index: 3;
-}
-
-.scrapbook-item--2 {
-    top: 0;
-    right: 60px;
-    width: 260px;
-    height: 320px;
-    transform: rotate(4deg);
-    z-index: 2;
-}
-
-.scrapbook-item--3 {
-    top: 290px;
-    left: 20px;
-    width: 300px;
-    height: 260px;
-    transform: rotate(3deg);
-    z-index: 4;
-}
-
-.scrapbook-item--4 {
-    top: 380px;
-    right: 100px;
-    width: 240px;
-    height: 240px;
-    transform: rotate(-4deg);
-    z-index: 5;
-}
-
-.scrapbook-item--5 {
-    top: 580px;
-    left: 50%;
-    width: 320px;
-    height: 240px;
-    transform: translateX(-50%) rotate(2deg);
-    z-index: 3;
-}
 	img.tool-icon {
     background-color: transparent;
     object-fit: contain;
-    padding: 12px;
+    padding: 10px;
 }
 
 	@media (max-width: 768px) {
     .about-main {
-        padding: 48px 0 80px;
+        padding: 48px 0 100px;
     }
 
 		.about-section + .about-section {
@@ -589,23 +750,46 @@ Outside of design, I’m especially passionate about early childhood development
 		}
 
 		.section-heading {
-			font-size: 36px;
+			font-size: 30px;
 		}
 
-		.intro__inner {
+		.shelf__layout {
 			flex-direction: column;
 			gap: 32px;
 		}
 
-		.intro-image {
+		.shelf__featured-col {
+			max-width: 100%;
+		}
+
+		.shelf__item {
+			width: 88px;
+		}
+
+		.intro__inner {
+			flex-direction: column;
+			align-items: center;
+			gap: 32px;
+		}
+
+		.intro__image-wrap {
 			width: 100%;
 			max-width: 320px;
 			height: auto;
 			aspect-ratio: 1;
 		}
 
+		.intro-image {
+			width: 100%;
+			height: 100%;
+		}
+
+		.intro__text {
+			max-width: 100%;
+		}
+
 		.intro__headline {
-			font-size: 36px;
+			font-size: 30px;
 		}
 
 		.body-text,
@@ -626,75 +810,54 @@ Outside of design, I’m especially passionate about early childhood development
 		}
 
 		.experience-row {
-			flex-wrap: wrap;
+			display: flex;
+			flex-direction: column;
 			align-items: flex-start;
-			gap: 8px 12px;
+			gap: 6px;
 			padding: 16px 20px;
 		}
 
 		.experience-company {
-			flex: 1 1 100%;
 			font-size: 15px;
 		}
 
 		.experience-role {
-			flex: 1 1 100%;
 			font-size: 15px;
 		}
 
+		.experience-focus {
+			font-size: 13px;
+		}
+
 		.experience-meta {
-			flex: 1 1 100%;
+			justify-self: auto;
 			justify-content: flex-start;
+			margin-top: 4px;
 		}
 
 		.experience-date {
 			white-space: normal;
 			font-size: 13px;
 		}
-
-		.scrapbook__canvas {
-			display: flex;
-			flex-direction: column;
-			gap: 48px;
-			min-height: auto;
-			margin-top: 32px;
-		}
-
-		.scrapbook-item,
-		.scrapbook-item--1,
-		.scrapbook-item--2,
-		.scrapbook-item--3,
-		.scrapbook-item--4,
-		.scrapbook-item--5 {
-			position: relative;
-			top: auto;
-			left: auto;
-			right: auto;
-			width: 100%;
-			height: auto;
-			transform: none;
-		}
-
-		.scrapbook-item--5 {
-			transform: none;
-		}
-
-		.scrapbook-item .scrapbook-image {
-			aspect-ratio: 4 / 3;
-			height: auto;
-		}
-
-		.scrapbook-item--1:hover,
-		.scrapbook-item--2:hover,
-		.scrapbook-item--3:hover,
-		.scrapbook-item--4:hover,
-		.scrapbook-item--5:hover {
-			transform: translateY(-8px);
-		}
-
-		.sticker {
-			font-size: 12px;
-			padding: 6px 12px;
-		}
 	}
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
