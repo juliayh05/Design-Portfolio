@@ -61,7 +61,7 @@ const sections = [
 			<div class="browse-loop">
 				<div class="browse-loop__step">
 
-                <div class="flow-step__screen">
+                <div class="browse-loop__screen">
 						<img src="/images/netflix/Crop.png" alt="Choose viewing context" loading="lazy" />
 					</div>
 					<p class="flow-step__label"> Browse rows </p>
@@ -72,7 +72,7 @@ const sections = [
 
 
 
-                <div class="flow-step__screen">
+                <div class="browse-loop__screen">
 						<img src="/images/netflix/open.png" alt="Choose viewing context" loading="lazy" />
 					</div>
 					<p class="flow-step__label"> Open title </p>
@@ -83,7 +83,7 @@ const sections = [
 				<span class="browse-loop__arrow">→</span>
 				<div class="browse-loop__step">
 
-                 <div class="flow-step__screen">
+                 <div class="browse-loop__screen">
 						<img src="/images/netflix/back.png" alt="Choose viewing context" loading="lazy" />
 					</div>
 					<p class="flow-step__label"> Go back </p>
@@ -92,7 +92,7 @@ const sections = [
 
 				<span class="browse-loop__arrow">↺</span>
 				<div class="browse-loop__step">
-                <div class="flow-step__screen">
+                <div class="browse-loop__screen">
 						<img src="/images/netflix/scrolling.png" alt="Choose viewing context" loading="lazy" />
 					</div>
 					<p class="flow-step__label"> Keep scrolling </p>
@@ -263,34 +263,6 @@ const sections = [
 		<CaseStudySubsection title="Five moments make up the full experience.">
 			<p>Each step is deliberately short. The whole flow can happen in under a minute for solo viewers and a couple of minutes for groups.</p>
 
-            <div class="split-flow">
-				<div class="split-flow__top">
-					<div class="split-flow__screen">
-						<img src="/images/netflix/frame-109.png" alt="Choose solo or group viewing context" loading="lazy" />
-					</div>
-				</div>
-				<div class="split-flow__branches">
-					<div class="split-flow__branch">
-						<span class="split-flow__branch-label">Solo</span>
-						<div class="split-flow__screen">
-							<img src="/images/netflix/frame-112.png" alt="Select a mood for a solo recommendation" loading="lazy" />
-						</div>
-						<div class="split-flow__screen">
-							<img src="/images/netflix/frame-124.png" alt="Solo recommendation result for Minions" loading="lazy" />
-						</div>
-					</div>
-					<div class="split-flow__branch">
-						<span class="split-flow__branch-label">Group</span>
-						<div class="split-flow__screen">
-							<img src="/images/netflix/frame-117.png" alt="QR code and link for inviting a group" loading="lazy" />
-						</div>
-						<div class="split-flow__screen">
-							<img src="/images/netflix/frame-122.png" alt="Group recommendation result for American Assassin" loading="lazy" />
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<h3 class="solution-block-heading">01 &nbsp; Choose the viewing context</h3>
 			<div class="moment-layout moment-layout--split">
 				<div class="moment-layout__primary">
@@ -395,6 +367,7 @@ const sections = [
 	.netflix-hero__phone img,
 	.split-flow__screen img,
 	.flow-step__screen img,
+	.browse-loop__screen img,
 	.moment-layout__screen img,
 	.moment-deck__card img,
 	.moment-sequence__screen img,
@@ -556,16 +529,25 @@ const sections = [
 		align-items: center;
 		justify-content: space-between;
 		gap: 12px;
-		margin: 32px 0 12px;
+		margin: 56px 0 12px;
 	}
-	.browse-loop__step { flex: 1; }
+	.browse-loop__step {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+		flex: 1;
+		min-width: 100px;
+	}
 	.browse-loop__screen {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		width: 100%;
 		aspect-ratio: 16 / 10;
 		background-color: #f5f5f5;
 		border-radius: 12px;
+		overflow: hidden;
 	}
 	.browse-loop__placeholder {
 		font-family: 'Gabarito', sans-serif;

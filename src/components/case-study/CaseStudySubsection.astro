@@ -1,13 +1,13 @@
 ---
 interface Props {
-	title: string;
+	title?: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <div class="subsection fade-in-on-scroll">
-	<h3 class="subsection-title">{title}</h3>
+	{title && <h3 class="subsection-title">{title}</h3>}
 	<div class="subsection-body">
 		<slot />
 	</div>
@@ -46,3 +46,4 @@ const { title } = Astro.props;
 		}
 	}
 </style>
+

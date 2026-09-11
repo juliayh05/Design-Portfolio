@@ -1,6 +1,6 @@
 ---
 interface Props {
-	logo: string;
+	logo?: string;
 	logoAlt: string;
 	logoHeight?: number;
 	headline: string;
@@ -16,7 +16,11 @@ const subtitle = role ? (timeframe ? `${role} · ${timeframe}` : role) : null;
 ---
 
 <section class="case-study-hero">
-	<img src={logo} alt={logoAlt} class="logo" style={`height: ${logoHeight}px`} />
+	{logo ? (
+		<img src={logo} alt={logoAlt} class="logo" style={`height: ${logoHeight}px`} />
+	) : (
+		<span class="logo logo--fallback" aria-hidden="true">{logoAlt.charAt(0)}</span>
+	)}
 	<h1 class="headline">{headline}</h1>
 	{subtitle && <p class="subtitle">{subtitle}</p>}
 	<div class="tags">
@@ -41,6 +45,19 @@ const subtitle = role ? (timeframe ? `${role} · ${timeframe}` : role) : null;
     height: 32px !important;
     width: auto !important;
     object-fit: contain;
+}
+
+	.logo--fallback {
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5F5F5;
+    color: #4A4A4A;
+    border-radius: 9px;
+    font-family: 'Gabarito', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 	.headline {

@@ -12,35 +12,115 @@ const sections = [
 	{ id: 'solution', label: 'Solution' },
 	{ id: 'outcome', label: 'Outcome' },
 	{ id: 'reflection', label: 'Reflection' },
-
-
 ];
 ---
 
 <CaseStudyLayout title="Build IRL — Julia Heo" sections={sections}>
-	<!-- TODO: add role, timeframe, and tightened description -->
 	<CaseStudyHero
 		logo="/images/build-irl/logo.png"
 		logoAlt="Build IRL"
-		headline="Designing an MVP from 0-to-1 for the builders and joiners of club communities"
+		headline="Designing the first Build IRL experience for both sides of a club community"
 		role="UX/Product Design Intern"
-		timeframe="January - May 2025"
-		tags={['Product/UX Design', 'Web/Mobile', 'Social']}
+		timeframe="January – May 2025"
+		tags={['Product Design', 'Web/Mobile', 'Social']}
 	/>
 
-
 	<CaseStudySection id="overview" title="Overview">
-		<CaseStudySubsection title="One product had to work for both sides of a club community">
-			<p>
-				Build IRL was a 0→1 platform for starting, running, and joining in-person clubs. Research revealed two different problems underneath that idea: builders were overwhelmed by the work of running communities, while joiners struggled to tell whether a club was actually for them. Over 10 weeks, my team and I helped shape the core builder and joiner flows for the MVP, from research and product framing through high-fidelity web and mobile design.
-			</p>
+		<CaseStudySubsection title="One platform had to work for two very different kinds of people.">
+			<p>Build IRL was a 0→1 platform for starting, running, and joining in-person clubs.</p>
+			<p>At first, that sounded like one product problem. Research revealed two: builders were overwhelmed by the work happening behind their communities, while potential joiners struggled to tell whether a club would actually feel right for them.</p>
+			<p>Over 10 weeks, my team and I helped define the MVP around both sides of that experience. We moved from interviews and product framing into core user flows, mid-fidelity exploration, and high-fidelity web and mobile prototypes.</p>
 		</CaseStudySubsection>
 	</CaseStudySection>
 
+	<div class="dual-hero">
+		<div class="dual-hero__side">
+			<img src="/images/build-irl/builder-paths.jpg" alt="Builder choosing how to start their club page: create from scratch, generate with AI, or import from Instagram" class="case-study-image case-study-image--phone" />
+			<p class="dual-hero__caption"> Builder: Less time managing</p>
+		</div>
+		<div class="dual-hero__divider">
+			<span></span>
+		</div>
+		<div class="dual-hero__side">
+			<img src="/images/build-irl/joiner-profile.jpg" alt="Joiner viewing the Cat Cafes club profile with photos, interest tags, and an about section" class="case-study-image case-study-image--phone" />
+			<p class="dual-hero__caption">Joiner: More confidence joining</p>
+		</div>
+	</div>
+	<p class="dual-hero__statement"> 💡 One community. Two very different needs.</p>
+
 	<CaseStudySection id="problem" title="Problem">
 		<CaseStudySubsection title="Running a club was fragmented. Joining one was a leap of faith.">
-			<p>From 10+ interviews with club builders and joiners, two problems kept surfacing on opposite sides of the experience.</p>
-			<img src="/images/build-irl/userinterview.png" alt="User interviews" class="case-study-image" />
+			<p>Through more than 10 interviews with club builders and joiners, two problems kept surfacing on opposite sides of the experience.</p>
+
+			<div class="research-split">
+				<div class="research-col">
+					<p class="research-col__label">Builders</p>
+					<span class="research-col__badge">Too many moving pieces</span>
+
+					<div class="tool-cluster">
+						<svg class="tool-cluster__lines" viewBox="0 0 400 210" preserveAspectRatio="none" aria-hidden="true">
+							<path d="M100,55 C130,80 150,60 175,72" />
+							<path d="M215,60 C240,50 255,75 270,68" />
+							<path d="M120,80 C110,105 90,120 110,145" />
+							<path d="M180,90 C190,115 175,130 195,150" />
+							<path d="M250,85 C260,110 245,125 260,148" />
+							<path d="M150,160 C180,175 210,170 235,160" />
+						</svg>
+
+						<div class="tool-card tool-card--1">
+							<span class="tool-card__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+							</span>
+							<span class="tool-card__label">Planning</span>
+						</div>
+						<div class="tool-card tool-card--2">
+							<span class="tool-card__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+							</span>
+							<span class="tool-card__label">RSVPs</span>
+						</div>
+						<div class="tool-card tool-card--3">
+							<span class="tool-card__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+							</span>
+							<span class="tool-card__label">Promotion</span>
+						</div>
+						<div class="tool-card tool-card--4">
+							<span class="tool-card__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+							</span>
+							<span class="tool-card__label">Communication</span>
+						</div>
+						<div class="tool-card tool-card--5">
+							<span class="tool-card__icon">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+							</span>
+							<span class="tool-card__label">Logistics</span>
+						</div>
+					</div>
+				</div>
+				<div class="research-col">
+					<p class="research-col__label">Joiners</p>
+					<span class="research-col__badge">Not enough to go on</span>
+
+					<div class="research-col__listing">
+						<span class="listing-icon">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+						</span>
+						<div>
+							<p class="mini-listing__name">Club name</p>
+							<p class="mini-listing__meta">Description · Date · Location</p>
+						</div>
+					</div>
+					<div class="research-col__questions">
+						<span class="question-chip"><span class="question-chip__mark">?</span>Who usually comes?</span>
+						<span class="question-chip"><span class="question-chip__mark">?</span>What does it feel like?</span>
+						<span class="question-chip"><span class="question-chip__mark">?</span>Would I fit in?</span>
+						<span class="question-chip"><span class="question-chip__mark">?</span>Is it active?</span>
+					</div>
+				</div>
+			</div>
+
 
 			<div class="observation">
 				<span class="observation__label">01</span>
@@ -59,13 +139,32 @@ const sections = [
 			</div>
 
 			<blockquote class="pull-quote3">💡 Builders needed less work. Joiners needed more confidence.</blockquote>
-			<img src="/images/build-irl/affinitymap.png" alt="Affinity map" class="case-study-image" />
+
+			<div class="image-pair">
+				<img src="/images/build-irl/affinitymap.png" alt="Affinity map synthesizing interview findings" class="case-study-image" />
+				<img src="/images/build-irl/archetypes.png" alt="Four user archetypes split across builders and joiners" class="case-study-image case-study-image--wide" />
+			</div>
 		</CaseStudySubsection>
 		<br>
 
-		<CaseStudySubsection title="The challenge wasn't adding features. It was deciding what the MVP actually needed to solve."> 
-			<p>Build IRL could have gone in a lot of directions — events, messaging, discovery, club management, profiles, onboarding, creation tools.</p>
+		<CaseStudySubsection title="The challenge wasn't adding features. It was deciding what the MVP actually needed to solve.">
+			<p>Build IRL could have gone in a lot of directions: events, messaging, discovery, club management, profiles, onboarding, creation tools.</p>
 			<p>But trying to solve everything at once would just recreate the same complexity we were trying to reduce. So we narrowed the product around two questions:</p>
+
+			<div class="feature-funnel">
+				<div class="feature-funnel__cloud">
+					<span class="scatter-chip">Events</span>
+					<span class="scatter-chip">Messaging</span>
+					<span class="scatter-chip">Discovery</span>
+					<span class="scatter-chip">Profiles</span>
+					<span class="scatter-chip">Club management</span>
+					<span class="scatter-chip">Onboarding</span>
+					<span class="scatter-chip">Creation tools</span>
+					<span class="scatter-chip">Community content</span>
+				</div>
+				<div class="feature-funnel__arrow">↓</div>
+			</div>
+
 			<blockquote class="pull-quote"><b>01</b> Does this remove meaningful work for builders?</blockquote>
 			<blockquote class="pull-quote"><b>02</b> Does this give joiners enough context to feel confident joining?</blockquote>
 		</CaseStudySubsection>
@@ -73,7 +172,7 @@ const sections = [
 
 	<CaseStudySection id="constraints" title="Constraints">
 		<CaseStudySubsection title="The product was still moving while we were designing it">
-			<div class="constraint-grid">
+			<div class="constraint-grid constraint-grid--3col">
 				<div class="constraint-card">
 					<p class="constraint-card__label">⏳ 10-week timeline</p>
 					<p class="constraint-card__text">We had a limited window to research, define the core experience, and move key flows into high fidelity.</p>
@@ -91,10 +190,13 @@ const sections = [
 	</CaseStudySection>
 
 	<CaseStudySection id="exploration" title="Exploration">
-		<CaseStudySubsection title="Before hi-fi, we had to get the flows right">
-			<p>We mapped the core builder and joiner journeys in mid-fi first, using them to work through hierarchy, flow, and scope before committing to high-fidelity screens.</p>
-			<p>This stage was intentionally loose. As we reviewed the experience with stakeholders, screens moved, flows changed, and some ideas were reworked once we could see the product end to end.</p>
-			<img src="/images/build-irl/mid-fi.png" alt="Mid-fi flows" class="case-study-image" />
+		<CaseStudySubsection title="Before designing screens, we had to understand how the two sides connected">
+			<p>A club created by a builder eventually became the experience evaluated by a joiner. That meant decisions on one side of the product affected what was possible on the other.</p>
+			<p>We mapped the core journeys in mid-fidelity first, using them to work through hierarchy, dependencies, and scope before committing to polished UI.</p>
+			<p>This stage was intentionally loose. As we reviewed the product with stakeholders, screens moved, flows changed, and some ideas were reworked once we could see the experience end to end.</p>
+
+			<img src="/images/build-irl/journey-map.png" alt="Early flow mapping for the builder and joiner journeys" class="case-study-image case-study-image--wide diagram-full" />
+			<img src="/images/build-irl/mid-fi.png" alt="Mid-fi flows for both sides of the product" class="case-study-image diagram-full" />
 			<blockquote class="pull-quote3">💡 Mid-fi gave us room to make those changes quickly without getting too attached to polished UI too early.</blockquote>
 		</CaseStudySubsection>
 	</CaseStudySection>
@@ -103,61 +205,725 @@ const sections = [
 		<CaseStudySubsection title="Help joiners understand the club before asking them to join.">
 			<p>The joiner experience couldn't just answer what, where, and when. Research showed people were also trying to figure out whether the community actually felt like a fit.</p>
 			<p>So, we brought more of the club's personality and context forward — things like interests, visuals, and community details — before committing.</p>
-			<video src="/images/build-irl/video-1.mp4" autoplay loop muted playsinline class="mockup-video"></video>
-			<blockquote class="pull-quote">💡 The goal wasn't to add more information. It was to surface the information that actually helped someone decide: Can I see myself here?</blockquote>
+
+			<div class="reveal-diagram">
+				<div class="reveal-diagram__before">
+					<p class="reveal-diagram__tag">Before</p>
+					<div class="wireframe-card">
+						<div class="wireframe-card__image">
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="16.5" cy="7.5" r="1.8" />
+								<path d="M3 17.5l5.5-6 3.5 3.5 4-4.5 5 5.5" />
+							</svg>
+						</div>
+						<p class="wireframe-card__title">Club name</p>
+						<p class="wireframe-card__meta">What · Where · When</p>
+						<div class="wireframe-card__lines">
+							<span class="wireframe-card__line" style="width: 100%;"></span>
+							<span class="wireframe-card__line" style="width: 90%;"></span>
+							<span class="wireframe-card__line" style="width: 62%;"></span>
+						</div>
+						<div class="wireframe-card__divider"></div>
+						<div class="wireframe-card__pills">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<p class="reveal-diagram__caption">A basic listing</p>
+				</div>
+
+				<div class="reveal-diagram__arrow">
+					<span class="reveal-diagram__arrow-label">From logistics to a sense of fit</span>
+					<span class="reveal-diagram__arrow-glyph" aria-hidden="true">→</span>
+				</div>
+
+				<div class="reveal-diagram__after">
+					<p class="reveal-diagram__tag reveal-diagram__tag--accent">Build IRL</p>
+					<div class="reveal-diagram__phone">
+						<img src="/images/build-irl/joiner-profile.jpg" alt="Annotated Build IRL club profile showing club imagery, interest tags, and an about section" class="case-study-image case-study-image--phone" />
+						<div class="reveal-diagram__callout reveal-diagram__callout--1">
+							<span class="reveal-diagram__dot" aria-hidden="true"></span>
+							<span class="reveal-diagram__line" aria-hidden="true"></span>
+							<span class="reveal-diagram__text"><b>Club imagery</b>See the community</span>
+						</div>
+						<div class="reveal-diagram__callout reveal-diagram__callout--2">
+							<span class="reveal-diagram__dot" aria-hidden="true"></span>
+							<span class="reveal-diagram__line" aria-hidden="true"></span>
+							<span class="reveal-diagram__text"><b>Interest tags</b>Find shared interests</span>
+						</div>
+						<div class="reveal-diagram__callout reveal-diagram__callout--3">
+							<span class="reveal-diagram__dot" aria-hidden="true"></span>
+							<span class="reveal-diagram__line" aria-hidden="true"></span>
+							<span class="reveal-diagram__text"><b>About section</b>Get a feel for the culture</span>
+						</div>
+					</div>
+					<p class="reveal-diagram__caption reveal-diagram__caption--after">A community-rich profile</p>
+				</div>
+			</div>
+
+			<blockquote class="pull-quote reveal-diagram-quote">💡 The goal wasn't to add more information. It was to surface the information that actually helped someone decide: Can I see myself here?</blockquote>
+
+			<div class="decision-flow">
+				<div class="decision-flow__step">
+					<img src="/images/build-irl/joiner-profile.jpg" alt="Joiner discovers the club" class="case-study-image case-study-image--phone" />
+					<p class="decision-flow__label"><b>01</b> Discover</p>
+				</div>
+				<div class="decision-flow__step">
+					<img src="/images/build-irl/joiner-story.jpg" alt="Joiner reads about the community's story and values" class="case-study-image case-study-image--phone" />
+					<p class="decision-flow__label"><b>02</b> Understand</p>
+				</div>
+				<div class="decision-flow__step">
+					<img src="/images/build-irl/joiner-confirm.jpg" alt="Joiner's application is confirmed" class="case-study-image case-study-image--phone" />
+					<p class="decision-flow__label"><b>03</b> Join</p>
+				</div>
+			</div>
 		</CaseStudySubsection>
 
 		<CaseStudySubsection title="Don't make every builder start from the same place.">
 			<p>Builders came into Build IRL with very different levels of momentum. Some already knew exactly what they wanted to create. Others had an idea but needed help shaping it. And existing communities might already have a visual identity somewhere else.</p>
-			<p>So instead of forcing everyone through one setup path, we designed three ways where builders could: </p>
+			<p>Instead of forcing everyone through one setup path, we designed three ways builders could begin:</p>
 
-<blockquote class = "pull-quote2"> 01: Create from scratch </blockquote>
-<blockquote class = "pull-quote"> For builders who already had a clear vision and wanted full control.</blockquote>
-			<video src="/images/build-irl/video-2.mp4" autoplay loop muted playsinline class="mockup-video"></video> <br>
+			<div class="cue-grid">
+				<div>
+					<video src="/images/build-irl/video-2.mp4" autoplay loop muted playsinline class="cue-grid__video"></video>
+					<p class="cue__label">✏️ Create from scratch</p>
+					<p class="cue__text">Control without unnecessary guidance, for builders who already had a clear vision.</p>
+				</div>
+				<div>
+					<video src="/images/build-irl/video-3.mp4" autoplay loop muted playsinline class="cue-grid__video"></video>
+					<p class="cue__label">✨ Generate with AI</p>
+					<p class="cue__text">A starting point instead of a blank page — for builders with an idea but not the words for it.</p>
+				</div>
+				<div>
+					<video src="/images/build-irl/video-4.mp4" autoplay loop muted playsinline class="cue-grid__video"></video>
+					<p class="cue__label">📸 Import from Instagram</p>
+					<p class="cue__text">Carries existing branding forward, for communities that shouldn't have to rebuild their identity.</p>
+				</div>
+			</div>
 
+			<blockquote class="pull-quote">💡 We adapted onboarding to different starting points instead of treating every builder like a blank slate.</blockquote>
+		</CaseStudySubsection>
 
-<blockquote class = "pull-quote2"> 02: Generate with AI </blockquote>
-<blockquote class = "pull-quote"> For builders who had the idea, but needed help getting past the blank-page problem.</blockquote>
-			<video src="/images/build-irl/video-3.mp4" autoplay loop muted playsinline class="mockup-video"></video> <br>
+		<CaseStudySubsection title="What builders created became what joiners used to decide.">
+			<p>The builder and joiner experiences weren't separate design problems. The information a builder added during creation became the context a joiner relied on later.</p>
+			<p>A club's visuals, interests, description, and activities had to be easy for builders to provide and meaningful for joiners to evaluate.</p>
 
+			<div class="ecosystem">
+				<img src="/images/build-irl/builder-scratch.jpg" alt="Builder reviewing club name, tagline, description, cover photo, and tags" class="case-study-image case-study-image--phone" />
+				<span class="ecosystem__arrow">→</span>
+				<img src="/images/build-irl/joiner-profile.jpg" alt="Joiner viewing those same details on the club profile" class="case-study-image case-study-image--phone" />
+			</div>
 
-<blockquote class = "pull-quote2"> 03: Import from Instagram </blockquote>
-<blockquote class = "pull-quote"> For existing communities that already had branding and content they shouldn’t have to rebuild. </blockquote>
-			<video src="/images/build-irl/video-4.mp4" autoplay loop muted playsinline class="mockup-video"></video> <br>
-
-
-			<blockquote class="pull-quote">💡 We adapted onboarding to different starting points instead of treating every builder like a blank slate. </blockquote>
 		</CaseStudySubsection>
 	</CaseStudySection>
 
+	<CaseStudySection id="outcome" title="Outcome">
+		<CaseStudySubsection title="From an early concept to a conference-ready prototype.">
+			<p>Over 10 weeks, we defined and prototyped the core Build IRL experience across both sides of the community. The final direction was approved by the team and presented at a conference, where it received positive feedback.</p>
 
+			
 
-<CaseStudySection id="outcome" title="Outcome">
-		<CaseStudySubsection title="From early concept to a conference-ready prototype.">
-			<p>Over 10 weeks, we defined and prototyped the core Build IRL experience across both sides of the community. The final direction was approved by the team and presented at a conference, where it received positive feedback.</p>	
-			<p> Since I didn’t have access to long-term product metrics, the next things I’d want to understand is this: </p>
-			<blockquote class="pull-quote3"><b>Builder completion</b>: Do people finish creating a club once they start?</blockquote>
-			<blockquote class="pull-quote3"><b>Time to publish</b>: How quickly can a builder get a club live?</blockquote>
-			<blockquote class="pull-quote3"><b>Join conversion</b>: Does detailed club context help people feel confident joining?</blockquote>
-			<blockquote class="pull-quote3"><b>Drop-off</b>: Where do builders or joiners lose momentum?</blockquote>
+			<p>Since I didn't have access to long-term product metrics, the next things I'd want to understand are below — this is a measurement plan, not measured results.</p>
+
+			<div class="metrics-groups">
+				<div class="metrics-group">
+					<p class="metrics-group__label">Builder experience</p>
+					<blockquote class="pull-quote3"><b>Creation completion rate</b>: Do builders finish creating a club once they start?</blockquote>
+					<blockquote class="pull-quote3"><b>Time to publish</b>: How quickly can a builder get a club live?</blockquote>
+					<blockquote class="pull-quote3"><b>Builder drop-off</b>: Where do builders lose momentum?</blockquote>
+				</div>
+				<div class="metrics-group">
+					<p class="metrics-group__label">Joiner experience</p>
+					<blockquote class="pull-quote3"><b>Club profile engagement</b>: Do people explore the details that support a decision?</blockquote>
+					<blockquote class="pull-quote3"><b>Join conversion</b>: Does richer club context help people feel confident joining?</blockquote>
+					<blockquote class="pull-quote3"><b>Joiner drop-off</b>: Where do joiners lose momentum?</blockquote>
+				</div>
+			</div>
 		</CaseStudySubsection>
 	</CaseStudySection>
-
 
 	<CaseStudySection id="reflection" title="Reflection">
-		<CaseStudySubsection title="I got more comfortable designing before everything was figured out!">
-			<p>Build IRL changed a lot while we were working on it. Flows I thought were settled would shift after a stakeholder conversation or once we saw the whole experience together.</p>	
-			<p> I left the project much more comfortable changing direction when the reasoning changes, even if it means letting go of something I already designed.</p>
-			
-		
-		
-		
+		<CaseStudySubsection title="I became more comfortable designing before everything was figured out.">
+			<p>Build IRL changed frequently while we were working on it. Flows I thought were settled would shift after a stakeholder conversation or once we saw the entire experience together.</p>
+			<p>Earlier in the project, those changes could feel like moving backward. Over time, I started to see them differently. In a 0→1 product, changing a design because the reasoning evolved isn't lost work — it's part of defining the product.</p>
+			<p>I left the project more comfortable changing direction when the evidence changed, even when that meant letting go of something I had already designed.</p>
+
 		</CaseStudySubsection>
 	</CaseStudySection>
 
 </CaseStudyLayout>
 
 <style>
+	.dual-hero {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 32px;
+		max-width: 976px;
+		margin: 8px auto 0;
+		padding: 0 20px;
+	}
+
+	.dual-hero__side {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.dual-hero__eyebrow {
+		margin: 0 0 4px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		color: #4483F0;
+	}
+
+	.dual-hero__caption {
+		margin: 10px 0 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		font-weight: 500;
+		color: #4a4a4a;
+	}
+
+	.dual-hero__divider {
+		display: flex;
+		align-items: center;
+		height: 300px;
+	}
+
+	.dual-hero__divider span {
+		display: block;
+		width: 1px;
+		height: 100%;
+		background: #EDEDED;
+	}
+
+	.dual-hero__statement {
+		margin: 20px auto 60px;
+		max-width: 480px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 16px;
+		color: #868686;
+		text-align: center;
+	}
+
+	.image-pair {
+		display: flex;
+		gap: 56px;
+		align-items: center;
+		margin-top: 24px;
+	}
+
+	.image-pair :global(.case-study-image),
+	.image-pair :global(.case-study-image--wide) {
+		max-width: none;
+		width: 100%;
+		min-width: 0;
+		flex: 1 1 0;
+		margin: 0;
+	}
+
+	.diagram-full {
+		max-width: none;
+		width: 100%;
+	}
+
+	.research-split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: start;
+		gap: 24px;
+		margin-top: 24px;
+	}
+
+	.research-col {
+		padding: 14px 20px 20px;
+		background-color: #FCFCFC;
+		border: 1px solid #EDEDED;
+		border-radius: 14px;
+	}
+
+	.research-col .research-col__label {
+		margin: 0 0 10px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+		color: #1a1a1a;
+	}
+
+	.research-col__badge {
+		display: inline-block;
+		margin: 0 0 20px;
+		padding: 3px 10px;
+		background-color: #E4F0FF;
+		border-radius: 9999px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 600;
+		color: #4483F0;
+	}
+
+	.scatter-chip {
+		display: inline-block;
+		padding: 6px 12px;
+		background-color: #F5F5F5;
+		border-radius: 9999px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 400;
+		color: #4a4a4a;
+	}
+
+	.scatter-chip--2 { transform: rotate(-2deg); }
+	.scatter-chip--3 { transform: rotate(1.5deg); }
+	.scatter-chip--4 { transform: rotate(-1deg); }
+	.scatter-chip--5 { transform: rotate(2deg); }
+
+	.tool-cluster {
+		position: relative;
+		height: 175px;
+		margin: 0 -4px 0;
+	}
+
+	.tool-cluster__lines {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		fill: none;
+		stroke: #D5D5D5;
+		stroke-width: 1.5;
+		stroke-dasharray: 3 4;
+		stroke-linecap: round;
+	}
+
+	.tool-card {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 14px 8px 8px;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+		white-space: nowrap;
+	}
+
+	.tool-card__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 auto;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		background-color: #E4F0FF;
+		color: #4483F0;
+	}
+
+	.tool-card__icon svg {
+		width: 15px;
+		height: 15px;
+	}
+
+	.tool-card__label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #1a1a1a;
+	}
+
+	.tool-card--1 { top: 0; left: 0; transform: rotate(-3deg); }
+	.tool-card--2 { top: 8px; left: 148px; transform: rotate(1.5deg); }
+	.tool-card--3 { top: 2px; left: 272px; transform: rotate(2deg); }
+	.tool-card--4 { top: 128px; left: 34px; transform: rotate(1.5deg); }
+	.tool-card--5 { top: 134px; left: 232px; transform: rotate(-2deg); }
+
+	.research-col__listing {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		margin-top: 0;
+		padding: 14px 16px;
+		background-color: #fff;
+		border: 1px solid #EDEDED;
+		border-radius: 10px;
+	}
+
+	.listing-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 auto;
+		width: 48px;
+		height: 48px;
+		border-radius: 10px;
+		background-color: #F0F0F0;
+		color: #A8A8A8;
+	}
+
+	.listing-icon svg {
+		width: 22px;
+		height: 22px;
+	}
+
+	.mini-listing__name {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 16px;
+		font-weight: 600;
+		color: #1a1a1a;
+	}
+
+	.mini-listing__meta {
+		margin: 4px 0 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13.5px;
+		color: #868686;
+	}
+
+	.research-col__questions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-top: 14px;
+	}
+
+	.question-chip {
+		display: inline-flex;
+		align-items: center;
+		padding: 6px 13px 6px 6px;
+		border: 1px dashed #c4c4c4;
+		border-radius: 9999px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12.5px;
+		font-weight: 500;
+		color: #4a4a4a;
+	}
+
+	.question-chip__mark {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 18px;
+		height: 18px;
+		margin-right: 7px;
+		border-radius: 50%;
+		background-color: #E4F0FF;
+		color: #4483F0;
+		font-size: 11px;
+		font-weight: 700;
+	}
+
+	.feature-funnel {
+		margin: 20px 0 0;
+		text-align: center;
+	}
+
+	.feature-funnel__cloud {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px;
+	}
+
+	.feature-funnel__arrow {
+		margin-top: 12px;
+		font-size: 18px;
+		color: #c4c4c4;
+	}
+
+	.constraints-note {
+		margin-top: 16px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 14px;
+		font-style: italic;
+		color: #868686;
+		text-align: center;
+	}
+
+	.reveal-diagram {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 40px;
+		margin-top: 28px;
+		flex-wrap: wrap;
+	}
+
+	.reveal-diagram__before,
+	.reveal-diagram__after {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.reveal-diagram__after {
+		align-items: flex-start;
+	}
+
+	.reveal-diagram .reveal-diagram__before .reveal-diagram__tag,
+	.reveal-diagram .reveal-diagram__after .reveal-diagram__tag {
+		margin: 0 0 20px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		color: #868686;
+	}
+
+	.reveal-diagram__tag--accent {
+		width: 220px;
+		text-align: center;
+		color: #1a1a1a;
+	}
+
+	.reveal-diagram .reveal-diagram__before .reveal-diagram__caption,
+	.reveal-diagram .reveal-diagram__after .reveal-diagram__caption {
+		margin: 20px 0 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #868686;
+		text-align: center;
+	}
+
+	.reveal-diagram__caption--after {
+		width: 220px;
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
+	.wireframe-card {
+		width: 220px;
+		padding: 16px;
+		background-color: #fff;
+		border: 1px solid #EDEDED;
+		border-radius: 14px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+	}
+
+	.wireframe-card__image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 110px;
+		background-color: #EDEDED;
+		border-radius: 8px;
+		color: #C7C7C7;
+	}
+
+	.wireframe-card__image svg {
+		width: 38px;
+		height: 38px;
+	}
+
+	.wireframe-card .wireframe-card__title {
+		margin: 20px 0 3px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 17px;
+		font-weight: 700;
+		color: #1a1a1a;
+	}
+
+	.wireframe-card__meta {
+		margin: 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		color: #868686;
+	}
+
+	.wireframe-card__lines {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		margin-top: 16px;
+	}
+
+	.wireframe-card__line {
+		display: block;
+		height: 8px;
+		border-radius: 4px;
+		background-color: #E5E5E5;
+	}
+
+	.wireframe-card__divider {
+		margin: 16px 0;
+		border-top: 1px solid #EDEDED;
+	}
+
+	.wireframe-card__pills {
+		display: flex;
+		gap: 8px;
+	}
+
+	.wireframe-card__pills span {
+		flex: 1 1 0;
+		height: 26px;
+		border-radius: 9999px;
+		background-color: #E5E5E5;
+	}
+
+	.reveal-diagram__arrow {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 10px;
+		max-width: 140px;
+	}
+
+	.reveal-diagram__arrow-label {
+		font-family: 'Gabarito', sans-serif;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.03em;
+		color: #4483F0;
+		text-align: center;
+		line-height: 1.4;
+	}
+
+	.reveal-diagram__arrow-glyph {
+		font-size: 26px;
+		font-weight: 700;
+		color: #4483F0;
+		line-height: 1;
+	}
+
+	.reveal-diagram__phone {
+		position: relative;
+		padding-right: 188px;
+	}
+
+	.reveal-diagram__phone :global(.case-study-image--phone) {
+		margin: 0;
+	}
+
+	.reveal-diagram__callout {
+		position: absolute;
+		left: 220px;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		white-space: nowrap;
+	}
+
+	.reveal-diagram__callout--1 {
+		top: 108px;
+	}
+
+	.reveal-diagram__callout--2 {
+		top: 322px;
+	}
+
+	.reveal-diagram__callout--3 {
+		top: 378px;
+	}
+
+	.reveal-diagram__dot {
+		flex: 0 0 auto;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background-color: #4483F0;
+	}
+
+	.reveal-diagram__line {
+		flex: 0 0 auto;
+		width: 26px;
+		height: 1px;
+		background-color: #4483F0;
+	}
+
+	.reveal-diagram__text {
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		color: #868686;
+	}
+
+	.reveal-diagram__text b {
+		font-size: 14px;
+		font-weight: 600;
+		color: #1a1a1a;
+	}
+
+	:global(#problem .section-body),
+	:global(#solution .section-body) {
+		gap: 24px;
+	}
+
+	.decision-flow {
+		display: flex;
+		justify-content: center;
+		gap: 24px;
+		margin-top: 24px;
+		flex-wrap: wrap;
+	}
+
+	.decision-flow__step {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.decision-flow .decision-flow__step .decision-flow__label {
+		margin: 18px 0 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		color: #4a4a4a;
+	}
+
+	.ecosystem {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 28px;
+		margin-top: 24px;
+		flex-wrap: wrap;
+	}
+
+	.ecosystem :global(.case-study-image--phone) {
+		margin: 0;
+	}
+
+	.ecosystem__arrow {
+		font-size: 22px;
+		color: #4483F0;
+	}
+
+	.ecosystem__tags {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+		margin-top: 16px;
+	}
+
+	.metrics-groups {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 32px;
+		margin-top: 8px;
+	}
+
+	.metrics-group__label {
+		margin: 0 0 4px;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 15px;
+		font-weight: 600;
+		color: #1a1a1a;
+		text-align: center;
+	}
+
+	.pull-quote.reveal-diagram-quote {
+		margin-top: 40px;
+	}
+
 	.pull-quote {
 		margin: 12px 0;
 		padding: 0;
@@ -194,6 +960,48 @@ const sections = [
 		color: #4A4A4A;
 	}
 
+	.reflection-closing {
+		margin-top: 24px;
+		font-family: 'Gabarito', sans-serif;
+		font-weight: 600;
+		font-size: 17px;
+		color: #1a1a1a;
+		text-align: center;
+	}
+
+	.before-after {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		gap: 32px;
+		margin-top: 24px;
+		flex-wrap: wrap;
+	}
+
+	.before-after__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.before-after__item .case-study-image--phone {
+		margin: 0;
+	}
+
+	.before-after__label {
+		margin: 10px 0 0;
+		font-family: 'Gabarito', sans-serif;
+		font-size: 13px;
+		font-weight: 500;
+		color: #868686;
+		text-align: center;
+	}
+
+	.before-after__label--after {
+		color: #1a1a1a;
+		font-weight: 600;
+	}
+
 	.mockup-video {
 		display: block;
 		max-height: 500px;
@@ -202,11 +1010,169 @@ const sections = [
 		border-radius: 12px;
 	}
 
+	.cue-grid__video {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin: 0 0 16px;
+		border-radius: 12px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+	}
+
 	@media (max-width: 768px) {
 		.mockup-video {
 			max-height: 280px;
 			width: 100%;
 			max-width: 100%;
 		}
+
+		.before-after {
+			gap: 16px;
+		}
+
+		.reveal-diagram {
+			gap: 24px;
+		}
+
+		.reveal-diagram__callout {
+			position: static;
+			margin-top: 10px;
+			white-space: normal;
+		}
+
+		.reveal-diagram__phone {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 4px;
+			padding-right: 0;
+		}
+
+		.dual-hero {
+			gap: 16px;
+		}
+
+		.dual-hero__divider {
+			height: 200px;
+		}
+
+		.dual-hero__statement {
+			margin-bottom: 24px;
+		}
+
+		.image-pair {
+			flex-direction: column;
+			gap: 20px;
+		}
+
+		.image-pair :global(.case-study-image),
+		.image-pair :global(.case-study-image--wide) {
+			max-width: 100%;
+			flex-basis: auto;
+		}
+
+		.research-split {
+			grid-template-columns: 1fr;
+		}
+
+		.tool-cluster {
+			height: auto;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			margin: 18px 0 0;
+		}
+
+		.tool-cluster__lines {
+			display: none;
+		}
+
+		.tool-card {
+			position: static;
+			transform: none !important;
+		}
+
+		.metrics-groups {
+			grid-template-columns: 1fr;
+			gap: 24px;
+		}
+
+		.ecosystem {
+			gap: 10px;
+		}
 	}
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
